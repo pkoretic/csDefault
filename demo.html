@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jqtransformPie demo</title>
+<link rel="stylesheet" href="jqtransform.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="jqtransform.js"></script>
+<style type="text/css">
+.trans{display:hidden;} /*jqtransform will display it when ready*/
+
+</style>
+</head>
+<body style="background-color:#F5F5FF">
+
+<table class="trans" style="float:left">
+<tr><th style="font-weight:normal">jqtransform</th></tr>
+<tr>
+<td>
+<textarea></textarea>
+</td>
+<tr>
+<td>
+<input type="text" name="name" />
+</td>
+
+</tr>
+<tr><td>
+<input type="submit" value="submit"/>
+</td></tr>
+<tr><td><select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select></td></tr>
+<tr><td>
+<input type="radio" name="sex" value="male" /> 
+<input type="radio" name="sex" value="female" /> 
+</td></tr>
+<tr><td><input type="checkbox" name="vehicle" value="Bike" />
+<input type="checkbox" name="vehicle" value="Car" /></td></tr>
+</table>
+
+<div style="float:right; padding:0 50px">
+<div>jqtransformPie</div>
+
+</div>
+
+<div style="position:absolute;bottom:0; color:blue">pkoretic</div>
+
+<script type="text/javascript">
+$(function() {
+    //find all form with class jqtransform and apply the plugin
+    $(".trans").jqTransform();
+});
+</script>
+</body>
+</html>
