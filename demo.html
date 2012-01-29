@@ -11,8 +11,43 @@
 
 .transpie input[type=text]{  height:20px; padding:4px; border-radius:4px; border-width:1px;outline: none;border-left-color:#F0F0F5; border-top-color:#F0F0F5;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC;}
 .transpie input[type=text]:hover{ border-left-color:white;border-top-color:white; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;}
+
 .transpie textarea{ font:0.8em Arial; resize:none; overflow:hidden; padding:4px;border-radius:4px; border-width:1px;  outline: none;  border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA;}
 .transpie textarea:hover{ border-left-color:#CDCDD2; border-top-color:#CDCDD2; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;}
+
+.transpie input[type=button],input[type=submit],button
+	{
+	  outline:none;
+	  cursor:pointer; border-radius:2px;
+	  background-color:#EFEFEF;
+	  background: -o-linear-gradient(bottom, #F0F0F5 5%, #FAFAFA 100%);
+	  background: -moz-linear-gradient(bottom, #F0F0F5 5%, #FAFAFA 100%);
+	  background: -webkit-linear-gradient(bottom, #F0F0F5 5%, #FAFAFA 100%);
+	  -pie-background: linear-gradient(bottom, #F0F0F5 5%, #FAFAFA 100%);
+	  border-width:1px; border-style:solid; border-color:#CCC; border-bottom-color:#BEBEBE; /*AAAAAA BEBEBE*/ border-bottom-width:2px;     /*1px 2px*/
+	  font:0.8em Arial;
+	  padding:7px 12px;
+	  behavior: url(PIE.htc);
+	}
+.transpie input[type=button]:hover,input[type=submit]:hover,button:hover{border-color:#AAAAAA;color:#333}
+.transpie input[type=button]:active,input[type=submit]:active,button:active
+	{
+	  border-color:lightgray; 
+	  border-bottom-width:2px;    
+	  behavior: url(PIE.htc);
+	}
+
+.transpie input[type=checkbox]
+{
+ outline:none;
+  border:none;
+     border: solid 1px #CCC;
+	-moz-box-shadow: 5px 5px 0px #999;
+	-webkit-box-shadow: 5px 5px 0px #999;
+        box-shadow: 5px 5px 0px #999;
+ 
+}
+
 
 /*firefox*/
 @-moz-document url-prefix() 
@@ -61,7 +96,20 @@
 <div class="transpie" style="float:right; padding:0 50px">
 <div>jqtransformPie</div>
 <p><textarea></textarea></p>
-<input type="text">
+<p><input type="text"></p>
+<p><input type="button" value="submit"/></p>
+ <p><select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select></p>
+<p>
+<input type="radio" name="sex" value="male" /> 
+<input type="radio" name="sex" value="female" /> </p>
+<p>
+<input type="checkbox" name="vehicle" value="Bike" />
+<input type="checkbox" name="vehicle" value="Car" /></td></tr></p>
 </div>
 
 <div style="position:absolute;bottom:0; color:blue">pkoretic</div>
