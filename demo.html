@@ -9,9 +9,25 @@
 <style type="text/css">
 .trans{display:hidden;} /*jqtransform will display it when ready*/
 
+.transpie input[type=text]{  height:20px; padding:4px; border-radius:4px; border-width:1px;outline: none;border-left-color:#F0F0F5; border-top-color:#F0F0F5;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC;}
+.transpie input[type=text]:hover{ border-left-color:white;border-top-color:white; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;}
+.transpie textarea{ font:0.8em Arial; resize:none; overflow:hidden; padding:4px;border-radius:4px; border-width:1px;  outline: none;  border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA;}
+.transpie textarea:hover{ border-left-color:#CDCDD2; border-top-color:#CDCDD2; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;}
+
+/*firefox*/
+@-moz-document url-prefix() 
+{
+.transpie textarea:hover{ border-color:red}
+}       
 </style>
+<!--[if IE]>
+<style type='text/css'>
+
+             
+</style>
+<![endif]-->
 </head>
-<body style="background-color:#F5F5FF">
+<body style="background-color:#F5F5FF"> <!--background color so that we can see nice radio and checkbox elemens-->
 
 <table class="trans" style="float:left">
 <tr><th style="font-weight:normal">jqtransform</th></tr>
@@ -42,9 +58,10 @@
 <input type="checkbox" name="vehicle" value="Car" /></td></tr>
 </table>
 
-<div style="float:right; padding:0 50px">
+<div class="transpie" style="float:right; padding:0 50px">
 <div>jqtransformPie</div>
-
+<p><textarea></textarea></p>
+<input type="text">
 </div>
 
 <div style="position:absolute;bottom:0; color:blue">pkoretic</div>
