@@ -36,7 +36,7 @@ div.jqTransformInputInner{background-position:right -62px}.jqTransformSafari
 8px}.jqTransformSafari .jqTransformInputInner div
 input{background-color:transparent;position:absolute;top:-10px;left:-2px;height:42px;padding-left:4px}table.jqTransformTextarea
 td#jqTransformTextarea-mm
-textarea{ overflow:hidden;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:16px; }table.jqTransformTextarea
+textarea{ overflow:hidden; resize:none;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:16px; }table.jqTransformTextarea
 td{font-size:1px;line-height:1px;width:5px;height:5px;margin:0;padding:0}table.jqTransformTextarea
 textarea{margin:0;padding:0;border:0;background:0}table.jqTransformTextarea
 td#jqTransformTextarea-tl{background:url(img/textarea/textarea_tl.gif) no-repeat
