@@ -19,6 +19,7 @@
 
  label {font:12px arial;}
 
+
 .transpie input[type=text]
 { 
  font:12px arial; 
@@ -29,7 +30,7 @@
  border-width:1px;
  outline: none;
  border-left-color:#AAAAAA;border-top-color:#AAAAAA;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; 
- behavior: url(PIE.htc);
+ behavior: url(csTransPie/PIE.htc);
 }
 .transpie input[type=text]:hover
 { 
@@ -48,7 +49,7 @@
  border-width:1px;  
  outline: none;  
  border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA; 
- behavior: url(PIE.htc);}
+ behavior: url(csTransPie/PIE.htc);}
 
 .transpie textarea:hover
 { 
@@ -72,7 +73,7 @@
 	border-color:#CCC; border-bottom-color:#BEBEBE; 
 
 	width:70px; height:35px; /*padding:7px 15px;*/
-	behavior: url(PIE.htc);
+	behavior: url(csTransPie/PIE.htc);
 }
 .transpie input[type=button]:hover,input[type=submit]:hover,button:hover{border-color:#AAAAAA;color:#333}
 .transpie input[type=button]:active,input[type=submit]:active,button:active{border-color:lightgray; border-bottom-width:2px;}

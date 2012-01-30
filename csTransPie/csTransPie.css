@@ -1,1 +1,195 @@
-label{font:12px arial}.transpie input[type=text]{font:12px arial;margin:1px;border-style:solid;height:20px;padding:4px;border-radius:4px;border-width:1px;outline:0;border-left-color:#aaa;border-top-color:#aaa;border-bottom-color:#d7d7dc;border-right-color:#d7d7dc;behavior:url(PIE.htc)}.transpie input[type=text]:hover{border-left-color:#d2d2dc;border-top-color:#d2d2dc;border-bottom-color:#e6e6f0;border-right-color:#e6e6f0}.transpie textarea{margin:1px;border-style:solid;font:12px arial;resize:none;overflow:hidden;padding:4px;border-radius:4px;border-width:1px;outline:0;border-top-color:#aaa;border-right-color:#dcdce6;border-bottom-color:#dcdce6;border-left-color:#aaa;behavior:url(PIE.htc)}.transpie textarea:hover{border-left-color:#cdcdd2;border-top-color:#cdcdd2;border-bottom-color:#f0f0fa;border-right-color:#f0f0fa}.transpie input[type=button],input[type=submit],button{font:12px arial;margin:1px;outline:0;cursor:pointer;background-color:#f0f0f5;background:-o-linear-gradient(bottom,#f0f0f5 5%,#fafaff 100%);background:-moz-linear-gradient(bottom,#f0f0f5 5%,#fafaff 100%);background:-webkit-linear-gradient(bottom,#f0f0f5 5%,#fafaff 100%);-pie-background:linear-gradient(bottom,#f0f0f5 5%,#fafaff 100%);border-style:solid;border-radius:4px;border-width:1px;border-bottom-width:2px;border-color:#CCC;border-bottom-color:#bebebe;width:70px;height:35px;behavior:url(PIE.htc)}.transpie input[type=button]:hover,input[type=submit]:hover,button:hover{border-color:#aaa;color:#333}.transpie input[type=button]:active,input[type=submit]:active,button:active{border-color:lightgray;border-bottom-width:2px}.cTPRadioWrapper label{float:right}.cTPRadioWrapper{display:inline-block;margin-top:5px;vertical-align:-5px}.cTPRadio{outline:0;background:transparent url(img.png) -8px -112px;height:19px;width:18px;display:block}span.cTPCheckboxWrapper{display:inline-block;vertical-align:-5px}a.cTPCheckbox{outline:0;background:transparent url(img.png) -8px -170px;height:19px;width:18px;display:inline-block}a.cTPChecked{background-position:-8px -189px}a.cTPCheckedR{background-position:-8px -131px}.cTPSelectWrapper{position:relative;height:31px;background:url(img.png) -10px -10px}.cTPSelectWrapper div span{font-family:arial;float:none;position:absolute;white-space:nowrap;height:31px;line-height:15px;overflow:hidden;cursor:pointer;padding:8px 0 0 7px}.cTPSelectWrapper a.cTPSelectOpen{display:block;position:absolute;right:0;width:31px;height:31px;background:url(img.png) -10px -61px}.cTPSelectWrapper ul{position:absolute;width:43px;top:30px;left:0;list-style:none;background-color:#FFF;border:solid 1px #CCC;display:none;height:150px;overflow:auto;overflow-y:auto;z-index:10;margin:0;padding:0}.cTPSelectWrapper ul a{display:block;text-decoration:none;color:#333;background-color:#FFF;font-size:12px;font-family:Arial,Helvetica,sans-serif;padding:5px}.cTPSelectWrapper ul a.selected{background:#ededed;color:#333}.cTPSelectWrapper ul a:hover,.cTPSelectWrapper ul a.selected:hover{background:#78a5cc;color:#fff}.cTPHidden{display:none}
+/*
+/*based on jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/
+
+*Petar Koretiæ
+*30.01.2012*
+*fixed few bugs found by myself and on internet
+*http://www.mysrc.de - praxistipp*
++
+*fixed many radio and checbox bugs - now they can be used as intented
+*removed input, textarea and button codes (most images are not used anymore)
+*added new css3 input textarea and button codes - cleaner, simpler, faster, many bugs solved by it - easier to maintain, theme, use... - still crossbrowser portable - css3pie for ie
+*only one sprite img used - one request*
+*no more form related, all elements can be used separately*
+*css is half the size - minified only 1.5kb*
+*transpie class for direct css markup *
+*cTP class for dynamically added markup via javascript to elements with transpie class*
+
+*/
+
+ label {font:12px arial;} /* something I love */
+
+.transpie input[type=text]
+{ 
+ font:12px arial; 
+ margin:1px; 
+ border-style:solid; 
+ height:20px; 
+ padding:4px; border-radius:4px;
+ border-width:1px;
+ outline: none;
+ border-left-color:#AAAAAA;border-top-color:#AAAAAA;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; 
+ behavior: url(csTransPie/PIE.htc);
+}
+.transpie input[type=text]:hover
+{ 
+ border-left-color:#D2D2DC;border-top-color:#D2D2DC; border-bottom-color:#E6E6F0;  border-right-color:#E6E6F0;
+}
+
+.transpie textarea
+{ 
+ margin:1px; 
+ border-style:solid; 
+ font:12px arial; 
+ resize:none; 
+ overflow:hidden; 
+ padding:4px;
+ border-radius:4px; 
+ border-width:1px;  
+ outline: none;  
+ border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA; 
+ behavior: url(csTransPie/PIE.htc);}
+
+.transpie textarea:hover
+{ 
+ border-left-color:#CDCDD2; border-top-color:#CDCDD2; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;
+}
+
+.transpie input[type=button],input[type=submit],button
+{
+     font:12px arial; 
+	margin:1px;
+	outline:none;
+	cursor:pointer; 
+	background-color:#F0F0F5;
+	background: -o-linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	background: -moz-linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	background: -webkit-linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	-pie-background: linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	border-style:solid; 
+	border-radius:4px;
+	border-width:1px;  border-bottom-width:2px;   
+	border-color:#CCC; border-bottom-color:#BEBEBE; 
+
+	width:70px; height:35px; /*padding:7px 15px;*/
+	behavior: url(csTransPie/PIE.htc);
+}
+.transpie input[type=button]:hover,input[type=submit]:hover,button:hover{border-color:#AAAAAA;color:#333}
+.transpie input[type=button]:active,input[type=submit]:active,button:active{border-color:lightgray; border-bottom-width:2px;}
+
+
+.cTPRadioWrapper  label{float:right; }
+
+.cTPRadioWrapper {
+display:inline-block;
+margin-top:5px;
+vertical-align:-5px 
+}
+
+.cTPRadio {
+outline:none;
+background:transparent url(img.png)  -8px -112px;
+height:19px;
+width:18px;
+display:block;
+
+}
+
+span.cTPCheckboxWrapper {
+display:inline-block;
+vertical-align:-5px 
+}
+
+a.cTPCheckbox {
+outline:none;
+background:transparent url(img.png)  -8px -170px;
+height:19px;
+width:18px;
+display:inline-block;
+}
+
+a.cTPChecked {
+background-position:-8px -189px;
+}
+a.cTPCheckedR {
+background-position:-8px -131px;
+}
+
+.cTPSelectWrapper {
+
+position:relative;
+height:31px;
+background:url(img.png) -10px -10px;
+}
+
+.cTPSelectWrapper div
+span {
+
+font-family:arial;
+float:none;
+position:absolute;
+white-space:nowrap;
+height:31px;
+line-height:15px;
+overflow:hidden;
+cursor:pointer;
+padding:8px 0 0 7px;
+
+}
+
+.cTPSelectWrapper
+a.cTPSelectOpen {
+display:block;
+position:absolute;
+right:0;
+width:31px;
+height:31px;
+background:url(img.png) -10px -61px;
+}
+
+.cTPSelectWrapper
+ul {
+position:absolute;
+width:43px;
+top:30px;
+left:0;
+list-style:none;
+background-color:#FFF;
+border:solid 1px #CCC;
+display:none;
+height:150px;
+overflow:auto;
+overflow-y:auto;
+z-index:10;
+margin:0;
+padding:0;
+}
+
+.cTPSelectWrapper
+ul
+a {
+display:block;
+text-decoration:none;
+color:#333;
+background-color:#FFF;
+font-size:12px;
+font-family:Arial,Helvetica,sans-serif;
+padding:5px;
+}
+
+.cTPSelectWrapper
+ul a.selected {
+background:#ededed;
+color:#333;
+}
+
+.cTPSelectWrapper ul
+a:hover,.cTPSelectWrapper ul
+a.selected:hover {
+background:#78A5CC;
+color:#fff;
+}
+
+.cTPHidden {
+display:none;
+}
