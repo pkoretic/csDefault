@@ -11,7 +11,7 @@ is a work in progress - it's designed as one CSS cross-browser file which would 
 
 (If you want to see it in action download as zip/tar and run demo.html - csTransPie.css and PIE.htc are part of cssTransPie, other part is jqtransform)
 
-(Project will be set up completly in a week or two)
+(Project will be set up completely in a week or two)
 
 All suggestions are welcome.
 
