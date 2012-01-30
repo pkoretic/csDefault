@@ -6,7 +6,7 @@ Inspired by jqtransform  http://www.dfc-e.com/metiers/multimedia/opensource/jqtr
 
 
 **csTransPie**
-is a work in progress - it's designed as crossbrowser library for styling - one .js file which would give all elements styling they need
+is a work in progress - it's designed as a crossbrowser library for styling - one .js file which would give all elements styling they need
 (a great library css3Pie is used for IE)
 
 
