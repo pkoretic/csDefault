@@ -23,3 +23,4 @@ All suggestions are welcome.
  input type=[button]  
  input type=[submit]  
  button
+ select
