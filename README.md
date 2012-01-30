@@ -17,8 +17,13 @@ All suggestions are welcome.
 
 ==========================================
 considered complete
+
 textarea
+
 input type=[text]
+
 input type=[button]
+
 input type=[submti]
+
 button
