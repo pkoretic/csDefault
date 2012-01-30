@@ -21,5 +21,5 @@ All suggestions are welcome.
  textarea  
  input type=[text]  
  input type=[button]  
- input type=[submti]  
+ input type=[submit]  
  button
