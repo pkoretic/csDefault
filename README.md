@@ -1,5 +1,4 @@
-####csTransPie  
-Inspired by jqtransform  http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/ 
+#####csTransPie - Inspired by jqtransform  http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/ 
 
 
 **csTransPie**
