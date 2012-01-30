@@ -13,3 +13,12 @@ csTransPie is a work in progress - it's designed as one CSS cross-browser file w
 (Project will be set up completly in a week or two)
 
 All suggestions are welcome.
+
+
+==========================================
+considered complete
+textarea
+input type=[text]
+input type=[button]
+input type=[submti]
+button
