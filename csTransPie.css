@@ -1,0 +1,41 @@
+
+.transpie input[type=text]{ margin:1px; border-style:solid; height:20px; padding:4px; border-radius:4px; border-width:1px;outline: none;border-left-color:#AAAAAA;border-top-color:#AAAAAA;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; behavior: url(PIE.htc);}
+.transpie input[type=text]:hover{ border-left-color:#D2D2DC;border-top-color:#D2D2DC; border-bottom-color:#E6E6F0;  border-right-color:#E6E6F0;}
+
+.transpie textarea{ margin:1px; border-style:solid; font:0.8em Arial; resize:none; overflow:hidden; padding:4px;border-radius:4px; border-width:1px;  outline: none;  border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA; behavior: url(PIE.htc);}
+.transpie textarea:hover{ border-left-color:#CDCDD2; border-top-color:#CDCDD2; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;}
+
+.transpie input[type=button],input[type=submit],button
+	{
+	  margin:1px;
+	  outline:none;
+	  cursor:pointer; 
+	  background-color:#EFEFEF;
+	  background: -o-linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	  background: -moz-linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	  background: -webkit-linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	  -pie-background: linear-gradient(bottom, #F0F0F5 5%, #FAFAFF 100%);
+	  border-style:solid; 
+	  border-radius:4px;
+	  border-width:1px;  border-bottom-width:2px;   
+	  border-color:#CCC; border-bottom-color:#BEBEBE; 
+	  font:0.8em Arial;
+	  width:70px; height:35px; /*padding:7px 15px;*/
+	  behavior: url(PIE.htc);
+	}
+.transpie input[type=button]:hover,input[type=submit]:hover,button:hover{border-color:#AAAAAA;color:#333}
+.transpie input[type=button]:active,input[type=submit]:active,button:active{border-color:lightgray; border-bottom-width:2px;  behavior: url(PIE.htc);  }
+
+.transpie select
+{
+  margin:1px;
+  border-style:solid;
+  outline:none;
+  padding:5px 10px;
+  border-width:1px;
+  border-left-color:#CDCDD2; border-top-color:#CDCDD2; border-bottom-color:#E6E6EB;  border-right-color:#E6E6EB;
+  background-color:#FAFAFF;
+  border-radius:4px;
+  overflow:hidden;
+  /*behavior: url(PIE.htc); */ /* border-radius creates a bug in ie < 9 */
+}
