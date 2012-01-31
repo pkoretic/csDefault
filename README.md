@@ -8,7 +8,7 @@
 it's designed as a crossbrowser library for styling - one .js/.css file which would give all elements styling they need
 (a great library css3Pie is used for IE)  
 
-All elelemts are made like they should have been made - regular html elements but nicer - no style breaking!  
+All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!**  
 
 It started in 30.01.2012 and it's It's considered stable! Still, it's under development regularly!  
 
