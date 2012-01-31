@@ -9,7 +9,7 @@ all elelemts are made like they should have been made - regular html elements bu
 It started 30.01.2012 and it's It's considered stable! Still, it's under development regularly!
 If you want to use it download it here from git and add  
       &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;csTransPie/csTransPie.css&quot; /&gt;  
-      &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.7.1.min.js&quot;;/script&gt;  
+      &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.7.1.min.js &quot;;/script&gt;  
       &lt;script type=&quot;text/javascript&quot; src=&quot;csTransPie/csTransPie.js&quot;&gt;&lt;/script&gt;
 
 You can see it in action here  
