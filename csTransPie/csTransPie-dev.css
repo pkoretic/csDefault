@@ -20,6 +20,8 @@
 
  label {font:12px arial;} /* something I love */
 
+.transpie input:disabled ,.transpie input:disabled:hover{ background-color: #E6E6E6; cursor:default}
+  
 .transpie input[type=text], input[type=text].transpie
 { 
  font:12px arial; 
@@ -32,12 +34,12 @@
  border-left-color:#AAAAAA;border-top-color:#AAAAAA;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; 
  behavior: url(csTransPie/PIE.htc);
 }
-.transpie input[type=text]:hover
+.transpie input[type=text]:enabled:hover, input[type=text].transpie:enabled:hover
 { 
  border-left-color:#D2D2DC;border-top-color:#D2D2DC; border-bottom-color:#E6E6F0;  border-right-color:#E6E6F0;
 }
 
-.transpie textarea
+.transpie textarea, textarea.transpie 
 { 
  margin:1px; 
  border-style:solid; 
@@ -51,14 +53,14 @@
  border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA; 
  behavior: url(csTransPie/PIE.htc);}
 
-.transpie textarea:hover
+.transpie textarea:enabled:hover,textarea.transpie:enabled:hover
 { 
  border-left-color:#CDCDD2; border-top-color:#CDCDD2; border-bottom-color:#F0F0FA;  border-right-color:#F0F0FA;
 }
 
-.transpie input[type=button],input[type=submit],button
+.transpie input[type=button],input[type=submit],button,button.transpie,input[type=button].transpie,input[type=submit].transpie
 {
-     font:12px arial; 
+    font:12px arial; 
 	margin:1px;
 	outline:none;
 	cursor:pointer; 
@@ -75,8 +77,10 @@
 	width:70px; height:35px; /*padding:7px 15px;*/
 	behavior: url(csTransPie/PIE.htc);
 }
-.transpie input[type=button]:hover,input[type=submit]:hover,button:hover{border-color:#AAAAAA;color:#333}
-.transpie input[type=button]:active,input[type=submit]:active,button:active{border-color:lightgray; border-bottom-width:2px;}
+.transpie input[type=button]:enabled:hover,input[type=submit]:enabled:hover,button:enabled:hover,button.transpie:enabled:hover,input[type=button].transpie:enabled:hover,input[type=submit].transpie:enabled:hover
+{border-color:#AAAAAA;color:#333}
+.transpie input[type=button]:enabled:active,input[type=submit]:enabled:active,button:enabled:active,button.transpie:enabled:active,input[type=button].transpie:enabled:active,input[type=submit].transpie:enabled:active
+{border-color:lightgray; border-bottom-width:2px;}
 
 
 .cTPRadioWrapper  label{float:right; }
