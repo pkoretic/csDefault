@@ -30,6 +30,6 @@ All jqtransform elements are changed and behave like a normal html elements, no 
 
 <em>
       for now, select, input[type=checkbox], input[type=radio] all go through jqtransform, which has been fixed so that all elements work as they were native
-</em>
+</em>  
 All suggestions are welcome.
 (Project will be set up completely in a week or two)
