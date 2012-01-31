@@ -8,6 +8,7 @@ all elelemts are made like they should have been made - regular html elements bu
 
 You can see it in action here  
 **live demo** http://www.pkoretic.co.cc/csTransPie/demo.html  
+
 try it in IE! Notice how everything looks the same as in other browsers - using only CSS3!  
 (Note that PIE.htc is used only by IE browsers, others ignore it)
 
