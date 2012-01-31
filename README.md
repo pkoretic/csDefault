@@ -13,15 +13,11 @@ All elelemts are made like they should have been made - regular html elements bu
 
 It started in 30.01.2012 and it's It's considered **stable**! Still, it's under development regularly!  
 
-Download
-=======================
-If you want to use it download it here from git and add  
+All elements are now created with CSS (still, I like radio and checkboxes more with background images so they are using it - optional css is inclued in csTransPie.css)
 
-      <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />  
-      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
-      <script type="text/javascript" src="csTransPie/csTransPie.js"></script>  
-
-
+<h1>
+      Cross-browser
+</h1>
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS3!  
 (Note that PIE.htc is used only by IE browsers, others ignore it)
 
@@ -33,4 +29,13 @@ All jqtransform elements are changed and behave like a normal html elements, no 
 </em>  
 
 All suggestions are welcome.  
-(Project will be set up completely in a week or two)
+
+Download
+=======================
+If you want to use it download it here from git and add  
+
+      <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />  
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
+      <script type="text/javascript" src="csTransPie/csTransPie.js"></script>  
+
+**csTranspie-dev** is the same as **csTranspie** in terms of functionality. **dev** provides comments and is made to be read and edited.
