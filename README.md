@@ -8,9 +8,7 @@ all elelemts are made like they should have been made - regular html elements bu
 
 It started 30.01.2012 and it's It's considered stable! Still, it's under development regularly!
 If you want to use it download it here from git and add  
-  <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="csTransPie/csTransPie.js"></script>
+  test
 
 You can see it in action here  
 **live demo** http://www.pkoretic.co.cc/csTransPie/demo.html  
