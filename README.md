@@ -14,7 +14,7 @@ All elelemts are made like they should have been made - regular html elements bu
 
 It started in 30.01.2012 and it's considered **stable**! Still, it's daily updated!  
 
-All elements are now created with CSS(3) (still, I like radio and checkboxes more with background images so they are using it - optional css is inclued in csTransPie.css)
+All elements are created with CSS(3) (still, I like radio and checkboxes more with background images so they are using it - optional css is inclued in csTransPie.css)
 
 <h1>
       Cross-browser
