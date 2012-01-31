@@ -28,8 +28,8 @@ If you want to use it download it here from git and add
 Plan is to rewrite jqtransform parts to simpler CSS(3) and javascript counterpars (without images and as little javascript as posible), more than half of it was done already
 All jqtransform elements are changed and behave like a normal html elements, no need anymore for special css or html hacks!  
 
-<emphasized>
-for now, select, input[type=checkbox], input[type=radio] all go through jqtransform, which has been fixed so that all elements work as they were native
-</emphasized>
+<em>
+      for now, select, input[type=checkbox], input[type=radio] all go through jqtransform, which has been fixed so that all elements work as they were native
+</em>
 All suggestions are welcome.
 (Project will be set up completely in a week or two)
