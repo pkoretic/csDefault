@@ -2,7 +2,7 @@
       csTransPie
 </h1>inspired and based on jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/   
 
-[Official Site and demo: http://www.pkoretic.co.cc/csTransPie/demo.html] (http://www.pkoretic.co.cc/csTransPie/demo.html)
+[Official Site and demo http://www.pkoretic.co.cc/csTransPie/demo.html] (http://www.pkoretic.co.cc/csTransPie/demo.html)
 
 
 it's designed as a crossbrowser library for styling - one .js/.css file which would give all elements styling they need
