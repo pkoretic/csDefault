@@ -14,8 +14,9 @@
 *css is half the size - minified only 1.5kb*
 *transpie class for direct css markup *
 *cTP class for dynamically added markup via javascript to elements with transpie class*
-
-*/
+*PIE.htc path is relative from the page being called - that is main (index.html, demo.html) file, not the .css file being called from -
+ behavior: url(csTransPie/PIE.htc); requieres that you copy csTransPie folder in the same directory your page is - multiple pages in different folder, multiple csTransPie folder copies must be made
+ It's less portable but more obvious*/
 
  label {font:12px arial;} /* something I love */
 

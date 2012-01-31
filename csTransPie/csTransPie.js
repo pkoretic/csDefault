@@ -50,7 +50,7 @@ else {
 				} 
 			}
 		}
-		if(oLabel.is('label')){return oLabel.css('cursor','pointer');}
+		if(oLabel.attr('for')){return oLabel.css('cursor','pointer');} //only if it's label with id we make a pointer
 		return false;
 	};
 	
@@ -97,8 +97,7 @@ else {
 
 			//set the click on the label
 			oLabel=cTPGetLabel($input);
-			oLabel && oLabel.click(function(){aLink.trigger('click');});
-			
+			//oLabel && oLabel.click(function(){aLink.trigger('click');}); label with for="id" fires by browser
 			
 			var aLink = $('<a href="#" class="cTPCheckbox"></a>');
 			
@@ -110,12 +109,14 @@ else {
 			});
 			// Click Handler, trigger the click and change event on the input
 			aLink.click(function(){
-
+				
 				//do nothing if the original input is disabled
 				if($input.attr('disabled')){return false;}
 				//trigger the envents on the input object
-				$input.trigger('click').trigger('change');	
+				$input.trigger('click').trigger('change');
+				
 				return false;
+				
 			});
 
 			// set the default state

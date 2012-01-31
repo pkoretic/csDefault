@@ -54,7 +54,6 @@ else {
 		return false;
 	};
 	
-	
 	/* Hide all open selects */
 	var cTPHideSelect = function(oTarget){
 		var ulVisible = $('.cTPSelectWrapper ul:visible');
@@ -96,9 +95,13 @@ else {
 			var $input = $(this);
 			var inputSelf = this;
 
+			
 			//set the click on the label
 			oLabel=cTPGetLabel($input);
-			oLabel && oLabel.click(function(){aLink.trigger('click');});
+			oLabel && oLabel.click(function(){
+			    
+				aLink.trigger('click');
+			});
 			
 			
 			var aLink = $('<a href="#" class="cTPCheckbox"></a>');
@@ -111,12 +114,14 @@ else {
 			});
 			// Click Handler, trigger the click and change event on the input
 			aLink.click(function(){
-
+				
 				//do nothing if the original input is disabled
 				if($input.attr('disabled')){return false;}
 				//trigger the envents on the input object
-				$input.trigger('click').trigger('change');	
+				$input.trigger('click').trigger('change');
+				
 				return false;
+				
 			});
 
 			// set the default state
