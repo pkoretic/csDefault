@@ -50,7 +50,7 @@ else {
 				} 
 			}
 		}
-		if(oLabel.is('label')){return oLabel.css('cursor','pointer');}
+		if(oLabel.attr('for')){return oLabel.css('cursor','pointer');} //only if it's label with id we make a pointer
 		return false;
 	};
 	
@@ -95,14 +95,9 @@ else {
 			var $input = $(this);
 			var inputSelf = this;
 
-			
 			//set the click on the label
 			oLabel=cTPGetLabel($input);
-			oLabel && oLabel.click(function(){
-			    
-				aLink.trigger('click');
-			});
-			
+			//oLabel && oLabel.click(function(){aLink.trigger('click');}); label with for="id" fires by browser
 			
 			var aLink = $('<a href="#" class="cTPCheckbox"></a>');
 			
