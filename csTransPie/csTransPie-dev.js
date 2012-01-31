@@ -1,7 +1,7 @@
 /*
    based on csTransform http://www.dfc-e.com/metiers/multimedia/opensource/csTransform/
    
- * 30.01.2012 Petar Koretiæ
+ * 30.01.2012 Petar KoretiÄ‡
  * Fixed few bugs, removed input, buttons and textarea functions
  * no more form dependant - can be used on only one element, specified only on one div etc..
  * much smaller - 4.4kb minified*
@@ -263,4 +263,4 @@ else {
 })(jQuery);
 
 //call the main function
-$(function() {$(".transpie").cTP();});				   
+$(function() {$(".transpie").cTP();});

@@ -1,7 +1,7 @@
 /*
 /*based on jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/
 
-*Petar Koretiæ
+*Petar KoretiÄ‡
 *30.01.2012*
 *fixed few bugs found by myself and on internet
 *http://www.mysrc.de - praxistipp*
@@ -20,7 +20,7 @@
 
  label {font:12px arial;} /* something I love */
 
-.transpie input[type=text]
+.transpie input[type=text], input[type=text].transpie
 { 
  font:12px arial; 
  margin:1px; 
