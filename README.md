@@ -6,7 +6,7 @@ it's designed as a crossbrowser library for styling - one .js/.css file which wo
 (a great library css3Pie is used for IE)  
 all elelemts are made like they should have been made - regular html elements but nicer - no style breaking!
 
-It started in 30.01.2012 and it's It's considered stable! Still, it's under development regularly!
+It started in 30.01.2012 and it's It's considered stable! Still, it's under development regularly!  
 If you want to use it download it here from git and add  
 
       <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />  
