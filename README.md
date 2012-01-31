@@ -2,9 +2,11 @@
 
 
 **csTransPie**
-is a work in progress - it's designed as a crossbrowser library for styling - one .js/.css file which would give all elements styling they need
+it's designed as a crossbrowser library for styling - one .js/.css file which would give all elements styling they need
 (a great library css3Pie is used for IE)  
 all elelemts are made like they should have been made - regular html elements but nicer - no style breaking!
+
+It started 30.01.2012 and it's It's considered stable! Still, it's under development regularly!
 
 You can see it in action here  
 **live demo** http://www.pkoretic.co.cc/csTransPie/demo.html  
