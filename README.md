@@ -8,7 +8,7 @@ all elelemts are made like they should have been made - regular html elements bu
 
 It started 30.01.2012 and it's It's considered stable! Still, it's under development regularly!
 If you want to use it download it here from git and add  
-  test
+      dsad
 
 You can see it in action here  
 **live demo** http://www.pkoretic.co.cc/csTransPie/demo.html  
