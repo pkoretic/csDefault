@@ -12,7 +12,7 @@ It's designed as a crossbrowser CSS3 library for styling - one .js/.css file whi
 
 All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!**  
 
-It started in 30.01.2012 and it's It's considered **stable**! Still, it's under development regularly!  
+It started in 30.01.2012 and it's considered **stable**! Still, it's under development regularly!  
 
 All elements are now created with CSS(3) (still, I like radio and checkboxes more with background images so they are using it - optional css is inclued in csTransPie.css)
 
