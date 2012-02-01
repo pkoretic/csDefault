@@ -21,7 +21,9 @@ All elements are created with CSS(3) without images (still, I like radio and che
 </h1>
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS3!  
 (Note that PIE.htc is used only by IE browsers, others ignore it)  
-<font color="blue">Tested on Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6</font>
+<font color="blue">
+      Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 
+</font>
 
 Plan is to rewrite jqtransform parts to simpler CSS(3) and javascript counterpars (without images and as little javascript as posible), more than half of it was done already
 All jqtransform elements are changed and behave like a normal html elements, no need anymore for special css or html hacks!  
