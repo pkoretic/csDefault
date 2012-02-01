@@ -14,7 +14,8 @@ All elelemts are made like they should have been made - regular html elements bu
 
 It started in 30.01.2012 and it's considered **stable**! Still, it's daily updated!  
 
-All elements are created with CSS(3) without images (still, I like radio and checkboxes more with background images so they are using it (673 bytes in size)- optional css is inclued in csTransPie.css if you want them to be CSS-only based)
+All elements are created with CSS(3) without images (still, I like radio and checkboxes more with background images so they are using it (673 bytes in size)  
+optional css is inclued in csTransPie.css if you want them to be CSS-only based)
 
 <h1>
       Cross-browser
