@@ -39,4 +39,4 @@ If you want to use it download it here from git and add
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
       <script type="text/javascript" src="csTransPie/csTransPie.js"></script>  
       
-**csTransPie** and  **csTransPie-min** are provided. **csTransPie-min**is obviously minified version, also it doesn't contain css-only code for radios and checkboxes. For that reffer to **csTransPie**
+**csTransPie** and  **csTransPie-min** are provided. **csTransPie-min** is obviously minified version, also it doesn't contain css-only code for radios and checkboxes. For that reffer to **csTransPie**
