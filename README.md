@@ -34,7 +34,7 @@ All jqtransform elements are changed and behave like a normal html elements, no 
 
 All suggestions are welcome.  
 
-Download
+Download and Usage
 =======================
 If you want to use it download it here from git and add  
 
