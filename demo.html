@@ -6,7 +6,9 @@
 <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" /><!-- can be added dynamically in csTransPie.js-->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="csTransPie/csTransPie.js"></script>
-
+<!--[if lt IE 10]>
+<script type="text/javascript" src="csTransPie/PIE.js"></script>
+<![endif]-->
 </head>
 <body style="background-color:#FAFAFF; font:12px arial;"> <!--background color so that we can see nice radio and checkbox elemens-->
 
@@ -75,7 +77,7 @@
 &lt;input type=&quot;text&quot; class=&quot;transpie&quot; /&gt; &lt;input type=&quot;button&quot; value=&quot;default&quot;/&gt; &lt;/div&gt;
 </p><input type="text" class="transpie" /> <input type="button" value="default"/>
 <hr style="color:lightgray" />
-<strong>or call jquery function on (parent) element created dynamically (only for jqTransform - select, radio, checkbox)</strong>
+<strong>or call jquery function on (parent) element created dynamically (only needed for jqTransform - select, radio, checkbox)</strong>
 <p style="background-color:#E6E6F0;padding:5px; border-radius:4px; behavior: url(csTransPie/PIE.htc);">
 $(".transpie").cTP();
 </p>
