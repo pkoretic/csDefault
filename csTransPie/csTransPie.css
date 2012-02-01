@@ -116,7 +116,8 @@ outline:none;
 display:inline-block;
 
 /* background images solution */
- background:transparent url(img.png)  1px 1px; height:19px; width:18px;
+ background:url(img.png)  -8px -10px;
+ height:19px; width:18px;
 
 /* css only solution */
 /*
@@ -135,7 +136,7 @@ display:inline-block;
 .cTPCheckedR 
 {
     /* background images solution */
-   background-position:1px -16px; 
+   background-position:-8px -29px; 
    
    /* css only solution */
    /*border:#E6E6F5 5px solid;background:#969696;width:6px;height:6px;*/
@@ -153,7 +154,7 @@ display:inline-block;
 	display:inline-block;
 
 	/*img solution*/
-	background:transparent url(img.png)  1px 36px;
+	background: url(img.png) -8px -68px;
 	height:19px;
 	width:18px;
 
@@ -173,7 +174,7 @@ display:inline-block;
 /*checkbox checked*/
 .cTPChecked 
 { 
-  background-position:1px 19px;
+  background-position: -8px -87px;
   
  /* css only solution */
  /*border:#FFF 7px double;
