@@ -8,7 +8,7 @@ inspired and based on jqtransform http://www.dfc-e.com/metiers/multimedia/openso
 
 
 It's designed as a crossbrowser CSS3 library for styling - one .js/.css file which would give all elements styling they need
-(a great library css3Pie is used for IE)  - it's less than 10kb in size (PIE.htc is 40kb)
+(a great library css3Pie is used for IE)  - it's less than **10kb** in size (PIE.htc is 40kb)
 
 All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!**  
 
