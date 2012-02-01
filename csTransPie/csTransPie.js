@@ -22,19 +22,7 @@ else {
 
  
 (function($){
-	var defaultOptions = {preloadImg:true};
-	var cTPImgPreloaded = false;
 
-	var cTPPreloadHoverFocusImg = function(strImgUrl) {
-		//guillemets to remove for ie
-		strImgUrl = strImgUrl.replace(/^url\((.*)\)/,'$1').replace(/^\"(.*)\"$/,'$1');
-		var imgHover = new Image();
-		imgHover.src = strImgUrl.replace(/\.([a-zA-Z]*)$/,'-hover.$1');
-		var imgFocus = new Image();
-		imgFocus.src = strImgUrl.replace(/\.([a-zA-Z]*)$/,'-focus.$1');				
-	};
-
-	
 	/***************************
 	  Labels
 	***************************/
@@ -244,18 +232,16 @@ else {
 			
 		});
 	};
-	$.fn.cTP = function(options){
-		var opt = $.extend({},defaultOptions,options);
-		
+	$.fn.cTP = function(){
 		/* each group of element */
-		 return this.each(function(){
-		
+		 return this.each(function()
+		 {
 			$('input:checkbox', this).jqTransCheckBox();
 			$('input:radio', this).jqTransRadio();
 			
 			if( $('select', this).jqTransSelect().length > 0 ){cTPAddDocumentListener();}
 			$(this).bind('reset',function(){var action = function(){cTPReset(this);}; window.setTimeout(action, 10);});
-
+			
 		}); /* End  each */
 				
 	};/* End the Plugin */
