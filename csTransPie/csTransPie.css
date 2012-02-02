@@ -113,7 +113,7 @@
 	position:relative;
 	vertical-align:middle;
 	display:inline-block;
-	height:35px;
+	height:34px;
 	margin: 1px;
 	background: #F5F5F5;
 	border:1px solid transparent;
@@ -121,16 +121,16 @@
 	-webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 	border-radius:3px;
+	background: rgb(250,250,250); /* Old browsers */
+	
+	background: -moz-linear-gradient(top,  rgba(250,250,250,1) 0%, rgba(230,230,231,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(250,250,250,1)), color-stop(100%,rgba(230,230,231,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* W3C */
 
-	/* SVG - in case IE won't allow PIE.htc :: filter: none; if you want to combine support without CSS3PIE */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  #ffffff 0%, #fefefe 3%, #fbfbfb 25%, #fafafa 74%, #f0f0f0 96%, #ffffff 99%, #ffffff 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(3%,#fefefe), color-stop(25%,#fbfbfb), color-stop(74%,#fafafa), color-stop(96%,#f0f0f0), color-stop(99%,#ffffff), color-stop(100%,#ffffff));
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#fefefe 3%,#fbfbfb 25%,#fafafa 74%,#f0f0f0 96%,#ffffff 99%,#ffffff 100%);
-	background: -o-linear-gradient(top,  #ffffff 0%,#fefefe 3%,#fbfbfb 25%,#fafafa 74%,#f0f0f0 96%,#ffffff 99%,#ffffff 100%);
-	background: -ms-linear-gradient(top,  #ffffff 0%,#fefefe 3%,#fbfbfb 25%,#fafafa 74%,#f0f0f0 96%,#ffffff 99%,#ffffff 100%);
-	background: linear-gradient(top,  #ffffff 0%,#fefefe 3%,#fbfbfb 25%,#fafafa 74%,#f0f0f0 96%,#ffffff 99%,#ffffff 100%); /* W3C */
-	-pie-background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(254,254,254,1) 3%,rgba(251,251,251,1) 25%,rgba(250,250,250,1) 74%,rgba(240,240,240,1) 96%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%); /*  IE < 9 */
+	-pie-background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* W3C */
 
 	behavior: url(csTransPie/PIE.htc); /*For IE */
 }
@@ -159,12 +159,12 @@
 	position:absolute;
 	right:0;
 	width:35px;
-	height:26px;
+	height:25px;
 	text-align:center;
 	padding-top:8px;
-	background: #FFF;
+	background: #FAFAFB;
 	border-left:1px solid #E1E1E6;
-	border-bottom:1px solid #F0F0F5;
+	border-bottom:1px solid #EBEBF0;
 	-webkit-border-radius: 3px;
    -moz-border-radius: 3px;
 	border-radius:3px;
