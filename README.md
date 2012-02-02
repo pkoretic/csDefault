@@ -8,7 +8,8 @@ inspired and based on jqtransform http://www.dfc-e.com/metiers/multimedia/openso
 
 
 It's designed as a crossbrowser CSS3 library for styling - one .js/.css file which would give all elements styling they need
-(a great library css3Pie is used for IE)  - it's less than **10kb** in size (PIE.htc is 40kb)
+(a great library css3Pie is used for IE)   
+It's less than **10kb** in size (PIE.htc is 40kb)
 
 All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!**  
 
@@ -22,7 +23,7 @@ optional css is inclued in csTransPie.css if you want them to be CSS-only based)
 </h1>
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS3!  
 (Note that PIE.htc is used only by IE browsers, others ignore it)  
-Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - please test more and report back
+Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - **please test** more and **report back**!
 
 
 Plan is to rewrite jqtransform parts to simpler CSS(3) and javascript counterpars (without images and as little javascript as posible), more than half of it was done already
