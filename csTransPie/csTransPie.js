@@ -38,7 +38,6 @@ else {
 				} 
 			}
 		}
-		if(oLabel.attr('for')){return oLabel.css('cursor','pointer');} //only if it's label with id we make a pointer
 		return false;
 	};
 	
@@ -78,35 +77,43 @@ else {
 		return this.each(function(){
 			if($(this).hasClass('cTPHidden')) {return;}
 
-			var $input = $(this);
-			var inputSelf = this;
+			var $input = $(this); //jquery object of original element
+			var checkbox = this; //javascript reference to original element
 
-			//set the click on the label
-			oLabel=cTPGetLabel($input);
-			//oLabel && oLabel.click(function(){aLink.trigger('click');}); label with for="id" fires by browser
+			var aLink = $('<a href="#" class="cTPCheckbox"></a>'); //create our new element
 			
-			var aLink = $('<a href="#" class="cTPCheckbox"></a>');
+			$input.addClass('cTPHidden').wrap('<span class="cTPCheckboxWrapper"></span>').parent().prepend(aLink); //hide original element and create our new element
 			
-			$input.addClass('cTPHidden').wrap('<span class="cTPCheckboxWrapper"></span>').parent().prepend(aLink); //wrap and add the link
-			//on change, change the class of the link
-			$input.change(function(){
-				inputSelf.checked && aLink.addClass('cTPChecked') || aLink.removeClass('cTPChecked');
-				return true;
+			// set the default state - if checked, set checked class or leave it
+			checkbox.checked && aLink.addClass('cTPChecked');
+			/*============================================ Events ====================================================*/
+			var oLabel  =  cTPGetLabel($input); //Get label
+			$("label[for="+$input.attr('id')+"]").css("cursor","pointer"); //cursor pointer for our label
+			
+			//if we click on label all browsers except IE will work for hidden elements so we prevent it, and set it manually
+			$("label[for="+$input.attr('id')+"]").on("click",function()
+			{
+				$input.click(); // 'click' by all browsers
+				return false; //prevent default action which is click since we clicked manually, e.preventDefault()
 			});
-			// Click Handler, trigger the click and change event on the input
-			aLink.click(function(){
-				
-				//do nothing if the original input is disabled
-				if($input.attr('disabled')){return false;}
-				//trigger the envents on the input object
-				$input.trigger('click').trigger('change');
-				
-				return false;
-				
+			
+			// click on our new element just triggers click on original element - browser will do the rest
+			aLink.click(function()
+			{
+				$input.click();	// 'click' by all browsers 	
+				return false; //prevent click - which sets # in url
 			});
-
-			// set the default state
-			inputSelf.checked && aLink.addClass('cTPChecked');		
+			
+			//if original checkbox clicked change the class of our element, browser will change the state of real element
+			$input.click(function()
+			{
+				if($input.attr('disabled'))return false; //do nothing if the original input is disabled
+				
+				//if checkbox isn't checked, add checked class, else remove checked class
+				!checkbox.checked && aLink.addClass('cTPChecked') || aLink.removeClass('cTPChecked');
+			});
+			/*============================================ End of Events =============================================*/
+				
 		});
 	};
 	/***************************
@@ -116,35 +123,45 @@ else {
 		return this.each(function(){
 			if($(this).hasClass('cTPHidden')) {return;}
 
-			var $input = $(this);
-			var inputSelf = this;
+			var $input = $(this); //jquery object of original element
+			var radio = this; //javascript reference to original element
 			
-				
-			oLabel = cTPGetLabel($input);
-			oLabel && oLabel.click(function(){aLink.trigger('click');});
-	
-			var aLink = $('<a href="#" class="cTPRadio" rel="'+ this.name +'"></a>');
+			var aLink = $('<a href="#" class="cTPRadio" rel="'+ this.name +'"></a>'); //create our new element
 			
-			$input.addClass('cTPHidden').wrap('<span class="cTPRadioWrapper"></span>').parent().prepend(aLink);
+			$input.addClass('cTPHidden').wrap('<span class="cTPRadioWrapper"></span>').parent().prepend(aLink); //hide original element and create our new element
 			
-			$input.change(function(){
-				inputSelf.checked && aLink.addClass('cTPCheckedR') || aLink.removeClass('cTPCheckedR');
-				return true;
+			// set class 'checked' if input set as checked - <input type="radio" checked="checked" />
+			radio.checked && aLink.addClass('cTPCheckedR');
+			
+			/*============================================ Events ====================================================*/
+			var oLabel  =  cTPGetLabel($input); //Get label connected to our input
+			$("label[for="+$input.attr('id')+"]").css("cursor","pointer");
+			
+			//if we click on label all browsers except IE will work for hidden elements so we prevent it, and set it manually
+			$("label[for="+$input.attr('id')+"]").on("click",function()
+			{
+				$input.click(); // 'click' by all browsers
+				return false; //prevent default action which is click since we clicked manually, e.preventDefault()
 			});
-			// Click Handler
+			
+			// click on our new element just triggers click on original element - browser will do the rest
 			aLink.click(function(){
-				if($input.attr('disabled')){return false;}
-				$input.trigger('click').trigger('change');
-	
-				// uncheck all others of same name input radio elements
-				$('input[name="'+$input.attr('name')+'"]',inputSelf.form).not($input).each(function(){
-					$(this).attr('type')=='radio' && $(this).trigger('change');
-				});
-	
-				return false;					
+				$input.click();			
+				return false; //prevent click - which sets # in url
 			});
-			// set the default state
-			inputSelf.checked && aLink.addClass('cTPCheckedR');
+			
+			//if we click on radio button set class as clicked! (browser will actually click it and 'unclick' others!)
+			$input.click(function()
+			{
+				if($input.attr('disabled')) return false; //prevent click if disabled!
+				!radio.checked && aLink.addClass('cTPCheckedR'); //no need to set class on every click
+				// remove checked class from all others of the same name (browser won't remove OUR class obviously)
+				$('input[name="'+$input.attr('name')+'"]',radio.form).not($input).each(function()
+					{
+						$(this).attr('type')=='radio' && $(this).prev().removeClass('cTPCheckedR'); //our elements is always before original element
+					});
+			});
+			/*============================================ End of Events =============================================*/
 		});
 	};
 	
