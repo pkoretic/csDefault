@@ -48,10 +48,15 @@ If you want to use it download it here from git and add
 
 Usage
 =======================  
-Just add **transpie** class to element parent element
-            <div class="transpie"> <input type="text" /> <input type="button" value="nice"/> </div>
-or to one element
-            <input type="text" class="transpie" /> <input type="button" value="default"/> </div>
-or call jquery function on (parent) element created dynamically (only needed for jqTransform - select, radio, checkbox)
-            $(".transpie").cTP();
+Just add **transpie** class to element parent element  
+
+      <div class="transpie"> <input type="text" /> <input type="button" value="nice"/> </div>  
+      
+or to one element  
+
+      <input type="text" class="transpie" /> <input type="button" value="default"/> </div>  
+      
+or call jquery function on (parent) element created dynamically (only needed for jqTransform - select, radio, checkbox)  
+
+      $(".transpie").cTP();  
             
