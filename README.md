@@ -35,8 +35,8 @@ All jqtransform elements are changed and behave like a normal html elements, no 
 
 All suggestions are welcome.  
 
-Download and Usage
-=======================
+Download 
+
 If you want to use it download it here from git and add  
 
       <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />  
@@ -45,3 +45,13 @@ If you want to use it download it here from git and add
       
 **csTransPie** and  **csTransPie-min** are provided.  
 **csTransPie-min** is obviously minified version and it doesn't contain CSS-only code for radios and checkboxes. For that reffer to **csTransPie** which also contains comments for easier development.
+
+Usage
+=======================  
+Just add **transpie** class to element parent element
+            <div class="transpie"> <input type="text" /> <input type="button" value="nice"/> </div>
+or to one element
+            <input type="text" class="transpie" /> <input type="button" value="default"/> </div>
+or call jquery function on (parent) element created dynamically (only needed for jqTransform - select, radio, checkbox)
+            $(".transpie").cTP();
+            
