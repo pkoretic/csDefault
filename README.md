@@ -54,7 +54,7 @@ Just add **transpie** class to parent element
       
 or to one element  
 
-      <input type="text" class="transpie" /> <input type="button" value="default"/> </div>  
+      <input type="text" class="transpie" /> <input type="button" value="default"/>  
       
 or call jquery function on (parent) element created dynamically (only needed for jqTransform - select, radio, checkbox)  
 
