@@ -59,6 +59,6 @@ or call jquery function on (parent) element created dynamically (only needed for
             
 TODO
 ========================
-input[type=file] - input field for upload obviously
-cs-bar - cross browser helper for creating a nice bar
+input[type=file] - input field for upload obviously  
+cs-bar - cross browser helper for creating a nice bar  
 cs-body - cross browser helper for creating a nice body
