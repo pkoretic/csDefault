@@ -61,4 +61,5 @@ TODO
 ========================
 input[type=file] - input field for upload obviously  
 cs-bar - cross browser helper for creating a nice bar  
-cs-body - cross browser helper for creating a nice body
+cs-body - cross browser helper for creating a nice body  
+Themes - since we are using CSS themeing is quite easy
