@@ -26,9 +26,6 @@ optional css is inclued in csTransPie.css if you want them to be CSS-only based)
 Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - **please test** more and **report back**!
 
 
-Plan is to rewrite jqtransform parts to simpler CSS(3) and javascript counterpars (without images and as little javascript as posible), more than half of it was done already
-All jqtransform elements are changed and behave like a normal html elements, no need anymore for special css or html hacks!  
-
 <em>
       for now, select, input[type=checkbox], input[type=radio] all go through original jquery code, and they have been fixed so that all elements work as they were native
 </em>  
@@ -60,3 +57,8 @@ or call jquery function on (parent) element created dynamically (only needed for
 
       $(".transpie").cTP();  
             
+TODO
+========================
+input[type=file] - input field for upload obviously
+cs-bar - cross browser helper for creating a nice bar
+cs-body - cross browser helper for creating a nice body
