@@ -29,6 +29,7 @@
 
 .transpie textarea, textarea.transpie 
 { 
+ background-color:#FBFBFF;
  display:inline-block;
  margin:1px; 
  border-style:solid; 
@@ -52,13 +53,15 @@
 .transpie input:disabled ,.transpie input:disabled:hover{ background-color: #E6E6E6; cursor:default}
 .transpie input[type=text], input[type=text].transpie
 { 
- vertical-align:middle;
  display:inline-block;
+ vertical-align:middle;
  outline: none;
  font:12px arial; 
  margin: 1px;
- height:24px; 
- padding:4px;
+ height:29px; 
+ line-height:29px;
+ padding:0 4px;
+ background-color:#FBFBFF;
  border-style:solid;
  -webkit-border-radius: 4px;
  -moz-border-radius: 4px;
@@ -72,7 +75,7 @@
  border-left-color:#D2D2DC;border-top-color:#D2D2DC; border-bottom-color:#E6E6F0;  border-right-color:#E6E6F0;
 }
 
-.transpie input[type=button],.transpie input[type=submit],.transpie button,button.transpie,input[type=button].transpie,input[type=submit].transpie
+.transpie input[type=button],input[type=submit],button,button.transpie,input[type=button].transpie,input[type=submit].transpie
 {
 	vertical-align:middle;
 	display:inline-block;
@@ -85,9 +88,9 @@
 	-moz-border-radius: 4px;
 	border-radius: 4px;
  
-	border-width:1px;  border-bottom-width:2px;   
+	border-width:1px;    
 	border-color:#CCC; border-bottom-color:#BEBEBE; 
-	width:70px; height:36px; /*padding:7px 15px;*/
+	width:70px; height:33px; /*padding:7px 15px;*/
 	
 	background-color:#F5F5F5;
 	/* SVG - in case IE won't allow PIE.htc :: filter: none; if you want to combine support without CSS3PIE */
@@ -113,11 +116,11 @@
 	position:relative;
 	vertical-align:middle;
 	display:inline-block;
-	height:34px;
+	height:31px;
 	margin: 1px;
 	background: #F5F5F5;
 	border:1px solid transparent;
-	border-left-color:#E6E6E6;border-top-color:#E6E6E6;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; 
+	border-left-color:#DCDCE6;border-top-color:#DCDCE6;border-bottom-color:#BEBEC3;border-right-color:#BEBEC3; 
 	-webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 	border-radius:3px;
@@ -141,8 +144,8 @@
 	float:none;
 	position:absolute;
 	white-space:nowrap;
-	height:35px;
-	line-height:20px;
+	height:15px;
+	line-height:15px;
 	overflow:hidden;
 	cursor:pointer;
 	padding:8px 0 0 7px;
@@ -158,13 +161,13 @@
 	display:block;
 	position:absolute;
 	right:0;
-	width:35px;
-	height:25px;
+	width:32px;
+	height:21px;
 	text-align:center;
 	padding-top:8px;
 	background: #FAFAFB;
-	border-left:1px solid #E1E1E6;
-	border-bottom:1px solid #EBEBF0;
+	border-left:1px solid #DCDCE1;
+	border-bottom:1px solid #DCDCE1;
 	-webkit-border-radius: 3px;
    -moz-border-radius: 3px;
 	border-radius:3px;
