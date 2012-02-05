@@ -1,5 +1,5 @@
 /*
-   based on csTransform http://www.dfc-e.com/metiers/multimedia/opensource/csTransform/
+   based on jqTransform http://www.dfc-e.com/metiers/multimedia/opensource/jqTransform/
    
  * 30.01.2012 Petar Koretić
  * Fixed few bugs, removed input, buttons and textarea functions
@@ -73,7 +73,7 @@ else {
 	/***************************
 	  Check Boxes 
 	 ***************************/	
-	$.fn.jqTransCheckBox = function(){
+	$.fn.cTPCheckBox = function(){
 		return this.each(function(){
 			if($(this).hasClass('cTPHidden')) {return;}
 
@@ -119,7 +119,7 @@ else {
 	/***************************
 	  Radio Buttons 
 	 ***************************/	
-	$.fn.jqTransRadio = function(){
+	$.fn.cTPRadio = function(){
 		return this.each(function(){
 			if($(this).hasClass('cTPHidden')) {return;}
 
@@ -170,10 +170,11 @@ else {
 	/***************************
 	  Select 
 	 ***************************/	
-	$.fn.jqTransSelect = function(){
+	$.fn.cTPSelect = function(){
+		
 		return this.each(function(index){
 			var $select = $(this);
-
+			
 			if($select.hasClass('cTPHidden')) {return;}
 			if($select.attr('multiple')) {return;}
 
@@ -249,12 +250,12 @@ else {
 	};
 	$.fn.cTP = function(){
 		/* each group of element */
-		 return this.each(function()
+		 return this.parent().each(function()
 		 {
-			$('input:checkbox', this).jqTransCheckBox();
-			$('input:radio', this).jqTransRadio();
+			$('input:checkbox', this).cTPCheckBox();
+			$('input:radio', this).cTPRadio();
 			
-			if( $('select', this).jqTransSelect().length > 0 ){cTPAddDocumentListener();}
+			if( $('select', this).cTPSelect().length > 0 ){cTPAddDocumentListener();}
 			$(this).bind('reset',function(){var action = function(){cTPReset(this);}; window.setTimeout(action, 10);});
 			
 		}); /* End  each */
@@ -264,4 +265,9 @@ else {
 })(jQuery);
 
 //call the main function
-$(function() {$(".transpie").cTP();});
+$(function() {
+$(".transpie").cTP();
+
+//var ie = (function(){var undef,v = 3,div = document.createElement('div'),all = div.getElementsByTagName('i');while (div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',all[0]);return v > 4 ? v : undef;}());
+
+});
