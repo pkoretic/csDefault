@@ -59,7 +59,8 @@ or call jquery function on (parent) element created dynamically (only needed for
             
 TODO
 ========================
-rewrite code for 'select' and 'label', clean .css, clean .js
+rewrite code for 'select' and 'label', clean .css, clean .js  
+use dynamically added PIE.js or some other option - maybe rewrite PIE.js using jquery?
 input[type=file] - input field for upload obviously  
 cs-bar - cross browser helper for creating a nice bar  
 cs-body - cross browser helper for creating a nice body  
