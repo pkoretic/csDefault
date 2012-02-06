@@ -250,7 +250,8 @@ else {
 	};
 	$.fn.cTP = function(){
 		/* each group of element */
-		 return this.parent().each(function()
+		
+		 return this.each(function()
 		 {
 			$('input:checkbox', this).cTPCheckBox();
 			$('input:radio', this).cTPRadio();
