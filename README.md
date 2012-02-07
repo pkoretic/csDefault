@@ -11,6 +11,8 @@ It's designed as a cross-browser CSS3 library for styling - one .js/.css file wh
 (a great library [css3Pie](http://css3pie.com/) is used for IE - please support it!)   
 It's less than **10kb** in size (PIE.htc is 40kb)
 
+(note: jquery 1.7 is needed)
+
 All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!**  
 
 It started in 30.01.2012 and it's considered **stable**! Still, it's daily updated!  
