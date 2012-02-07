@@ -60,15 +60,31 @@ else {
 		$(document).mousedown(cTPCheckExternalClick);
 	};	
 			
-	/* Add a new handler for the reset action */
+	/* Reset each element on previous state - it obviously has a point only if there is a form */
 	var cTPReset = function(f){
-		var sel;
-		$('.cTPSelectWrapper select', f).each(function(){sel = (this.selectedIndex<0) ? 0 : this.selectedIndex; $('ul', $(this).parent()).each(function(){$('a:eq('+ sel +')', this).click();});});
-		$('a.cTPCheckbox, a.cTPRadio', f).removeClass('cTPChecked');
-		$('input:checkbox', f).each(function(){if(this.checked){$('a', $(this).parent()).addClass('cTPChecked');}});
-		$('input:radio', f).each(function(){if(this.checked){$('a', $(this).parent()).addClass('cTPCheckedR');}});
+		var sel=0; //which select in a form if there are more
+		//set select to original value we saved
+		$('select', f).each(function()
+		{
+			$('a:eq('+ $(this).data("index") +')',$(".select"+ sel++ +" ul",f)).click();
+		});
 		
-	};
+		//set checkbox to original value we saved
+		$('input:checkbox', f).each(function()
+		{	
+			//if it was checked set class of checked, else, set it unchecked
+			$(this).data('val') && $('a', $(this).parent()).addClass('cTPChecked') || $('a', $(this).parent()).removeClass('cTPChecked');
+			
+		});//	$('input:checkbox', f).each(function()
+		
+		//set radio to original value we saved
+		$('input:radio', f).each(function()
+		{
+			//if it was checked set class of checked, else, set it unchecked
+			$(this).data('val') && $('a', $(this).parent()).addClass('cTPCheckedR') || $('a', $(this).parent()).removeClass('cTPCheckedR');
+		});//$('input:radio', f).each(function()
+		
+	}; //var cTPReset = function(f){
 
 	/***************************
 	  Check Boxes 
@@ -78,14 +94,15 @@ else {
 			if($(this).hasClass('cTPHidden')) {return;}
 
 			var $input = $(this); //jquery object of original element
-			var checkbox = this; //javascript reference to original element
 
+			$input.data('val', this.checked); //save original value
+			
 			var aLink = $('<a href="#" class="cTPCheckbox"></a>'); //create our new element
 			
 			$input.addClass('cTPHidden').wrap('<span class="cTPCheckboxWrapper"></span>').parent().prepend(aLink); //hide original element and create our new element
 			
 			// set the default state - if checked, set checked class or leave it
-			checkbox.checked && aLink.addClass('cTPChecked');
+			this.checked && aLink.addClass('cTPChecked');
 			/*============================================ Events ====================================================*/
 			var oLabel  =  cTPGetLabel($input); //Get label
 			$("label[for="+$input.attr('id')+"]").css("cursor","pointer"); //cursor pointer for our label
@@ -98,19 +115,19 @@ else {
 			});
 			
 			// click on our new element just triggers click on original element - browser will do the rest
-			aLink.click(function()
+			aLink.on("click",function()
 			{
 				$input.click();	// 'click' by all browsers 	
 				return false; //prevent click - which sets # in url
 			});
 			
 			//if original checkbox clicked change the class of our element, browser will change the state of real element
-			$input.click(function()
+			$input.on("click",function()
 			{
 				if($input.attr('disabled'))return false; //do nothing if the original input is disabled
 				
 				//if checkbox isn't checked, add checked class, else remove checked class
-				!checkbox.checked && aLink.addClass('cTPChecked') || aLink.removeClass('cTPChecked');
+				!this.checked && aLink.addClass('cTPChecked') || aLink.removeClass('cTPChecked');
 			});
 			/*============================================ End of Events =============================================*/
 				
@@ -120,18 +137,20 @@ else {
 	  Radio Buttons 
 	 ***************************/	
 	$.fn.cTPRadio = function(){
+	
 		return this.each(function(){
 			if($(this).hasClass('cTPHidden')) {return;}
-
+		
 			var $input = $(this); //jquery object of original element
-			var radio = this; //javascript reference to original element
+			
+			$input.data('val', this.checked); //save original value
 			
 			var aLink = $('<a href="#" class="cTPRadio" rel="'+ this.name +'"></a>'); //create our new element
-			
+		
 			$input.addClass('cTPHidden').wrap('<span class="cTPRadioWrapper"></span>').parent().prepend(aLink); //hide original element and create our new element
 			
 			// set class 'checked' if input set as checked - <input type="radio" checked="checked" />
-			radio.checked && aLink.addClass('cTPCheckedR');
+			this.checked && aLink.addClass('cTPCheckedR');
 			
 			/*============================================ Events ====================================================*/
 			var oLabel  =  cTPGetLabel($input); //Get label connected to our input
@@ -145,18 +164,19 @@ else {
 			});
 			
 			// click on our new element just triggers click on original element - browser will do the rest
-			aLink.click(function(){
+			aLink.on("click",function(){
 				$input.click();			
 				return false; //prevent click - which sets # in url
 			});
 			
 			//if we click on radio button set class as clicked! (browser will actually click it and 'unclick' others!)
-			$input.click(function()
+			
+			$input.on("click",function()
 			{
 				if($input.attr('disabled')) return false; //prevent click if disabled!
-				!radio.checked && aLink.addClass('cTPCheckedR'); //no need to set class on every click
+				!this.checked && aLink.addClass('cTPCheckedR'); //no need to set class on every click
 				// remove checked class from all others of the same name (browser won't remove OUR class obviously)
-				$('input[name="'+$input.attr('name')+'"]',radio.form).not($input).each(function()
+				$('input[name="'+$input.attr('name')+'"]',this.form).not($input).each(function()
 					{
 						$(this).attr('type')=='radio' && $(this).prev().removeClass('cTPCheckedR'); //our elements is always before original element
 					});
@@ -165,13 +185,11 @@ else {
 		});
 	};
 	
-
-	
 	/***************************
 	  Select 
 	 ***************************/	
 	$.fn.cTPSelect = function(){
-		
+			var sel=0; //if there are more selects in form which select is this in a form?
 		return this.each(function(index){
 			var $select = $(this);
 			
@@ -179,14 +197,9 @@ else {
 			if($select.attr('multiple')) {return;}
 
 			var oLabel  =  cTPGetLabel($select);
-			/* First thing we do is Wrap it */
-			var $wrapper = $select
-				.addClass('cTPHidden')
-				.wrap('<div class="cTPSelectWrapper"></div>')
-				.parent()
-				.css({zIndex: 100-index})
-			;
 			
+			/* First thing we do is Wrap it */
+			var $wrapper = $select.addClass('cTPHidden').wrap('<div class="cTPSelectWrapper select'+ sel++ +'"></div>').parent().css({zIndex: 100-index});
 			/* Now add the html for the select */
 			$wrapper.prepend('<div><span></span><a href="#" class="cTPSelectOpen">&#9660;</a></div><ul></ul>');
 			var $ul = $('ul', $wrapper).css('width',$select.width()).hide();
@@ -197,28 +210,30 @@ else {
 			});
 			
 			/* Add click handler to the a */
-			$ul.find('a').click(function(){
+			$ul.find('a').on("click",function(){
 					$('a.selected', $wrapper).removeClass('selected');
 					$(this).addClass('selected');	
 					/* Fire the onchange event */
-					if ($select[0].selectedIndex != $(this).attr('index')) {
-     $select[0].selectedIndex = $(this).attr('index');
-     $($select[0]).trigger('change');
-}
+					if ($select[0].selectedIndex != $(this).attr('index')) 
+					{
+						$select[0].selectedIndex = $(this).attr('index');
+						$($select[0]).trigger('change');
+					}
 					$select[0].selectedIndex = $(this).attr('index');
 					$('span:eq(0)', $wrapper).html($(this).html());
 					$ul.hide();
 					return false;
 			});
 			/* Set the default */
+			$select.data('index', this.selectedIndex); //save original value
 			$('a:eq('+ this.selectedIndex +')', $ul).click();
-			$('span:first', $wrapper).click(function(){$("a.cTPSelectOpen",$wrapper).trigger('click');});
-			oLabel && oLabel.click(function(){$("a.cTPSelectOpen",$wrapper).trigger('click');});
+			$('span:first', $wrapper).on("click",function(){$("a.cTPSelectOpen",$wrapper).click();});
+			oLabel && oLabel.on("click",function(){$("a.cTPSelectOpen",$wrapper).click();});
 			this.oLabel = oLabel;
 			
 			/* Apply the click handler to the Open */
 			var oLinkOpen = $('a.cTPSelectOpen', $wrapper)
-				.click(function(){
+				.on("click",function(){
 					//Check if box is already open to still allow toggle, but close all other selects
 					if( $ul.css('display') == 'none' ) {cTPHideSelect();} 
 					if($select.attr('disabled')){return false;}
@@ -236,7 +251,7 @@ else {
 			var oSpan = $('span:first',$wrapper);
 			var newWidth = (iSelectWidth > oSpan.innerWidth())?iSelectWidth+oLinkOpen.outerWidth():$wrapper.width();
 			$wrapper.css('width',newWidth);
-			$ul.css('width',newWidth-2);
+			$ul.css('width',newWidth);
 			oSpan.css({width:iSelectWidth});
 		
 			// Calculate the height if necessary, less elements that the default height
@@ -248,19 +263,18 @@ else {
 			
 		});
 	};
+
+
 	$.fn.cTP = function(){
-		/* each group of element */
-		
-		 return this.each(function()
-		 {
-			$('input:checkbox', this).cTPCheckBox();
-			$('input:radio', this).cTPRadio();
+			//style every element with appropriate class
 			
-			if( $('select', this).cTPSelect().length > 0 ){cTPAddDocumentListener();}
-			$(this).bind('reset',function(){var action = function(){cTPReset(this);}; window.setTimeout(action, 10);});
+			$('.transpie input:checkbox, input:checkbox.transpie').cTPCheckBox();
+			$('.transpie input:radio, input:radio.transpie').cTPRadio();
 			
-		}); /* End  each */
-				
+			if( $('.transpie select, select.transpie').cTPSelect().length > 0 ){cTPAddDocumentListener();}
+			//catch reset in a form, we have to reset our elements manually
+			$('form',this).on('reset',function(){ cTPReset(this)});
+
 	};/* End the Plugin */
 
 })(jQuery);
