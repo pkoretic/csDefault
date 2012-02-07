@@ -26,14 +26,10 @@ optional css is inclued in csTransPie.css if you want them to be CSS-only based)
 Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - **please test** more and **report back**!
 
 
-<em>
-      for now, select, input[type=checkbox], input[type=radio] all go through original jquery code, and they have been fixed so that all elements work as they were native
-</em>  
-
 All suggestions are welcome.  
 
 Download 
-
+=======================   
 Download it here from git and add  
 
       <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />  
@@ -53,7 +49,7 @@ or to one element
 
       <input type="text" class="transpie" /> <input type="button" value="default"/>  
       
-or call jquery function on (parent) element created dynamically (only needed for jqTransform - select, radio, checkbox)  
+or call jquery function on (parent) element which was created dynamically - select, radio, checkbox 
 
       $(".transpie").cTP();  
             
