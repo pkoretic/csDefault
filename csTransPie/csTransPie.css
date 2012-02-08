@@ -1,25 +1,20 @@
 /*
-*based on jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/
+* inspired by jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/
 
 *Petar Koretić
-* started - 30.01.2012*
-*fixed few bugs found by myself and on internet http://www.mysrc.de - praxistipp*
-* completely rewritten using css *
-*
-+
-*fixed many radio and checbox bugs - now they can be used as intented
-*every element is written with css(3) only, no more images! css3pie used for IE*
+* Started  30.01.2012*
+
+*every element is written with css(3) only, no images needed (see below)! css3pie used for IE*
 *only one sprite img used - one request! - for checkbox and radio buttons, optional css only code is provided below, I just like them more image-based*
-*no more form related, all elements can be used separately*
+*all elements can be used separately, they are not form dependant*
 *transpie class for direct css markup *
 *cTP class for dynamically added markup via javascript to elements with transpie class*
 *PIE.htc path is relative from the page being called - that is main (index.html, demo.html) file, not the .css file being called from -
- behavior: url(csTransPie/PIE.htc); requieres that you copy csTransPie folder in the same directory your page is - multiple pages in different folder, multiple csTransPie folder copies must be made
+ behavior: url(csTransPie/PIE.htc); requires that you copy csTransPie folder in the same directory your page is - multiple pages in different folder, multiple csTransPie folder copies must be made
  It's less portable but more obvious
  *Gradient code is provided for all browsers, even SVG version which is for IE 9 - because IE9 has problems with PIE.htc content and we want to be sure it works in any case 
- PIE.htc could be avoided for using on gradients but IE9 requieres filter:none while IE<9 requieres it set for gradient's which in the end would requiere a JS or CSS conditional hack *
+ PIE.htc (for graidents) can be avoided but IE9 requires filter:none while IE<9 requires it set to graident which in the end would require a JS or CSS conditional hack (see below) while we still need CSS3PIE for round corners*
  I don't use them, but you newer know - http://paulirish.com/2009/browser-specific-css-hacks/ http://dimox.net/personal-css-hacks-for-ie6-ie7-ie8/
-
  */
  
 
@@ -31,6 +26,7 @@
 /*==============================================================================================================================================
 																EVENTS
 ================================================================================================================================================*/																		
+
 /*========================================================= DISABLED ELEMENTS ==================================================================*/
 .transpie input:disabled ,.transpie input:disabled:hover
 {
