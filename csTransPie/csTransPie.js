@@ -113,6 +113,46 @@ else {
 	};
 	
 	/***************************
+	  Title
+	 ***************************/
+	
+	$.fn.cTPTitle = function(){
+	
+		return this.each(function(){
+			title=$(this);
+			
+		    var pos = title.offset();
+			var width = title.outerWidth();
+
+			var text=title.attr("title");
+			
+			//remove original title (so the browser doesn't show it) and add ours - span after
+			title.attr("title","").after('<span class="cTPTitle">'+text+'</span>');
+			
+			//hover over element, I like it to be instant!
+			title.hover
+			(
+				function () 
+				{
+					title.next().css
+					({
+						top: pos.top + "px",
+						left: (pos.left + width)  + "px",
+						display:"inline"
+					});
+				}, 
+				function () 
+				{
+					title.next().css("display","none");
+				}
+			);
+			
+	
+			
+		 
+		})//each
+	}//function
+	/***************************
 	  Radio Buttons 
 	 ***************************/
 	 
@@ -254,6 +294,7 @@ else {
 	{
 			$('.transpie input:checkbox, input:checkbox.transpie').cTPCheckBox();
 			$('.transpie input:radio, input:radio.transpie').cTPRadio();
+			$('.transpie [title], [title].transpie').cTPTitle();
 			
 			if( $('.transpie select, select.transpie').cTPSelect().length > 0 ){cTPAddDocumentListener();}
 			
