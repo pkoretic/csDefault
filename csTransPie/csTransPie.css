@@ -34,15 +34,15 @@
 	cursor:default
 }
 /*============================================================= TEXTAREA =======================================================================*/
-.transpie textarea:enabled:hover,textarea.transpie:enabled:hover
+.transpie textarea:hover,textarea.transpie:hover
 { 
 	border-left-color:#CDCDD2; 
 	border-top-color:#CDCDD2; 
-	border-bottom-color:#F0F0FA;  
-	border-right-color:#F0F0FA;
+	border-bottom-color:#E6EBF0;  
+	border-right-color:#E6EBF0;
 }
 /*======================================================= TEXT AND PASSWORD FIELD ==============================================================*/
-.transpie input[type=text]:enabled:hover, input[type=text].transpie:enabled:hover,.transpie input[type=password]:enabled:hover, input[type=password].transpie:enabled:hover
+.transpie input[type=text]:hover, input[type=text].transpie:hover,.transpie input[type=password]:hover, input[type=password].transpie:hover
 { 
 	border-left-color:#D2D2DC;
 	border-top-color:#D2D2DC; 
@@ -50,26 +50,44 @@
 	border-right-color:#E6E6F0;
 }
 /*========================================================= (SUBMIT) BUTTON:HOVER ==============================================================*/
-.transpie input[type=button]:enabled:hover,input[type=submit]:enabled:hover,button:enabled:hover,button.transpie:enabled:hover,input[type=button].transpie:enabled:hover,input[type=submit].transpie:enabled:hover
+.transpie input[type=button]:hover,input[type=submit]:hover,button:hover,button.transpie:hover,input[type=button].transpie:hover,input[type=submit].transpie:hover
 {
 	border-color:#BEBEBE;
 	color:#333; 
 }
 /*===================================================== (SUBMIT) BUTTON:ACTIVE (PRESSED) =======================================================*/
-.transpie input[type=button]:enabled:active,input[type=submit]:enabled:active,button:enabled:active,button.transpie:enabled:active,input[type=button].transpie:enabled:active,input[type=submit].transpie:enabled:active
+.transpie input[type=button]:active,input[type=submit]:active,button:active,button.transpie:active,input[type=button].transpie:active,input[type=submit].transpie:active
 {
 	border-color:lightgray; border-bottom-width:2px;
 }
 
 /*========================================================== INPUT TYPE=RESET:HOVER ==========================================================*/
-.transpie input[type=reset]:enabled:hover, input[type=reset].transpie:enabled:hover
+.transpie input[type=reset]:hover, input[type=reset].transpie:hover
 {
-	border-color:black;
+	border-color:gray;
 }
-
+/*========================================================== INPUT TYPE=RESET:ACTIVE ==========================================================*/
+.transpie input[type=reset]:active, input[type=reset].transpie:active
+{
+	border-bottom-width:2px;
+}
 /*==============================================================================================================================================
 																ELEMENTS
 ================================================================================================================================================*/
+/*============================================================= TITLE =======================================================================*/
+.cTPTitle
+{
+	display:none; 
+	position:fixed; 
+	background-color:#FFFF64; 
+	padding:5px; 
+	border:1px solid lightgray;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+	/*no need for round borders in IE - looks just great*/
+}
 
 /*============================================================= TEXTAREA =======================================================================*/
 .transpie textarea, textarea.transpie 
@@ -187,6 +205,22 @@
 	
 	behavior: url(csTransPie/PIE.htc);
 }
+/*================================================================ FORM =================================================================*/
+.transpie form, form.transpie
+{	
+	padding:0; margin:0;
+}
+.transpie fieldset, fieldset.transpie
+{
+	border:1px solid #dedede; /* Default fieldset borders vary cross browser, so make them the same */
+	padding:5px;
+}
+.transpie legend, legend.transpie
+{	
+	color:#0b77b7;
+	font-size:1.1em;
+}
+
 
 .cTPSelectWrapper 
 {
@@ -217,6 +251,8 @@
 
 	behavior: url(csTransPie/PIE.htc); /*For IE */
 }
+
+
 
 .cTPSelectWrapper div span 
 {
@@ -382,4 +418,3 @@
    border-radius:5px;  
    */
  } 
-
