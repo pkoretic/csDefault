@@ -10,8 +10,6 @@
 *transpie class for direct css markup *
 *cTP class for dynamically added markup via javascript to elements with transpie class*
 *PIE.htc path is relative from the page being called - that is main (index.html, demo.html) file, not the .css file being called from -
- behavior: url(csTransPie/PIE.htc); requires that you copy csTransPie folder in the same directory your page is - multiple pages in different folder, multiple csTransPie folder copies must be made
- It's less portable but more obvious
  *Gradient code is provided for all browsers, even SVG version which is for IE 9 - because IE9 has problems with PIE.htc content and we want to be sure it works in any case 
  PIE.htc (for graidents) can be avoided but IE9 requires filter:none while IE<9 requires it set to graident which in the end would require a JS or CSS conditional hack (see below) while we still need CSS3PIE for round corners*
  I don't use them, but you newer know - http://paulirish.com/2009/browser-specific-css-hacks/ http://dimox.net/personal-css-hacks-for-ie6-ie7-ie8/
@@ -107,7 +105,7 @@
 	border-width:1px;  
 	outline: none;  
 	border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA; 
-	behavior: url(csTransPie/PIE.htc);
+	behavior: url(PIE.htc);
 }
 
 /*============================================================ TEXT AND PASSWORD FIELD ==========================================================*/
@@ -129,7 +127,7 @@
 	border-radius: 4px;
 	border-width:1px;
 	border-left-color:#AAAAAA;border-top-color:#AAAAAA;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; 
-	behavior: url(csTransPie/PIE.htc);
+	behavior: url(PIE.htc);
 }
 
 /*============================================================= (SUBMIT) BUTTON =================================================================*/
@@ -151,23 +149,19 @@
 	border-bottom-color:#BEBEBE; 
 	
 	height:33px; /*padding:7px 15px;*/
-	
-	min-width: 60px;
-	width:auto !important;
-	width:60px;
+	padding:0 10px;
 
-	background-color:#F5F5F5;
-	/* SVG - in case IE won't allow PIE.htc :: filter: none; if you want to combine support without CSS3PIE */
+	background: #fafafa; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  rgba(250,250,250,1) 0%, rgba(230,230,231,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(250,250,250,1)), color-stop(100%,rgba(230,230,231,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* W3C */
-	-pie-background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* IE 6-8 */ 
-	
-	behavior: url(csTransPie/PIE.htc);
+	background: -moz-linear-gradient(top,  #fafafa 0%, #e6e6e7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e6e6e7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* IE10+ */
+	background: linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* W3C */
+	-pie-background: linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* W3C */
+	behavior: url(PIE.htc); /*For IE */
 }
 /*============================================================= INPUT TYPE=RESET =================================================================*/
 .transpie input[type=reset], input[type=reset].transpie
@@ -181,44 +175,46 @@
 	cursor:pointer; 
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px;
+	-khtml-border-radius: 4px; 
 	border-radius: 4px;
 
 	border:1px solid white;  
 	
-	
 	height:33px; /*padding:7px 15px;*/
-	min-width: 60px;
-	width:auto !important;
-	width:60px;
+	padding:0 10px;
 	
 	background: #e0122d; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UwMTIyZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1YzFlMmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, #e0122d 0%, #5c1e2f 100%); /* FF3.6+ */
+	background: -moz-linear-gradient(top,  #e0122d 0%, #5c1e2f 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e0122d), color-stop(100%,#5c1e2f)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #e0122d 0%,#5c1e2f 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #e0122d 0%,#5c1e2f 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #e0122d 0%,#5c1e2f 100%); /* IE10+ */
-	background: linear-gradient(top, #e0122d 0%,#5c1e2f 100%); /* W3C */
-	-pie-background: linear-gradient(top, #e0122d 0%,#5c1e2f 100%); /* IE 6-8 */ 
+	background: -webkit-linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* IE10+ */
+	background: linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* W3C */
+	-pie-background: linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* W3C */
+	behavior: url(PIE.htc); /*For IE */
 	
-	behavior: url(csTransPie/PIE.htc);
 }
 /*================================================================ FORM =================================================================*/
 .transpie form, form.transpie
 {	
 	padding:0; margin:0;
+	
 }
 .transpie fieldset, fieldset.transpie
 {
 	border:1px solid #dedede; /* Default fieldset borders vary cross browser, so make them the same */
 	padding:5px;
+	
+	
+	
 }
 .transpie legend, legend.transpie
 {	
 	color:#0b77b7;
 	font-size:1.1em;
+	
 }
 
 
@@ -249,7 +245,7 @@
 	background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* W3C */
 	-pie-background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* IE 6-8 */
 
-	behavior: url(csTransPie/PIE.htc); /*For IE */
+	behavior: url(PIE.htc); /*For IE */
 }
 
 
@@ -290,7 +286,7 @@
    -khtml-border-radius: 3px;
 	border-radius:3px;
 	
-	behavior: url(csTransPie/PIE.htc);
+	behavior: url(PIE.htc);
 }
 
 .cTPSelectWrapper ul {
@@ -361,7 +357,7 @@
 	border-radius:20px;
 	border:#F0F0FA 3px solid;
 	background:#FFF;
-	behavior: url(csTransPie/PIE.htc);*/
+	behavior: url(PIE.htc);*/
 }
 
 /* radio checked */
@@ -400,7 +396,7 @@
 	border-radius:3px;
 	border:#F0F0FA 3px solid;
 	background:#FFF;
-	behavior: url(csTransPie/PIE.htc);*/
+	behavior: url(PIE.htc);*/
 }
 
 /*checkbox checked*/
@@ -418,3 +414,4 @@
    border-radius:5px;  
    */
  } 
+ 
