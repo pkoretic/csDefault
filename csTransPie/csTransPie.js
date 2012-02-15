@@ -70,6 +70,7 @@ else {
 	 
 	$.fn.cTPCheckBox = function(){
 		return this.each(function(){
+			if($(this).hasClass('cTPHidden')) {return;} //prevent multiple styles
 			var checkbox = $(this); //jquery object of original element
 
 			checkbox.data('val', this.checked); //save original value
@@ -159,7 +160,7 @@ else {
 	$.fn.cTPRadio = function(){
 	
 		return this.each(function(){
-			//if($(this).hasClass('cTPHidden')) {return;}
+			if($(this).hasClass('cTPHidden')) {return;}
 		
 			var radio = $(this); //jquery object of original element
 			
@@ -216,7 +217,7 @@ else {
 		return this.each(function(index){
 		
 			var $select = $(this);
-			//if($select.hasClass('cTPHidden')) {return;} //if it's hidden
+			if($select.hasClass('cTPHidden')) {return;} //if it's hidden
 			if($select.attr('multiple')) {return;} //if it's a type of multiple select
 
 			/* First thing we do is Wrap it */
@@ -292,11 +293,11 @@ else {
 	//style every element with appropriate class
 	$.fn.cTP = function()
 	{
-			$('.transpie input:checkbox, input:checkbox.transpie').cTPCheckBox();
-			$('.transpie input:radio, input:radio.transpie').cTPRadio();
-			$('.transpie [title], [title].transpie').cTPTitle();
+			$('.transpie input:checkbox, input:checkbox.transpie',$(this).parent()).cTPCheckBox();
+			$('.transpie input:radio, input:radio.transpie',$(this).parent()).cTPRadio();
+			$('.transpie [title], [title].transpie',$(this).parent()).cTPTitle();
 			
-			if( $('.transpie select, select.transpie').cTPSelect().length > 0 ){cTPAddDocumentListener();}
+			if( $('.transpie select, select.transpie',$(this).parent()).cTPSelect().length > 0 ){cTPAddDocumentListener();}
 			
 			//catch reset in a form (if there is one in our element) - we have to reset our elements manually
 			$('form',this).on('reset',function(){ cTPReset(this)});
