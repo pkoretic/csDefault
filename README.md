@@ -1,11 +1,12 @@
 <h1>
       csTransPie
 </h1>
-inspired and based on jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/   
+inspired by jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/   
 
 [Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)
 
-
+**Development**  
+It is and it will always be under active development. Currently there are some major thing under development so be patient, see TODO list below.
 
 It's designed as a cross-browser CSS3 library for styling - one .js/.css file which would give all elements styling they need
 (a great library [css3Pie](http://css3pie.com/) is used for IE - please support it!)   
