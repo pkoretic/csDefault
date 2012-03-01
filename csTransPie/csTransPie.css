@@ -1,186 +1,240 @@
 /*
-* inspired by jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/
+
+csTransPie - Make elements as they should be in every browser
 
 *Petar Koretić
 * Started  30.01.2012*
 
-*every element is written with css(3) only, no images needed (see below)! css3pie used for IE*
-*only one sprite img used - one request! - for checkbox and radio buttons, optional css only code is provided below, I just like them more image-based*
-*all elements can be used separately, they are not form dependant*
-*transpie class for direct css markup *
-*cTP class for dynamically added markup via javascript to elements with transpie class*
-*PIE.htc path is relative from the page being called - that is main (index.html, demo.html) file, not the .css file being called from -
- *Gradient code is provided for all browsers, even SVG version which is for IE 9 - because IE9 has problems with PIE.htc content and we want to be sure it works in any case 
- PIE.htc (for graidents) can be avoided but IE9 requires filter:none while IE<9 requires it set to graident which in the end would require a JS or CSS conditional hack (see below) while we still need CSS3PIE for round corners*
+ *every element is written with css(3) only, no images needed except for checkbox and radio buttons - I just like them more image-based*
+ *Gradient code is provided for all browsers, even SVG version which is for IE 9 *
+ *!! position:relative !! is used for IE8 cleartype-filter "bug" so have that in mind!*
  I don't use them, but you newer know - http://paulirish.com/2009/browser-specific-css-hacks/ http://dimox.net/personal-css-hacks-for-ie6-ie7-ie8/
  */
  
-
-
-.transpie label[for] {font:12px arial;} /* If label bound to element, style it */
+ /*==============================================================================================================================================
+															SET DEFAULT STYLES FOR MANY ELEMENTS
+================================================================================================================================================*/
+ html, body, div, h1, h2, h3, h4, h5, h6, p, img, dl,
+  dt, dd, ol, ul, li, table, tr, td, form, object, embed,
+  article, aside, canvas, command, details, fieldset,
+  figcaption, figure, footer, group, header, hgroup, legend,
+  mark, menu, meter, nav, output, progress, section, summary,
+  time, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position:relative; /*!!IE filter-cleartype workaround!!*/
+  }
+  article, aside, details, figcaption, figure, footer,
+  header, hgroup, menu, nav, section {
+  display: block;
+  }
+  html {
+  font: 81.25% arial, helvetica, sans-serif;
+  color: #333;
+  line-height: 1;
+  direction: ltr;
+  }
+  a {
+  color: #C8C8C8;
+  text-decoration: none;
+  }
+  a:active {
+  color: #C8C8C8;
+  }
+  a:hover {
+  text-decoration: underline;
+  }
+  h1, h2, h3, h4, h5, h6 {
+  color: #222;
+  font-size: 1.54em;
+  font-weight: normal;
+  line-height: 24px;
+  margin: 0 0 .46em;
+  }
+  p {
+  line-height: 17px;
+  }
+  ol, ul {
+  list-style: none;
+  line-height: 17px;
+  margin: 0 0 1em;
+  }
+  li {
+  margin: 0 0 .5em;
+  }
+  table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  }
+  strong {
+  color: #222;
+  }
+ hr {border-top:none;border-left:none;border-right:none;border-bottom:1px solid #D2D2D2;clear:both;height:1px;}
  
-.cTPHidden  {display:none;} /* Hiding Original Elements */
+ /*==============================================================================================================================================
+														 HELPER CLASSES FOR JQUERY
+================================================================================================================================================*/
+.cTPHidden  {display:none;} /* Helper class for Hiding Original Elements */
+.cTPHiddenFile {width:1px;height:0;display:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
+.cTPDisabled{background-color: #E6E6E6 !important;  cursor:default !important;color:gray !important;border-color:#D3D3D3 !important; } /* Disabled elemenets */
 
-/*==============================================================================================================================================
-																EVENTS
-================================================================================================================================================*/																		
-
-/*========================================================= DISABLED ELEMENTS ==================================================================*/
-.transpie input:disabled ,.transpie input:disabled:hover
-{
-	background-color: #E6E6E6; 
-	cursor:default
-}
-/*============================================================= TEXTAREA =======================================================================*/
-.transpie textarea:hover,textarea.transpie:hover
-{ 
-	border-left-color:#CDCDD2; 
-	border-top-color:#CDCDD2; 
-	border-bottom-color:#E6EBF0;  
-	border-right-color:#E6EBF0;
-}
-/*======================================================= TEXT AND PASSWORD FIELD ==============================================================*/
-.transpie input[type=text]:hover, input[type=text].transpie:hover,.transpie input[type=password]:hover, input[type=password].transpie:hover
-{ 
-	border-left-color:#D2D2DC;
-	border-top-color:#D2D2DC; 
-	border-bottom-color:#E6E6F0;  
-	border-right-color:#E6E6F0;
-}
-/*========================================================= (SUBMIT) BUTTON:HOVER ==============================================================*/
-.transpie input[type=button]:hover,input[type=submit]:hover,button:hover,button.transpie:hover,input[type=button].transpie:hover,input[type=submit].transpie:hover
-{
-	border-color:#BEBEBE;
-	color:#333; 
-}
-/*===================================================== (SUBMIT) BUTTON:ACTIVE (PRESSED) =======================================================*/
-.transpie input[type=button]:active,input[type=submit]:active,button:active,button.transpie:active,input[type=button].transpie:active,input[type=submit].transpie:active
-{
-	border-color:lightgray; border-bottom-width:2px;
-}
-
-/*========================================================== INPUT TYPE=RESET:HOVER ==========================================================*/
-.transpie input[type=reset]:hover, input[type=reset].transpie:hover
-{
-	border-color:gray;
-}
-/*========================================================== INPUT TYPE=RESET:ACTIVE ==========================================================*/
-.transpie input[type=reset]:active, input[type=reset].transpie:active
-{
-	border-bottom-width:2px;
-}
-/*==============================================================================================================================================
+ /*==============================================================================================================================================
 																ELEMENTS
 ================================================================================================================================================*/
-/*============================================================= TITLE =======================================================================*/
-.cTPTitle
-{
-	display:none; 
-	position:fixed; 
-	background-color:#FFFF64; 
-	padding:5px; 
-	border:1px solid lightgray;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	border-radius: 4px;
-	/*no need for round borders in IE - looks just great*/
-}
 
-/*============================================================= TEXTAREA =======================================================================*/
-.transpie textarea, textarea.transpie 
+ textarea
 { 
-	background-color:#FBFBFF;
-	display:inline-block;
-	margin:1px; 
-	border-style:solid; 
-	font:12px arial; 
+	background:#FBFBFF;
 	resize:none; 
 	overflow:hidden; 
-	padding:4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	border-radius: 4px;
-	border-width:1px;  
+	padding:8px;
 	outline: none;  
-	border-top-color:#AAAAAA; border-right-color:#DCDCE6;border-bottom-color:#DCDCE6; border-left-color:#AAAAAA; 
-	behavior: url(PIE.htc);
+	border:1px solid #FFF;
+	border-color:#AAAAAA #DCDCE6 #DCDCE6 #AAAAAA; 
 }
 
-/*============================================================ TEXT AND PASSWORD FIELD ==========================================================*/
-.transpie input[type=text], input[type=text].transpie, .transpie input[type=password], input[type=password].transpie
-{ 
-	display:inline-block;
-	vertical-align:middle;
-	outline: none;
-	font:12px arial; 
-	margin: 1px;
-	height:29px; 
-	line-height:29px;
-	padding:0 4px;
-	background-color:#FBFBFF;
-	border-style:solid;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	border-radius: 4px;
-	border-width:1px;
-	border-left-color:#AAAAAA;border-top-color:#AAAAAA;border-bottom-color:#D7D7DC;border-right-color:#D7D7DC; 
-	behavior: url(PIE.htc);
-}
+ button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  }
+  
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+  border: 0;
+  }
+  
+  input[type=email],
+  input[type=number],
+  input[type=password],
+  input[type=search],
+  input[type=text],
+  input[type=url] {
+  background:#FBFBFF;
+  display: inline-block;
+  height: 29px;
+  line-height:29px;
+  margin: 0;
+  padding: 0 8px;
+  vertical-align:middle;
+  border:1px solid #FFF;
+  border-color:#AAAAAA #DCDCE6 #DCDCE6 #AAAAAA; 
+  }
+
+  input[type=email]:hover,
+  input[type=number]:hover,
+  input[type=password]:hover,
+  input[type=search]:hover,
+  input[type=text]:hover,
+  input[type=url]:hover , 
+  textarea:hover{
+  border-color:#D2D2DC #E6E6F0 #E6E6F0 #D2D2DC;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+  input[type=email]:focus,
+  input[type=number]:focus,
+  input[type=password]:focus,
+  input[type=search]:focus,
+  input[type=text]:focus,
+  input[type=url]:focus , 
+  textarea:focus{
+  outline: none;
+  border: 1px solid #B4B4FA;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  background:#FFF
+  }
+  input[type=email][disabled=disabled],
+  input[type=number][disabled=disabled],
+  input[type=password][disabled=disabled],
+  input[type=search][disabled=disabled],
+  input[type=text][disabled=disabled],
+  input[type=url][disabled=disabled] {
+  border: 1px solid #e5e5e5;
+  background: #f5f5f5;
+  }
+  input[type=email][disabled=disabled]:hover,
+  input[type=number][disabled=disabled]:hover,
+  input[type=password][disabled=disabled]:hover,
+  input[type=search][disabled=disabled]:hover,
+  input[type=text][disabled=disabled]:hover,
+  input[type=url][disabled=disabled]:hover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
+  input[type=email][readonly=readonly],
+  input[type=number][readonly=readonly],
+  input[type=password][readonly=readonly],
+  input[type=text][readonly=readonly],
+  input[type=url][readonly=readonly] {
+  border: 1px solid #d9d9d9;
+  }
+  input[type=email][readonly=readonly]:hover,
+  input[type=number][readonly=readonly]:hover,
+  input[type=password][readonly=readonly]:hover,
+  input[type=text][readonly=readonly]:hover,
+  input[type=url][readonly=readonly]:hover,
+  input[type=email][readonly=readonly]:focus,
+  input[type=number][readonly=readonly]:focus,
+  input[type=password][readonly=readonly]:focus,
+  input[type=text][readonly=readonly]:focus,
+  input[type=url][readonly=readonly]:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
+
+/*============================================================= TEXTAREA =======================================================================*/
+
 
 /*============================================================= (SUBMIT) BUTTON =================================================================*/
-.transpie input[type=button],input[type=submit],button,button.transpie,input[type=button].transpie,input[type=submit].transpie
+ input[type=button],input[type=submit],button
 {
+
 	vertical-align:middle;
 	display:inline-block;
-    font:12px arial; 
 	margin: 1px;
 	outline:none;
 	cursor:pointer; 
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	border-radius: 4px;
-
-	border:1px solid transparent;  
-	border-color:#CCC; 
-	border-bottom-color:#BEBEBE; 
-	
-	height:33px; /*padding:7px 15px;*/
+	border:1px solid #C8C8C8;  
+	border-bottom-color:#B4B4B4;
+	border-right-color:#AAAAAA;
+	height:31px; /*padding:7px 15px;*/
 	padding:0 10px;
-
-	background: #fafafa; /* Old browsers */
+	background: #ffffff; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  #fafafa 0%, #e6e6e7 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e6e6e7)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* IE10+ */
-	background: linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* W3C */
-	-pie-background: linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* W3C */
-	behavior: url(PIE.htc); /*For IE */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f0f0f5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f0f0f5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f5',GradientType=0 ); /* IE6-8 */
+	zoom:1;
+
 }
 /*============================================================= INPUT TYPE=RESET =================================================================*/
-.transpie input[type=reset], input[type=reset].transpie
+ input[type=reset]
 {
-	color:white;
+	font:12px arial;
+	color:#FFF;
+	border:1px solid #B4B4C8;  
+
 	vertical-align:middle;
 	display:inline-block;
-    font:12px arial; 
 	margin: 1px;
 	outline:none;
 	cursor:pointer; 
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px; 
-	border-radius: 4px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 
-	border:1px solid white;  
-	
-	height:33px; /*padding:7px 15px;*/
+	height:31px; /*padding:7px 15px;*/
 	padding:0 10px;
 	
 	background: #e0122d; /* Old browsers */
@@ -192,226 +246,241 @@
 	background: -o-linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* IE10+ */
 	background: linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* W3C */
-	-pie-background: linear-gradient(top,  #e0122d 0%,#5c1e2f 100%); /* W3C */
-	behavior: url(PIE.htc); /*For IE */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0122d', endColorstr='#5c1e2f',GradientType=0 ); /* IE6-8 */
+	zoom:1;
 	
 }
-/*================================================================ FORM =================================================================*/
-.transpie form, form.transpie
-{	
-	padding:0; margin:0;
-	
-}
-.transpie fieldset, fieldset.transpie
+/*================================================================ FORM / FIELDSET / LEGEND =================================================================*/
+
+ fieldset
 {
 	border:1px solid #dedede; /* Default fieldset borders vary cross browser, so make them the same */
 	padding:5px;
-	
-	
-	
 }
-.transpie legend, legend.transpie
+ legend
 {	
 	color:#0b77b7;
 	font-size:1.1em;
-	
 }
 
 
-.cTPSelectWrapper 
+/*============================================================= TITLE =======================================================================*/
+.cTPTitle
 {
-	font-weight:bold;
+	font:12px arial;
+	position:absolute; 
+	background:#FFFF64; 
+	padding:5px; 
+	border:1px solid #D3D3D3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display:none; 
+	z-index:2;
+	
+	/*no need for round borders in IE<9 - looks just great*/
+}
+
+/* //IE<=7 doesn't support :after pseudo selector, leave it, we may use it in a year or two
+ [title]:hover {
+  position: relative;
+}
+ //title is removed and added to data-title in .js
+ [title]:hover:after {
+  content: attr(data-title);
+  padding:5px;
+  position: absolute;
+  left:50%;
+  bottom: 100%;
+  white-space: nowrap;
+  z-index: 20px;
+  border:1px solid #D3D3D3;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+
+  background:#FFFF64; 
+
+}
+*/
+
+/*============================================================= SELECT =======================================================================*/
+select
+{
+	cursor: pointer;
+	width: 100%;
+	height:100%;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 1;
+	padding:0;margin:0;
+	position:absolute;
+	left:0;
+	top:0;
+	width:150px;
+}
+
+.cTPSelect 
+{
+	width:150px;
+	font:12px arial;
 	position:relative;
 	vertical-align:middle;
 	display:inline-block;
-	height:31px;
+	height:32px;
 	margin: 1px;
 	background: #F5F5F5;
 	border:1px solid transparent;
 	border-left-color:#DCDCE6;border-top-color:#DCDCE6;border-bottom-color:#BEBEC3;border-right-color:#BEBEC3; 
-	-webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius:3px;
+
 	background: rgb(250,250,250); /* Old browsers */
 	
 	/*IE 9*/
+	background: #fafafa; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  rgba(250,250,250,1) 0%, rgba(230,230,231,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(250,250,250,1)), color-stop(100%,rgba(230,230,231,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* W3C */
-	-pie-background: linear-gradient(top,  rgba(250,250,250,1) 0%,rgba(230,230,231,1) 100%); /* IE 6-8 */
+	background: -moz-linear-gradient(top,  #fafafa 0%, #e6e6e7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e6e6e7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* IE10+ */
+	background: linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e6e6e7',GradientType=0 ); /* IE6-8 */
+	zoom:1;
 
-	behavior: url(PIE.htc); /*For IE */
 }
 
 
-
-.cTPSelectWrapper div span 
+.cTPSelectBar 
 {
-	font-family:arial;
-	float:none;
-	position:absolute;
+	font-weight:bold;
 	white-space:nowrap;
 	height:15px;
 	line-height:15px;
 	overflow:hidden;
 	cursor:pointer;
-	padding:8px 0 0 7px;
-	text-align:center
-
+	padding-top:8px;
+	text-align:center;
+	display:inline-block;
+	margin-left:5px;
+	
 }
 
 /*select arrow - arrow is added in javascript - &#9660;*/
-.cTPSelectWrapper .cTPSelectOpen {
-	font:11px arial;
+.cTPSelectOpen {
+	font:0.7em arial;
 	outline:none;
 	color:#000;
 	text-decoration:none;
-	display:block;
+	display:inline-block;
 	position:absolute;
 	right:0;
 	width:32px;
-	height:22px;
+	height:21px;
 	text-align:center;
-	padding-top:8px;
+	padding-top:10px;
 	background: #FAFAFB;
 	border-left:1px solid #DCDCE1;
 	border-bottom:1px solid #DCDCE1;
-	-webkit-border-radius: 3px;
-   -moz-border-radius: 3px;
-   -khtml-border-radius: 3px;
-	border-radius:3px;
 	
-	behavior: url(PIE.htc);
-}
-
-.cTPSelectWrapper ul {
-	position:absolute;
-	width:43px;
-	top:30px;
-	left:0;
-	list-style:none;
-	background-color:#FFF;
-	border:solid 1px #CCC;
-	display:none;
-	height:150px;
-	overflow:auto; /*overflow-y:auto*/
-	z-index:10;
-	margin:0;
-	padding:0;
 	
 }
 
-.cTPSelectWrapper ul a 
-{
-	font-family:Arial,Helvetica,sans-serif;
-	font-weight:normal;
-	font-size:12px;
-	display:block;
-	text-decoration:none;
-	color:#333;
-	background-color:#FFF;
-	padding:5px;
-}
-
-.cTPSelectWrapper ul .selected 
-{
-	background:#ededed;
-	color:#333;
-}
-
-.cTPSelectWrapper ul a:hover,.cTPSelectWrapper ul a.selected:hover 
-{
-	background:#78A5CC;
-	color:#fff;
-}
-
-
-.cTPRadioWrapper 
+/*============================================================= INPUT TYPE=FILE =======================================================================*/
+.cTPFile 
 {
 	display:inline-block;
-	margin-top:5px;
-	vertical-align:-5px 
+	vertical-align:middle;
+	
+}
+.cTPFileInput
+{	
+	display:inline-block;
+	vertical-align:middle;
+	border:1px solid #C8C8C8 !important;
 }
 
-.cTPRadio {
+/*============================================================= RADIO =======================================================================*/
+input[type=radio]
+{
+	opacity: 0;
+	filter: alpha(opacity=0);
+	outline:none;
+	position:relative;
+}
+.cTPRadio
+{
+	display:inline-block;
+	position:relative;
+	vertical-align:-1px;
+}
 
+.cTPRadioElem {
 	outline:none;
 	display:inline-block;
-
-/* background images solution */
 	background:transparent url(img.png)  -8px -10px;
-	height:19px; width:18px;
-
-/* css only solution */
-/*
-	width:10px;
-	height:10px;
-	display:block;
-	-webkit-border-radius: 20px;
-   -moz-border-radius: 20px; 
-	border-radius:20px;
-	border:#F0F0FA 3px solid;
-	background:#FFF;
-	behavior: url(PIE.htc);*/
+	height:19px; 
+	width:18px;
+	cursor:default;
+	position:absolute;
 }
 
 /* radio checked */
 .cTPCheckedR 
 {
-    /* background images solution */
    background-position:-8px -29px; 
-   
-   /* css only solution */
-   /*border:#E6E6F5 5px solid;background:#969696;width:6px;height:6px;*/
  } 
-
-.cTPCheckboxWrapper 
+/*============================================================= CHECKBOX =======================================================================*/
+input[type=checkbox]
+{
+	opacity: 0;
+	filter: alpha(opacity=0);
+	outline:none;
+	position:relative;
+}
+.cTPCheckbox
 {
 	display:inline-block;
-	vertical-align:-5px 
+	position:relative;
+	vertical-align:-1px;
+	
 }
 
-.cTPCheckbox 
+.cTPCheckboxElem
 {
+	position:absolute;
 	outline:none;
 	display:inline-block;
-
-	/*img solution*/
 	background:transparent url(img.png) -8px -68px;
 	height:19px;
 	width:18px;
-
-	/*css only solution*/
-
-	/*width:10px;
-	height:10px;
-	display:block;
-	-webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-	border-radius:3px;
-	border:#F0F0FA 3px solid;
-	background:#FFF;
-	behavior: url(PIE.htc);*/
+	cursor:default
 }
 
 /*checkbox checked*/
 .cTPChecked 
 { 
   background-position: -8px -87px;
-  
- /* css only solution */
- /*border:#FFF 7px double;
-   background:#C8C8D2;
-   width:2px;
-   height:2px; 
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius:5px;  
-   */
  } 
- 
+
+/*==============================================================================================================================================
+																EVENTS
+================================================================================================================================================*/																		
+
+.cTPSelect:hover
+{
+	border:1px solid #C8C8DC;
+}
+
+/*========================================================= RESET, (SUBMIT) BUTTON:HOVER ==============================================================*/
+ input[type=button]:hover, input[type=reset]:hover,input[type=submit]:hover,button:hover
+{
+	border-color:#D2D2D2;
+}
+/*===================================================== RESET, (SUBMIT) BUTTON:ACTIVE (PRESSED) =======================================================*/
+ input[type=button]:active, input[type=reset]:active,input[type=submit]:active,button:active
+{
+	border-color:#D3D3D3; border-bottom-width:2px;
+}
+
+:root *> * {filter:none !important}
