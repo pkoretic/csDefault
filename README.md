@@ -1,31 +1,29 @@
 <h1>
       csTransPie
 </h1>
-inspired by jqtransform http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/   
 
 [Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)
+It started in 30.01.2012
 
 **Development**  
-It is and it will always be under active development. Currently there are some major thing under development so be patient, see TODO list below.
+It is and it will always be under active development. 
+Today, whole library has been updated. It was rewritten to use less javascript and to be as simple as possible.
+New page and domain are in progress.
 
-It's designed as a cross-browser CSS3 library for styling - one .js/.css file which would give all elements styling they need
-(a great library [css3Pie](http://css3pie.com/) is used for IE - please support it!)   
-It's less than **10kb** in size (PIE.htc is 40kb)
+It's designed as a cross-browser CSS(3) library for styling - one .js/.css file which would give all elements styling they need
+It's less than **14kb minified** 
 
-(note: jquery 1.7 is needed and PIE.htc has to be in the same folder as the file that's executing! - index.html for example)
+(note: jquery 1.7 is needed )
 
-All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!**  
+All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!** elements are only styled and 'fixed' to be cross browser compatible 
 
-It started in 30.01.2012 and it's considered **stable**! Still, it's daily updated!  
-
-All elements are created with CSS(3) without images (still, I like radio and checkboxes more with background images so they are using it (673 bytes in size)  
-optional css is inclued in csTransPie.css if you want them to be CSS-only based)
+All elements are created with CSS(3) without images (still, I like radio and checkboxes more with background images so they are using it - 673 bytes in size)
 
 <h1>
       Cross-browser
 </h1>
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS3!  
-(Note that PIE.htc is used only by IE browsers, others ignore it)  
+(Note that css3PIE is not used anymore, see the CSS for details)  
 Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - **please test** more and **report back**!
 
 
@@ -40,27 +38,19 @@ Download it here from git and add
       <script type="text/javascript" src="csTransPie/csTransPie.js"></script>  
       
 **csTransPie** and  **csTransPie-min** are provided.  
-**csTransPie-min** is obviously minified version and it doesn't contain CSS-only code for radios and checkboxes. For that reffer to **csTransPie** which also contains comments for easier development.
+**csTransPie-min** is obviously minified version
 
 Usage
 =======================  
-Just add **transpie** class to parent element  
+Just include it in your code and thats it!
 
-      <div class="transpie"> <input type="text" /> <input type="button" value="nice"/> </div>  
-      
-or to one element  
+**Dynamic elements**
+Call jquery function on (parent) element which was created dynamically
 
-      <input type="text" class="transpie" /> <input type="button" value="default"/>  
-      
-or call jquery function on (parent) element which was created dynamically - select, radio, checkbox 
-
-      $(".transpie").cTP();  
+      $('<input type="text" value="I'm dynamic" />').cTP();  
             
 TODO
 ========================
-rewrite code for 'select' and 'label', clean .css, clean .js  
-use dynamically added PIE.js or some other option - maybe rewrite PIE.js using jquery?  
-input[type=file] - input field for upload obviously  
-cs-bar - cross browser helper for creating a nice bar  
-cs-body - cross browser helper for creating a nice body  
-Themes - since we are using CSS themeing is quite easy
+Broad testing with dynamic elements
+New page and demos
+Themes - since we are using CSS themeing is quite easy (consider it as an optional file)
