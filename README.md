@@ -10,7 +10,7 @@ It is and it will always be under active development.
 Today, whole library has been updated. It was rewritten to use less javascript and to be as simple as possible.
 New page and domain are in progress.
 
-It's designed as a cross-browser CSS(3) library for styling - one .js/.css file which would give all elements styling they need
+It's designed as a cross-browser CSS(3) library for styling - one .js/.css file which would give all elements styling they need  
 It's less than **14kb minified** 
 
 (note: jquery 1.7 is needed )
