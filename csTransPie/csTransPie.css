@@ -76,7 +76,7 @@ csTransPie - Make elements as they should be in every browser
 														 HELPER CLASSES FOR JQUERY
 ================================================================================================================================================*/
 .cTPHidden  {display:none;} /* Helper class for Hiding Original Elements */
-.cTPHiddenFile {width:1px;height:0;display:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
+.cTPHiddenFile {width:1px;height:0;visibility:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
 .cTPDisabled{background-color: #E6E6E6 !important;  cursor:default !important;color:gray !important;border-color:#D3D3D3 !important; } /* Disabled elemenets */
 
  /*==============================================================================================================================================
