@@ -33,11 +33,12 @@ Download
 =======================   
 Download it here from git and add  
 
-      <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.css" />  
+      <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
-      <script type="text/javascript" src="csTransPie/csTransPie.js"></script>  
+      <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
       
-**csTransPie** and  **csTransPie-min** are provided.  
+**csTransPie** and  **csTransPie-min** are provided  
+**csTransPie** has all the comments for easier development  
 **csTransPie-min** is obviously minified version
 
 Usage
