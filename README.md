@@ -22,8 +22,8 @@ All elements are created with CSS(3) without images (still, I like radio and che
 <h1>
       Cross-browser
 </h1>
-**try it in IE**! Notice how everything looks the same as in other browsers - using CSS3!  
-(Note that css3PIE is not used anymore, see the CSS for details)  
+**try it in IE**! Notice how everything looks the same as in other browsers - using CSS!  
+(Note that css3PIE is not used anymore, see the CSS file for details)  
 Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - **please test** more and **report back**!
 
 
