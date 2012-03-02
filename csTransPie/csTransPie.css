@@ -67,9 +67,7 @@ csTransPie - Make elements as they should be in every browser
   border-collapse: collapse;
   border-spacing: 0;
   }
-  strong {
-  color: #222;
-  }
+
  hr {border-top:none;border-left:none;border-right:none;border-bottom:1px solid #D2D2D2;clear:both;height:1px;}
  
  /*==============================================================================================================================================
