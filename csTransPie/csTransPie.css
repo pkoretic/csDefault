@@ -23,7 +23,7 @@ csTransPie - Make elements as they should be in every browser
   margin: 0;
   padding: 0;
   border: 0;
-  position:relative; /*!!IE filter-cleartype workaround!!*/
+  position:relative; /*IE filter-cleartype workaround*/
   }
   article, aside, details, figcaption, figure, footer,
   header, hgroup, menu, nav, section {
@@ -36,11 +36,11 @@ csTransPie - Make elements as they should be in every browser
   direction: ltr;
   }
   a {
-  color: #C8C8C8;
+  color: #15c;
   text-decoration: none;
   }
   a:active {
-  color: #C8C8C8;
+  color: #d14836;
   }
   a:hover {
   text-decoration: underline;
@@ -350,7 +350,6 @@ select
 
 }
 
-
 .cTPSelectBar 
 {
 	font-weight:bold;
@@ -371,10 +370,11 @@ select
 	font:0.7em arial;
 	outline:none;
 	color:#000;
-	text-decoration:none;
+	cursor:pointer;
 	display:inline-block;
 	position:absolute;
 	right:0;
+	top:0;
 	width:32px;
 	height:21px;
 	text-align:center;

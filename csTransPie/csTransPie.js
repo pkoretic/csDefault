@@ -49,7 +49,7 @@ else {
 		{
 			//for security reasons we can't set value for input file in many browsers so we do this...
 			$(this).val("");//if browser can set value (older browsers) set it to none
-			$(".cTPFileInput",$(this).parent()).html("&nbsp;"); //set our element to none
+			$(".cTPFileInput",$(this).parent()).html("&nbsp;"); //set our element to space
 		});//$('input:radio', f).each(function()
 		
 	}; //var cTPReset = function(f){
@@ -61,7 +61,7 @@ else {
 	$.fn.cTPCheckBox = function(){
 		return this.each(function(){
 			var checkbox = $(this); //jquery object of original element
-
+			if(checkbox.data("val")!=null) return; //check if there is already something which means we processed it
 			checkbox.data('val', this.checked); //save original value
 			var aElem = $('<a href="#" class="cTPCheckboxElem"></a>'); //create our new element
 			
@@ -90,7 +90,7 @@ else {
 		return this.each(function(){
 
 			var radio = $(this); //jquery object of original element
-			
+			if(radio.data("val")!=null) return; //check if there is already something which means we processed it
 			radio.data('val', this.checked); //save original value
 			
 			var aElem = $('<a href="#" class="cTPRadioElem"></a>'); //create our new element
@@ -123,7 +123,7 @@ $.fn.cTPFile = function(){
 		
 		file=$(this);
 		
-		if(file.hasClass('cTPHiddenFile')) {return;} //if it's hidden already
+		if(file.hasClass('cTPHiddenFile')) {return;} //if it's already processed return
 		
 		var title="";
 		if(file.attr("title")) 
@@ -133,7 +133,7 @@ $.fn.cTPFile = function(){
 		}
 		var buttonText="Browse"; //default input file button value
 		if(file.data('button'))buttonText=file.data('button'); //if there is text for our button set, use that instead
-		file.addClass('cTPHiddenFile').wrap('<span '+title+' class="cTPFile"></span>').parent().prepend('<input disabled="disabled" type="text" class="cTPFileInput" /></span><input type="button" value="'+buttonText+'" />'); //hide original element and create our new element
+		file.addClass('cTPHiddenFile').wrap('<span '+title+' class="cTPFile"></span>').parent().prepend('<input readonly="readonly" type="text" class="cTPFileInput" /></span><input type="button" value="'+buttonText+'" />'); //hide original element and create our new element
 		
 		if(file.attr('disabled')) file.parent().find("input").addClass("cTPDisabled");
 		
@@ -141,7 +141,6 @@ $.fn.cTPFile = function(){
 		$(file.parent()).on("click","input[type=button]",function()
 		{
 			$("input[type=file]",$(this).parent()).click();
-			return false; //prevent click - which sets # in url
 		});
 		
 		//only prevent click if the original input is disabled
@@ -166,12 +165,11 @@ $.fn.cTPFile = function(){
 	$.fn.cTPSelect = function(){
 		//do this for every select
 		return this.each(function(){
-		
 			var select = $(this);
-			if(select.hasClass('cTPHidden')) {return;} //if it's hidden
-			if(select.attr('multiple')) {return;} //if it's a type of multiple select
+			if(select.data('styled')) return; //if it's hidden
+			if(select.attr('multiple')) return; //if it's a type of multiple select
 			
-			select.wrap('<div class="cTPSelect"></div>').parent().prepend('<span class="cTPSelectBar">'+$("option:selected",select).text()+'</span><a href="#" class="cTPSelectOpen">&#9660;</a>');
+			select.wrap('<div class="cTPSelect"></div>').parent().prepend('<span class="cTPSelectBar">'+$("option:selected",select).text()+'</span><span class="cTPSelectOpen">&#9660;</span>');
 			
 			if(select.attr('disabled')) $wrapper.addClass("cTPDisabled");
 			
@@ -180,7 +178,8 @@ $.fn.cTPFile = function(){
 				//update text
 				$("span:first",$(this).parent()).text($("option:selected",$(this).parent()).val());
 			});
-		});
+			select.data("styled","1");
+		}); //each
 	};
 
 /*=============================================================================================================================================
@@ -214,7 +213,7 @@ $.fn.cTPFile = function(){
 					$(this).next().css
 					({
 						top: pos.bottom + "px",
-						left: (pos.left + width)  + 10 +"px",
+						left: (pos.left + width)  + 10 + "px",
 						display:"inline"
 					});
 				}, 
@@ -233,7 +232,7 @@ $.fn.cTPFile = function(){
 		return this.each(function(){
 			label=$(this);
 			if(label.data("styled")) return; //if we already processed this label return
-			//if element corresponding to this label is disabled..."disable" this label (browser will disabled it, we add class
+			//if element corresponding to this label is disabled..."disable" this label (browser will disabled it, we add class)
 			if($("#"+label.attr("for")).attr("disabled")=="disabled") 
 			{
 				label.addClass("cTPDisabled");
@@ -246,15 +245,17 @@ $.fn.cTPFile = function(){
 ==============================================================================================================================================*/
 	$.fn.cTP = function()
 	{
-			
-			$(':checkbox',this).cTPCheckBox();
-			$(':radio',this).cTPRadio();
-			$(':file',this).cTPFile();
-			$('select',this).cTPSelect();			
-			$("label[for]",this).cTPLabel(); //process only labels bound to element
+				var elem=this;
+				if(!$.isArray(this)) elem=$(this).parent(); //if we got only one element call it on parent (our functions deal with arrays)
+				
+				$(':checkbox',elem).cTPCheckBox();
+				$(':radio',elem).cTPRadio();
+				$(':file',elem).cTPFile();
+				$('select',elem).cTPSelect();			
+				$("label[for]",elem).cTPLabel(); //process only labels bound to element
 		
-			$('form',this).on('reset',function(){ cTPReset(this)}); //catch reset in a form (if there is one in our element) - we have to reset our elements manually
-			$('[title]',this).cTPTitle(); //has to be last since we are adapting titles in elements before	
+				$('form',elem).on('reset',function(){ cTPReset(elem)}); //catch reset in a form (if there is one in our element) - we have to reset our elements manually
+				$('[title]',elem).cTPTitle(); //has to be last since we are adapting titles in elements before	
 			
 	};/* End the Plugin */
 
