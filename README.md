@@ -52,6 +52,6 @@ Call jquery function on (parent) element which was created dynamically
             
 TODO
 ========================
-Broad testing with dynamic elements
-New page and demos
-Themes - since we are using CSS themeing is quite easy (consider it as an optional file)
+Broad testing with dynamic elements  
+New page and demos  
+Themes - since we are using CSS themeing is quite easy (consider it as an optional file)  
