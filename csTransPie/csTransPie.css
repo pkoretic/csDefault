@@ -362,7 +362,7 @@ select
 	text-align:center;
 	display:inline-block;
 	margin-left:5px;
-	
+	position:absolute;
 }
 
 /*select arrow - arrow is added in javascript - &#9660;*/
@@ -374,7 +374,6 @@ select
 	display:inline-block;
 	position:absolute;
 	right:0;
-	top:0;
 	width:32px;
 	height:21px;
 	text-align:center;
