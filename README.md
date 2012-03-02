@@ -46,9 +46,10 @@ Usage
 Just include it in your code and thats it!
 
 **Dynamic elements**
-Call jquery function on (parent) element which was created dynamically
+Call jquery function on parent element which was created dynamically
 
-      $('<input type="text" value="I'm dynamic" />').cTP();  
+      $("body").append('<div id="dynamic"><input type="text" value="I'm dynamic" /></div>');  
+      $("#dynamic").cTP();
             
 TODO
 ========================
