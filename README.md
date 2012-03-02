@@ -24,7 +24,7 @@ All elements are created with CSS(3) without images (still, I like radio and che
 </h1>
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS!  
 (Note that css3PIE is not used anymore, see the CSS file for details)  
-Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6 - **please test** more and **report back**!
+Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6, Safari 5 - **please test** more and **report back**!
 
 
 All suggestions are welcome.  
@@ -45,7 +45,7 @@ Usage
 =======================  
 Just include it in your code and thats it!
 
-**Dynamic elements**
+**Dynamic elements**  
 Call jquery function on parent element which was created dynamically
 
       $("body").append('<div id="dynamic"><input type="text" value="I'm dynamic" /></div>');  
