@@ -63,13 +63,14 @@ else {
 			var checkbox = $(this); //jquery object of original element
 			if(checkbox.data("val")!=null) return; //check if there is already something which means we processed it
 			checkbox.data('val', this.checked); //save original value
-			var aElem = $('<a href="#" class="cTPCheckboxElem"></a>'); //create our new element
+			var aElem = $('<span class="cTPCheckboxElem"></span>'); //create our new element
 			
 			//hide original element and create our new element
 			checkbox.wrap('<span class="cTPCheckbox"></span>').parent().prepend(aElem); 
 			
 			// set the default state - if checked, set checked class or leave it
 			this.checked && aElem.addClass('cTPChecked');
+	
 			
 			//if original checkbox clicked change the class of our element, browser will change the state of real element
 			checkbox.on("change",function()
@@ -93,7 +94,7 @@ else {
 			if(radio.data("val")!=null) return; //check if there is already something which means we processed it
 			radio.data('val', this.checked); //save original value
 			
-			var aElem = $('<a href="#" class="cTPRadioElem"></a>'); //create our new element
+			var aElem = $('<span class="cTPRadioElem"></span>'); //create our new element
 
 			radio.wrap('<span class="cTPRadio"></span>').parent().prepend(aElem); //hide original element and create our new element over it
 			
@@ -169,14 +170,16 @@ $.fn.cTPFile = function(){
 			if(select.data('styled')) return; //if it's hidden
 			if(select.attr('multiple')) return; //if it's a type of multiple select
 			
-			select.wrap('<div class="cTPSelect"></div>').parent().prepend('<span class="cTPSelectBar">'+$("option:selected",select).text()+'</span><span class="cTPSelectOpen">&#9660;</span>');
+			select.css("width",select.outerWidth()+30+"px"); // add width of our dropdown button
+			
+			select.wrap('<span class="cTPSelect"></span>').parent().prepend('<span class="cTPSelectBar">'+$("option:selected",select).text()+'</span><span class="cTPSelectOpen">&#9660;</span>');
 			
 			if(select.attr('disabled')) $wrapper.addClass("cTPDisabled");
-			
+
 			select.on("change",function()
 			{
 				//update text
-				$("span:first",$(this).parent()).text($("option:selected",$(this).parent()).val());
+				$(".cTPSelectBar",$(this).parent()).text($("option:selected",$(this).parent()).val());
 			});
 			select.data("styled","1");
 		}); //each

@@ -68,7 +68,7 @@ csTransPie - Make elements as they should be in every browser
   border-spacing: 0;
   }
 
- hr {border-top:none;border-left:none;border-right:none;border-bottom:1px solid #D2D2D2;clear:both;height:1px;}
+ hr {border:none; border-bottom:1px solid #D2D2D2;clear:both;height:1px;}
  
  /*==============================================================================================================================================
 														 HELPER CLASSES FOR JQUERY
@@ -76,7 +76,6 @@ csTransPie - Make elements as they should be in every browser
 .cTPHidden  {display:none;} /* Helper class for Hiding Original Elements */
 .cTPHiddenFile {width:1px;height:0;visibility:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
 .cTPDisabled{background-color: #E6E6E6 !important;  cursor:default !important;color:gray !important;border-color:#D3D3D3 !important; } /* Disabled elemenets */
-
  /*==============================================================================================================================================
 																ELEMENTS
 ================================================================================================================================================*/
@@ -306,61 +305,48 @@ csTransPie - Make elements as they should be in every browser
 select
 {
 	cursor: pointer;
-	width: 100%;
-	height:100%;
+	height:30px;
+	z-index: 9999 !important; /* jquery dialog */
+	position:relative;
 	opacity: 0;
 	filter: alpha(opacity=0);
-	z-index: 1;
-	padding:0;margin:0;
-	position:absolute;
-	left:0;
-	top:0;
-	width:150px;
+	border:none;
 }
 
 .cTPSelect 
 {
-	width:150px;
+
 	font:12px arial;
 	position:relative;
 	vertical-align:middle;
 	display:inline-block;
-	height:32px;
 	margin: 1px;
 	background: #F5F5F5;
 	border:1px solid transparent;
-	border-left-color:#DCDCE6;border-top-color:#DCDCE6;border-bottom-color:#BEBEC3;border-right-color:#BEBEC3; 
-
-	background: rgb(250,250,250); /* Old browsers */
-	
+	border-color:#DCDCE6 #BEBEC3 #BEBEC3 #D2D2DC;
+	background:#FFF;
 	/*IE 9*/
-	background: #fafafa; /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  #fafafa 0%, #e6e6e7 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e6e6e7)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* IE10+ */
-	background: linear-gradient(top,  #fafafa 0%,#e6e6e7 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e6e6e7',GradientType=0 ); /* IE6-8 */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f0f0f5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f0f0f5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 0%,#f0f0f5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f5',GradientType=0 ); /* IE6-8 */
 	zoom:1;
 
 }
 
 .cTPSelectBar 
 {
-	font-weight:bold;
-	white-space:nowrap;
-	height:15px;
-	line-height:15px;
-	overflow:hidden;
 	cursor:pointer;
 	padding-top:8px;
-	text-align:center;
 	display:inline-block;
-	margin-left:5px;
+	margin-left:10px;
 	position:absolute;
+	left:0;
+	white-space:nowrap;
 }
 
 /*select arrow - arrow is added in javascript - &#9660;*/
@@ -372,18 +358,21 @@ select
 	display:inline-block;
 	position:absolute;
 	right:0;
-	width:32px;
-	height:21px;
+	top:0;
+	width:30px;
+	height:19px;
 	text-align:center;
 	padding-top:10px;
-	background: #FAFAFB;
-	border-left:1px solid #DCDCE1;
+	border-left:1px solid #D2D2D7;
 	border-bottom:1px solid #DCDCE1;
-	
-	
+	background:#FFF;
 }
 
 /*============================================================= INPUT TYPE=FILE =======================================================================*/
+input[type=file]
+{
+height:32px;
+}
 .cTPFile 
 {
 	display:inline-block;
@@ -404,6 +393,7 @@ input[type=radio]
 	filter: alpha(opacity=0);
 	outline:none;
 	position:relative;
+	color:white; /*opera mini*/
 }
 .cTPRadio
 {
@@ -434,6 +424,8 @@ input[type=checkbox]
 	filter: alpha(opacity=0);
 	outline:none;
 	position:relative;
+	color:white; /*opera mini*/
+
 }
 .cTPCheckbox
 {
@@ -480,4 +472,4 @@ input[type=checkbox]
 	border-color:#D3D3D3; border-bottom-width:2px;
 }
 
-:root *> * {filter:none !important}
+:root *> * {filter:none !important;}
