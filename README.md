@@ -49,7 +49,7 @@ And that's it!
 
 Usage
 =======================  
-Just include it in your code and that's it!
+Just include it in your code and that's it! All element's will  get styled as soon as the DOM is ready  
 
 **Dynamic elements**  
 If you have elements created dynamically call jquery function on parent element which was created dynamically
