@@ -25,7 +25,8 @@ All elements are created with CSS(3) without images (still, I like radio and che
 </h1>
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS!  
 (Note that css3PIE is not used anymore, see the CSS file for details)  
-Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mini 6, Safari 5 - **please test** more and **report back**!
+Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mobile, Firefox Mobile, Safari 5 - **please test** more and **report back**!  
+Note: Opera mini has opacity problems which makes 'select element' having two text options (I've opted to using less javascript which makes library faster and cleaner so this is the side effect of CSS solution)
 
 
 All suggestions are welcome.  
@@ -48,14 +49,16 @@ And that's it!
 
 Usage
 =======================  
-Just include it in your code and thats it!
+Just include it in your code and that's it!
 
 **Dynamic elements**  
-Call jquery function on parent element which was created dynamically
+If you have elements created dynamically call jquery function on parent element which was created dynamically
 
-      $("body").append('<div id="dynamic"><input type="text" value="I'm dynamic" /></div>');  
+      $("body").append('<div id="dynamic"><input type="checkbox"/></div>');  
       $("#dynamic").cTP();
             
+Note: Calling .cTP function on any sort of text fields or buttons is not needed for the sake of element styling but there are titles and labels for that element that won't get styled unless you do call it.
+
 TODO
 ========================
 Broad testing with dynamic elements  
