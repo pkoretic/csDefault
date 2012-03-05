@@ -3,19 +3,20 @@
 </h1>
 
 [Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)  
-It started in 30.01.2012
+30.01.2012 - started  
+02.03.2012 - whole library rewritten
 
 **Development**  
 It is and it will always be under active development. 
-Today, whole library has been updated. It was rewritten to use less javascript and to be as simple as possible.
 New page and domain are in progress.
 
-It's designed as a **very lightweight** cross-browser CSS(3) library for styling - one .js/.css file which would give all elements styling they need  
-It's less than **14kb minified** 
+It's designed as a **very lightweight** cross-browser CSS(3) library which would give all elements styling they need  
+It's less than **14kb minified - 3kb gzipped** 
 
 (note: jquery 1.7 is needed )
 
-All elelemts are made like they should have been made - regular html elements but nicer - **no style breaking!** elements are only styled and 'fixed' to be cross browser compatible 
+All elelemts are regular html elements with style applied - **no html breaking!**  
+elements are only styled and 'fixed' to be cross browser compatible 
 
 All elements are created with CSS(3) without images (still, I like radio and checkboxes more with background images so they are using it - 673 bytes in size)
 
@@ -36,10 +37,14 @@ Download it here from git and add
       <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
       <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
-      
-**csTransPie** and  **csTransPie-min** are provided  
+
+And that's it!  
+  
+
 **csTransPie** has all the comments for easier development  
 **csTransPie-min** is obviously minified version
+**csHelper** is just a collection of classess for gradients and round borders for easier development and it's completely optional  
+
 
 Usage
 =======================  
