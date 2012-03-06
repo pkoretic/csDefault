@@ -88,7 +88,10 @@ csTransPie - Make elements as they should be in every browser
 	padding:8px;
 	outline: none;  
 	border:1px solid #FFF;
-	border-color:#AAAAAA #DCDCE6 #DCDCE6 #AAAAAA; 
+	 border-color:#D2D2DC #E6E6F0 #E6E6F0 #D2D2DC;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 }
 
  button, input, select, textarea {
@@ -115,7 +118,10 @@ csTransPie - Make elements as they should be in every browser
   padding: 0 8px;
   vertical-align:middle;
   border:1px solid #FFF;
-  border-color:#AAAAAA #DCDCE6 #DCDCE6 #AAAAAA; 
+   border-color:#D2D2DC #E6E6F0 #E6E6F0 #D2D2DC;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
   }
 
   input[type=email]:hover,
@@ -125,10 +131,7 @@ csTransPie - Make elements as they should be in every browser
   input[type=text]:hover,
   input[type=url]:hover , 
   textarea:hover{
-  border-color:#D2D2DC #E6E6F0 #E6E6F0 #D2D2DC;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    border-color:#AAAAAA #DCDCE6 #DCDCE6 #AAAAAA; 
   }
   input[type=email]:focus,
   input[type=number]:focus,
