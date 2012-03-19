@@ -179,7 +179,7 @@ $.fn.cTPFile = function(){
 			select.on("change",function()
 			{
 				//update text
-				$(".cTPSelectBar",$(this).parent()).text($("option:selected",$(this).parent()).val());
+				$(".cTPSelectBar",$(this).parent()).text($("option:selected",$(this).parent()).text());
 			});
 			select.data("styled","1");
 		}); //each
