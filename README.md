@@ -43,7 +43,7 @@ And that's it!
   
 
 **csTransPie** has all the comments for easier development  
-**csTransPie-min** is obviously minified version
+**csTransPie-min** is obviously minified version  
 **csHelper** is just a collection of classess for gradients and round borders for easier development and it's completely optional  
 
 
