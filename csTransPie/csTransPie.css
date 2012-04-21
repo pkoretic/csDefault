@@ -267,6 +267,7 @@ csTransPie - Make elements as they should be in every browser
 /*============================================================= TITLE =======================================================================*/
 .cTPTitle
 {
+	color:#000;
 	font:12px arial;
 	position:absolute; 
 	background:#FFFF64; 
