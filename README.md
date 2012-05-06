@@ -52,7 +52,9 @@ Usage
 Just include it in your code and that's it! All element's will  get styled as soon as the DOM is ready  
 
 **Dynamic elements**  
-If you have elements created dynamically call jquery function on parent element which was created dynamically
+If you have elements created dynamically call jquery function on (parent) element which was created dynamically
+      
+      $("body").append('<div id="dynamic"><input type="checkbox"/></div>').cTP(); //recommended  
 
       $("body").append('<div id="dynamic"><input type="checkbox"/></div>');  
       $("#dynamic").cTP();
