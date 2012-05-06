@@ -56,7 +56,7 @@ If you have elements created dynamically call jquery function on (parent) elemen
 
 recommended way
       
-      $("body").append('<div id="dynamic"><input type="checkbox"/></div>').cTP(); // 
+      $("body").append('<div id="dynamic"><input type="checkbox"/></div>').cTP();
 
 or
 
