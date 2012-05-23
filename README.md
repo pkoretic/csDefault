@@ -7,9 +7,9 @@
 02.03.2012 - whole library rewritten
 
 **Development**  
-It is and it will always be under active development. 
-New page and domain are in progress.
-Library is considered **stable**.
+It is and it will always be under active development.   
+New page and domain are in progress.  
+Library is considered **stable**.   
 
 It's designed as a **very lightweight** cross-browser CSS(3) library which would give all elements styling they need  
 It's less than **14kb minified - 3kb gzipped** 
