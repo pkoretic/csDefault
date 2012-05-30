@@ -366,15 +366,11 @@ select
 }
 
 /*============================================================= INPUT TYPE=FILE =======================================================================*/
-input[type=file]
-{
-height:32px;
-}
+
 .cTPFile 
 {
 	display:inline-block;
-	vertical-align:middle;
-	
+	vertical-align:middle;	
 }
 .cTPFileInput
 {	
