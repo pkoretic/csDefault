@@ -79,5 +79,5 @@ Themes - since we are using CSS themeing is quite easy (consider it as an option
 LICENCING
 ========================  
 
-The code is release under public domain.
+The code is release under public domain.  
 Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original SQLite code, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
