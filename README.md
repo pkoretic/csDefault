@@ -79,5 +79,5 @@ Themes - since we are using CSS themeing is quite easy (consider it as an option
 LICENCING
 ========================  
 
-The code is release under public domain.  
+The code is released under public domain.  
 Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original code, for any purpose, commercial or non-commercial, and by any means.
