@@ -2,9 +2,11 @@
       csTransPie
 </h1>
 
+ 
+ 
 [Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)  
 30.01.2012 - started  
-02.03.2012 - whole library rewritten
+02.03.2012 - whole library rewritten from scratch
 
 **Development**  
 It is and it will always be under active development.   
@@ -70,4 +72,12 @@ TODO
 ========================
 Broad testing with dynamic elements  
 New page and demos  
-Themes - since we are using CSS themeing is quite easy (consider it as an optional file)  
+Themes - since we are using CSS themeing is quite easy (consider it as an optional file) 
+
+
+
+LICENCING
+========================  
+
+The code is release under public domain.
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original SQLite code, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
