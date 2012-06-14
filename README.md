@@ -80,4 +80,4 @@ LICENCING
 ========================  
 
 The code is released under public domain.  
-Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original code, for any purpose, commercial or non-commercial, and by any means.
+Anyone is free to copy, modify, publish, use, sell, or distribute the original code, for any purpose, commercial or non-commercial, and by any means.
