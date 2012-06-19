@@ -124,7 +124,7 @@ $.fn.cTPFile = function(){
 		
 		file=$(this);
 		
-		if(file.hasClass('cTPHiddenFile')) {return;} //if it's already processed return
+		if(file.hasClass('cTPHiddenFile')) return; //if it's already processed return
 		
 		var title="";
 		if(file.attr("title")) 
@@ -167,8 +167,8 @@ $.fn.cTPFile = function(){
 		//do this for every select
 		return this.each(function(){
 			var select = $(this);
-			if(select.data('styled')) return; //if it's hidden
-			if(select.attr('multiple')) return; //if it's a type of multiple select
+			if(select.data('styled')||select.attr('multiple')) return; //if it's hidden or if it's a type of multiple select
+			
 			
 			select.css("width",select.outerWidth()+30+"px"); // add width of our dropdown button
 			
