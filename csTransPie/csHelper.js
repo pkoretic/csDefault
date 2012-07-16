@@ -27,7 +27,7 @@
     //show our message
     $('#csInfoDiv').css({display:''})
 
-    // send click to element at finger point
+    // send click to element we want to click
     $(elementClicked).trigger("click");
 })
 
