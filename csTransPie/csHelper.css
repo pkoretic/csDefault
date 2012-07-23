@@ -12,7 +12,8 @@
 .cs-float-left{float:left}
 .cs-float-right{float:right}
 .cs-hidden{visibility:hidden}
-
+.cs-color-black{color:#000}
+.cs-color-white{color:#FFF}
 
 /*Round borders are no longer supported in IE (CSS3PIE was used)*/
 .cs-corner-all
@@ -66,7 +67,7 @@
 	zoom:1 ;
 }
 /* a,h1...h6,p etc should have appropriate color  */
-.cs-gradient-blue * {color:#FFF}
+
 
 .cs-gradient-black
 {
@@ -85,7 +86,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#646464', endColorstr='#323232',GradientType=0 ) ; /* IE6-8 */
 	zoom:1;
 }
-.cs-gradient-black *{color:#FFF}
+
 
 .cs-gradient-white
 {
@@ -105,7 +106,7 @@
 	zoom:1;
 }
 
-.cs-gradient-white *{color:#000}
+
 
 .cs-gradient-red
 {
@@ -124,7 +125,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6464', endColorstr='#ff0000',GradientType=0 ) ; /* IE6-8 */
 	zoom:1 ;
 } 
-.cs-gradient-red * {color:#FFF}
+
 
 .cs-gradient-grey
 {
@@ -143,7 +144,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-8 */
 	zoom:1 ;
 }
-.cs-gradient-grey * {color:#FFF}
+
 
 .cs-gradient-yellow
 {
@@ -163,7 +164,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFEFAA', end
 zoom:1 ;
 
 }
-.cs-gradient-grey * {color:#FFF}
+
 
 /*set filter:none to ie6-ie8*/
 :root *> .cs-gradient-grey, :root *> .cs-gradient-red, :root *> .cs-gradient-black, :root *> .cs-gradient-blue, :root *> .cs-gradient-white {filter: none !important}
