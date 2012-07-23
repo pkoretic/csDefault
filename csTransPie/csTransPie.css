@@ -309,7 +309,7 @@ csTransPie - Make elements as they should be in every browser
 select
 {
 	cursor: pointer;
-	height:30px;
+	height:29px;
 	z-index: 9999 !important; /* jquery dialog */
 	position:relative;
 	opacity: 0;
