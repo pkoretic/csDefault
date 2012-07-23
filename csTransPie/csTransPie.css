@@ -221,7 +221,7 @@ csTransPie - Make elements as they should be in every browser
 /*============================================================= INPUT TYPE=RESET =================================================================*/
  input[type=reset]
 {
-	font:12px arial;
+	font:1.0em arial;
 	color:#FFF;
 	border:1px solid #B4B4C8;  
 
@@ -267,16 +267,15 @@ csTransPie - Make elements as they should be in every browser
 /*============================================================= TITLE =======================================================================*/
 .cTPTitle
 {
-	color:#000;
-	font:12px arial;
+   color:#FFF !important;
+	font:1.0em arial;
 	position:absolute; 
-	background:#FFFF64; 
-	padding:5px; 
-	border:1px solid #D3D3D3;
+	background:#000; 
+	padding:2px 5px; 
+	border:1px solid #B4B4B4;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	display:none; 
 	z-index:2;
 	
 	/*no need for round borders in IE<9 - looks just great*/
@@ -321,7 +320,7 @@ select
 .cTPSelect 
 {
 
-	font:12px arial;
+	font:1.0em arial;
 	position:relative;
 	vertical-align:middle;
 	display:inline-block;
