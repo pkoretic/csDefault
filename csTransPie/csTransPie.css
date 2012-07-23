@@ -35,6 +35,7 @@ csTransPie - Make elements as they should be in every browser
   line-height: 1;
   direction: ltr;
   }
+  html, body {height:100% }
   a {
   color: #15c;
   text-decoration: none;
