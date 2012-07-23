@@ -130,7 +130,7 @@
 .cs-gradient-grey
 {
 	color:#000 !important;
-	text-shadow: 0 1px 1px grey;
+	text-shadow: 0 1px 1px #FFF;
 	
 	background: #eeeeee !important; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
