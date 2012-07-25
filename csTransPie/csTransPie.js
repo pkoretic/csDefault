@@ -23,7 +23,7 @@ else {
 ==============================================================================================================================================*/			
 	/* Reset each element on previous state - it obviously has a point only if there is a form */
 	var cTPReset = function(f){
-		sel=0; //which select in a form if there are more
+		var sel=0; //which select in a form if there are more
 		//set select to original value we saved
 		$('select', f).each(function()
 		{
@@ -60,7 +60,7 @@ else {
 	 
 	$.fn.cTPCheckBox = function(){
 		return this.each(function(){
-			checkbox = $(this); //jquery object of original element
+			var checkbox = $(this); //jquery object of original element
 			if(checkbox.data("val")!=null) return; //check if there is already something which means we processed it
 			checkbox.data('val', this.checked); //save original value
 			aElem = $('<span class="cTPCheckboxElem"></span>'); //create our new element
@@ -90,11 +90,11 @@ else {
 	
 		return this.each(function(){
 
-			radio = $(this); //jquery object of original element
+			var radio = $(this); //jquery object of original element
 			if(radio.data("val")!=null) return; //check if there is already something which means we processed it
 			radio.data('val', this.checked); //save original value
 			
-			aElem = $('<span class="cTPRadioElem"></span>'); //create our new element
+			var aElem = $('<span class="cTPRadioElem"></span>'); //create our new element
 
 			radio.wrap('<span class="cTPRadio"></span>').parent().prepend(aElem); //hide original element and create our new element over it
 			
@@ -122,11 +122,11 @@ else {
 $.fn.cTPFile = function(){
 		return this.each(function(index){
 		
-		file=$(this);
+		var file=$(this);
 		
 		if(file.hasClass('cTPHiddenFile')) return; //if it's already processed return
 		
-		title="";
+		var title="";
 		if(file.attr("title")) 
 		{
 			title='title="'+file.attr("title")+'"';
@@ -166,7 +166,7 @@ $.fn.cTPFile = function(){
 	$.fn.cTPSelect = function(){
 		//do this for every select
 		return this.each(function(){
-			select = $(this);
+			var select = $(this);
 			if(select.data('styled')||select.attr('multiple')) return; //if it's hidden or if it's a type of multiple select
 			
 			
@@ -192,18 +192,16 @@ $.fn.cTPFile = function(){
 	$.fn.cTPTitle = function(){
 	
 		return this.each(function(){
-			title=$(this);
+			var title=$(this);
 			
-			//prevent multiple styles, you newer know
-			if($(this).next().hasClass('cTPTitle')) {return;} 
+			 //since the title is removed it wont be selected if cTP is run once more of few times more
 			
 			//one day when we won't have to support IE<=7
 			//title.attr("data-title",title.attr("title"));
 			//title.attr("title","");
 
 			//remove original title (so that the browser doesn't show it)
-
-			titleText = title.attr('title');
+			var titleText = title.attr('title');
 			title.removeAttr("title");
 
 			//hover over element, I like it to be instant!
@@ -211,12 +209,15 @@ $.fn.cTPFile = function(){
 			(
 				function () 
 				{
-					w = title.width();
-					h = title.height();
+					var w = title.width();
+					var h = title.height();
 					
-			   	var html=$("<div class='cTPTitle' style='left:"+(w/2)+"px; top:"+(h-5)+"px '>"+titleText+"</div>");
-			   
-			   	$("body").append(html);
+					var pos = title.offset();
+					
+			   	var html=$("<div class='cTPTitle'>"+titleText+"</div>");
+			   	
+			   	//we add i to middle of the element on the bottom
+			   	$("body").append(html).find(".cTPTitle").css({left:(w/2)+pos.left-(html.width()/2), top:(h+pos.top+5)});
 				}, 
 				function () 
 				{        
