@@ -3,7 +3,7 @@
   $.fn.csInfo = function() {
   
   	//get our message with all html it has
-   var msg = $(this).clone().wrap('<p>').parent().html();
+   var msg = $(this).clone().wrap('<div>').parent().html();
      
    //remove current notification if there is one 
    if($("#csInfoDiv").length) $("#csInfoDiv").remove();
@@ -35,7 +35,7 @@
 $.fn.csDialog = function() {
   
   	//get our data with all html it has
-   var msg = $(this).clone().wrap('<p>').parent().html();
+   var msg = $(this).clone().wrap('<div>').parent().html();
      
    // remove current notification if there is one 
    if($("#csDialogDiv").length) $("#csDialogDiv").remove();
