@@ -15,6 +15,36 @@
 .cs-color-black{color:#000}
 .cs-color-white{color:#FFF}
 
+/* Can't be combined */
+.cs-shadow-top 
+{  
+	-moz-box-shadow:    0 -3px 5px 2px #aaa;
+ 	-webkit-box-shadow: 0 -3px 5px 2px #aaa;
+ 	box-shadow:         0 -3px 5px 2px #aaa;
+}
+
+.cs-shadow-bottom 
+{  
+	-moz-box-shadow:    0 3px 5px 2px #aaa;
+ 	-webkit-box-shadow: 0 3px 5px 2px #aaa;
+ 	box-shadow:         0 3px 5px 2px #aaa;
+}
+
+.cs-shadow-left 
+{  
+	-moz-box-shadow:    -3px 0 5px 2px #aaa;
+ 	-webkit-box-shadow: -3px 0 5px 2px #aaa;
+ 	box-shadow:         -3px 0 5px 2px #aaa;
+}
+
+.cs-shadow-right 
+{  
+	-moz-box-shadow:    3px 0 5px 2px #aaa;
+ 	-webkit-box-shadow: 3px 0 5px 2px #aaa;
+ 	box-shadow:         3px 0 5px 2px #aaa;
+}
+
+
 /*Round borders are no longer supported in IE (CSS3PIE was used)*/
 .cs-corner-all
 {
@@ -28,7 +58,7 @@
 	-webkit-border-radius: 4px 4px 0 0;
 	-moz-border-radius: 4px 4px 0 0; 
 }
-/* Can't be combined on one element - use long version if you wan't that - for example - 'border-left-radius' 'border-right-radius'*/
+/* Can't be combined on one element (no point really) - use long version if you wan't that - for example - 'border-left-radius' 'border-right-radius'*/
 .cs-corner-bottom
 {
 	border-radius: 0 0 4px 4px; 
