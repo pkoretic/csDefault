@@ -21,6 +21,7 @@
 	-moz-box-shadow:    0 -3px 5px 2px #aaa;
  	-webkit-box-shadow: 0 -3px 5px 2px #aaa;
  	box-shadow:         0 -3px 5px 2px #aaa;
+ 	margin-top: 5px;
 }
 
 .cs-shadow-bottom 
@@ -28,6 +29,7 @@
 	-moz-box-shadow:    0 3px 5px 2px #aaa;
  	-webkit-box-shadow: 0 3px 5px 2px #aaa;
  	box-shadow:         0 3px 5px 2px #aaa;
+ 	margin-bottom: 5px;
 }
 
 .cs-shadow-left 
@@ -35,6 +37,7 @@
 	-moz-box-shadow:    -3px 0 5px 2px #aaa;
  	-webkit-box-shadow: -3px 0 5px 2px #aaa;
  	box-shadow:         -3px 0 5px 2px #aaa;
+ 	margin-left: 5px;
 }
 
 .cs-shadow-right 
@@ -42,6 +45,7 @@
 	-moz-box-shadow:    3px 0 5px 2px #aaa;
  	-webkit-box-shadow: 3px 0 5px 2px #aaa;
  	box-shadow:         3px 0 5px 2px #aaa;
+ 	margin-right: 5px;
 }
 
 
