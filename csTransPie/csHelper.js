@@ -1,8 +1,8 @@
 (function($) {
 	
   $.fn.csInfo = function() {
-  
-  	//get our message with all html it has
+    
+    //get our message with all html it has
    var msg = $(this).clone().wrap('<div>').parent().html();
      
    //remove current notification if there is one 
@@ -28,19 +28,21 @@
 
     	// send click to element we want to click
    	 $(elementClicked).click();
+
 	})
 
 }
 
 $.fn.csDialog = function() {
-  
+ 
+
   	//get our data with all html it has
    var msg = $(this).clone().wrap('<div>').parent().html();
      
    // remove current notification if there is one 
    if($("#csDialogDiv").length) $("#csDialogDiv").remove();
      
-   // create our simple dialog holder 
+   // create our simple dialog holder and run cTP library on it
 	var html = $('<div id="csDialogDiv"><div id="csDialogDivInner" class="cs-gradient-grey">'+msg+'<hr/><a href="#" id="csDialogDivClose">×</a></div></div>');
 						  
 	// append dialog to body, show it with animation   
@@ -74,8 +76,11 @@ $.fn.csDialog = function() {
     	$(elementClicked).click();
 	})
    
-	
-   
+  // style it 
+  $("#csDialogDiv").cTP();
+  
+  // return our element to allow chaining
+  return html;
 }
 
 

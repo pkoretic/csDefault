@@ -277,7 +277,7 @@ csTransPie - Make elements as they should be in every browser
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	z-index:2;
+	z-index:9999;
 	
 	/*no need for round borders in IE<9 - looks just great*/
 }

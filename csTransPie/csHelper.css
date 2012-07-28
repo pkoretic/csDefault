@@ -206,14 +206,14 @@ zoom:1 ;
 
 
 /* Notification holder */
-#csInfoDiv {display:none;z-index:9999; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0}
+#csInfoDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0}
 
 /* Notification inner holder - holds generated text/html */
 #csInfoDivInner {display:inline-block;font-weight:bold; border-radius:0 0 3px 3px;padding:5px 15px;}
 
 
 /* Dialog holder */
-#csDialogDiv {display:none;z-index:9999; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0; }
+#csDialogDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0; }
 
 #csDialogDivClose {font-weight: bold; font-size: 1.1em;  }
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Petar Koretić </title>
+    <link rel="stylesheet" type="text/css" href="csTransPie.css" />
+    <link rel="stylesheet" type="text/css" href="csHelper.css" />
+    <script type="text/javascript" src="../../jquery.min.js"></script>
+    <script type="text/javascript" src="csHelper.js"></script>
+    <script type="text/javascript" src="csTransPie.js"></script>
+    <script type="text/javascript">
+    
+$(function()
+{
+  $("button").on("click",function()
+  {
+    $("body").append("<select><option>test</option></select>").cTP();
+  });
+
+});    
+    </script>
+</head>
+<body>
+
+<button>test</button>
+</body>
+</html>
+
+
