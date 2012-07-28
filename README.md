@@ -1,10 +1,10 @@
 <h1>
-      csTransform
+      csTransPie
 </h1>
 
  
  
-[Official site and demo: http://www.pkoretic.net/csTransform](http://www.pkoretic.net/csTransform)  
+[Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)  
 30.01.2012 - started  
 02.03.2012 - whole library rewritten from scratch
 28.07.2012 - project renamed and many big things are in the process
@@ -39,15 +39,15 @@ Download
 =======================   
 Download it here from git and add  
 
-      <link rel="stylesheet" type="text/css" href="csTransform/csTransform.min.css" />  
+      <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
-      <script type="text/javascript" src="csTransform/csTransform-min.js"></script>  
+      <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
 
 And that's it!  
   
 
-**csTransform** has all the comments for easier development  
-**csTransform-min** is obviously minified version  
+**csTransPie** has all the comments for easier development  
+**csTransPie-min** is obviously minified version  
 **csHelper** is just a collection of classess for gradients and round borders for easier development and it's completely optional  
 
 
