@@ -7,11 +7,10 @@
 [Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)  
 30.01.2012 - started  
 02.03.2012 - whole library rewritten from scratch
-28.07.2012 - project renamed and many big things are in the process
 
 **Development**  
 It is and it will always be under active development.   
-New page and domain are in progress.  
+New page and domain are **still** in progress.  
 Library is considered **stable**.   
 
 It's designed as a **very lightweight** cross-browser CSS(3) library which would give all elements styling they need  
