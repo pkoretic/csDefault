@@ -215,7 +215,7 @@ zoom:1 ;
 /* Dialog holder */
 #csDialogDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0; }
 
-#csDialogDivClose {font-weight: bold; font-size: 1.1em;  }
+#csDialogDivClose {font-weight: bold; font-size: 1.5em;  }
 
 /* Dialog inner holder - holds generated text/html */
 #csDialogDivInner {display:inline-block; border-radius:0 0 3px 3px;padding:15px;border:1px solid #969696; border-top:0; }
