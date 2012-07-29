@@ -1,9 +1,19 @@
+
 (function($) {
 	
+//jquery outer html - my post on http://stackoverflow.com/a/11708139/1176448
+
+$.fn.outerHTML = function() {
+  $t = $(this);
+  if( "outerHTML" in $t[0] ) return $t[0].outerHTML; 
+  else return $t.clone().wrap('<p>').parent().html();
+}
+
+
   $.fn.csInfo = function() {
     
     //get our message with all html it has
-   var msg = $(this).clone().wrap('<div>').parent().html();
+   var msg = $(this).outerHTML();
      
    //remove current notification if there is one 
    if($("#csInfoDiv").length) $("#csInfoDiv").remove();
@@ -37,7 +47,7 @@ $.fn.csDialog = function() {
  
 
   	//get our data with all html it has
-   var msg = $(this).clone().wrap('<div>').parent().html();
+   var msg = $(this).outerHTML();
      
    // remove current notification if there is one 
    if($("#csDialogDiv").length) $("#csDialogDiv").remove();
