@@ -268,7 +268,7 @@ csTransPie - Make elements as they should be in every browser
 /*============================================================= TITLE =======================================================================*/
 .cTPTitle
 {
-   color:#FFF !important;
+    color:#FFF !important;
 	font:1.0em arial;
 	position:absolute; 
 	background:#000; 
@@ -304,6 +304,24 @@ csTransPie - Make elements as they should be in every browser
 
 }
 */
+
+
+/*============================================================= PLACEHOLDER =======================================================================*/
+.cTPlaceholder
+{
+	display:inline-block;
+}
+
+.cTPlaceholderInner
+{
+	color:#000 !important;
+	font:1.0em arial;
+	background:#eee; 
+	padding:2px 5px; 
+	border:1px solid #B4B4B4;
+	z-index:9998;	
+	display: inline-block;
+}
 
 /*============================================================= SELECT =======================================================================*/
 select

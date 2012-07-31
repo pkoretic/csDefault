@@ -227,6 +227,22 @@ $.fn.cTPFile = function(){
 		})//each
 	}//function
 /*=============================================================================================================================================
+																		PLACEHOLDER 
+==============================================================================================================================================*/
+$.fn.cTPlaceholder = function(){
+	
+		return this.each(function(){
+			var placeholder=$(this);
+			
+			var placeholderText = placeholder.attr('placeholder');
+			placeholder.removeAttr("placeholder");
+					
+			placeholder.wrap("<span class='cTPlaceholder'></span>").parent().prepend("<span class='cTPlaceholderInner cs-gradient-blue'>"+placeholderText+"</span><br/>");
+			   	
+		});// each
+		
+}// function
+/*=============================================================================================================================================
 																		LABELS 
 ==============================================================================================================================================*/
 
@@ -234,7 +250,7 @@ $.fn.cTPFile = function(){
 		return this.each(function(){
 			label=$(this);
 			if(label.data("styled")) return; //if we already processed this label return
-			//if element corresponding to this label is disabled..."disable" this label (browser will disabled it, we add class)
+			//if element corresponding to this label is disabled..."disable" this label (browser will disable it, we add class)
 			if($("#"+label.attr("for")).attr("disabled")=="disabled") 
 			{
 				label.addClass("cTPDisabled");
@@ -257,7 +273,9 @@ $.fn.cTPFile = function(){
 			$("label[for]",this).cTPLabel(); //process only labels bound to element
 	
 			$('form',this).on('reset',function(){ cTPReset(elem)}); //catch reset in a form (if there is one in our element) - we have to reset our elements manually				
+			$('[placeholder]',this).cTPlaceholder(); // placeholder is also html5 specific
 			$('[title]',this).cTPTitle(); //has to be last since we are adapting titles in elements before
+			
 				
 		});	
 			
