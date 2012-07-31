@@ -6,7 +6,7 @@
  
 [Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)  
 30.01.2012 - started  
-02.03.2012 - whole library rewritten from scratch
+
 
 **Development**  
 It is and it will always be under active development.   
@@ -37,7 +37,7 @@ All suggestions are welcome.
 Download 
 =======================   
 Download it here from git and add  
-
+.
       <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
       <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
