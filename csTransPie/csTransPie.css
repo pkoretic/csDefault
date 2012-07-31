@@ -77,6 +77,10 @@ csTransPie - Make elements as they should be in every browser
 .cTPHidden  {display:none;} /* Helper class for Hiding Original Elements */
 .cTPHiddenFile {width:1px;height:0;visibility:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
 .cTPDisabled{background-color: #E6E6E6 !important;  cursor:default !important;color:gray !important;border-color:#D3D3D3 !important; } /* Disabled elemenets */
+
+
+
+
  /*==============================================================================================================================================
 																ELEMENTS
 ================================================================================================================================================*/
@@ -321,6 +325,7 @@ csTransPie - Make elements as they should be in every browser
 	border:1px solid #B4B4B4;
 	z-index:9998;	
 	display: inline-block;
+	
 }
 
 /*============================================================= SELECT =======================================================================*/
@@ -493,3 +498,228 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 }
 
 :root *> * {filter:none !important;}
+
+
+
+/*==============================================================================================================================================
+																HELPER CLASSES FOR STYLING
+================================================================================================================================================*/																		
+.cs-bar {padding: 5px 15px}
+.cs-body {padding: 15px 15px}
+.cs-width-max {width: 100%}
+.cs-width-half {width: 50%}
+.cs-center {text-align: center}
+.cs-center table {margin:0 auto;}
+.cs-clear {clear: both}
+.cs-float-left{float:left}
+.cs-float-right{float:right}
+.cs-hidden{visibility:hidden}
+.cs-color-black{color:#000}
+.cs-color-white{color:#FFF}
+
+/* Can't be combined */
+.cs-shadow-top 
+{  
+	-moz-box-shadow:    0 -3px 5px 2px #aaa;
+ 	-webkit-box-shadow: 0 -3px 5px 2px #aaa;
+ 	box-shadow:         0 -3px 5px 2px #aaa;
+ 	margin-top: 5px;
+}
+
+.cs-shadow-bottom 
+{  
+	-moz-box-shadow:    0 3px 5px 2px #aaa;
+ 	-webkit-box-shadow: 0 3px 5px 2px #aaa;
+ 	box-shadow:         0 3px 5px 2px #aaa;
+ 	margin-bottom: 5px;
+}
+
+.cs-shadow-left 
+{  
+	-moz-box-shadow:    -3px 0 5px 2px #aaa;
+ 	-webkit-box-shadow: -3px 0 5px 2px #aaa;
+ 	box-shadow:         -3px 0 5px 2px #aaa;
+ 	margin-left: 5px;
+}
+
+.cs-shadow-right 
+{  
+	-moz-box-shadow:    3px 0 5px 2px #aaa;
+ 	-webkit-box-shadow: 3px 0 5px 2px #aaa;
+ 	box-shadow:         3px 0 5px 2px #aaa;
+ 	margin-right: 5px;
+}
+
+
+/*Round borders are no longer supported in IE (CSS3PIE was used)*/
+.cs-corner-all
+{
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+.cs-corner-top
+{
+	border-left-radius: 4px 4px 0 0; 
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0; 
+}
+/* Can't be combined on one element (no point really) - use long version if you wan't that - for example - 'border-left-radius' 'border-right-radius'*/
+.cs-corner-bottom
+{
+	border-radius: 0 0 4px 4px; 
+	-webkit-border-radius: 0 0 4px 4px; 
+	-moz-border-radius: 0 0 4px 4px ;
+}
+.cs-corner-right
+{
+	border-radius: 0 4px 4px 0; 
+	-webkit-border-radius: 0  4px 4px 0; 
+	-moz-border-radius: 0  4px 4px 0;
+}
+.cs-corner-left
+{
+	border-radius:  4px 0 0 4px ; 
+	-webkit-border-radius:   4px 0 0 4px ; 
+	-moz-border-radius:   4px 0 0 4px ;
+}
+
+/*!important is set so we can use them on buttons and other elements which already  */
+.cs-gradient-blue
+{
+	color:#FFF !important;
+	text-shadow: 0 1px 1px #194B7E;
+	
+	background: #81a8ce !important; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzgxYThjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1ZTg3YjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+	background: -moz-linear-gradient(#81a8ce, #5e87b0) !important; /* FF3.6+ */
+   background: -webkit-gradient(linear,left top,left bottom,from(#81a8ce),to(#5e87b0)) !important;
+	background: -webkit-linear-gradient( #81a8ce ,#5e87b0 ) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(#81a8ce,#5e87b0 ) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(#81a8ce,#5e87b0) !important; /* IE10+ */
+	background: linear-gradient(#81a8ce,#5e87b0) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81a8ce', endColorstr='#5e87b0',GradientType=0 ) ; /* IE6-8 */
+	zoom:1 ;
+}
+/* a,h1...h6,p etc should have appropriate color  */
+
+
+.cs-gradient-black
+{
+	color:#FFF !important;
+	text-shadow: 0 1px 1px #111;
+	
+	background: #646464 !important; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY0NjQ2NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMjMyMzIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+	background: -moz-linear-gradient(#646464, #323232) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, from(#646464), to(#323232)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(#646464,#323232) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(#646464 ,#323232 ) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(#646464 ,#323232) !important; /* IE10+ */
+	background: linear-gradient(#646464 ,#323232) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#646464', endColorstr='#323232',GradientType=0 ) ; /* IE6-8 */
+	zoom:1;
+}
+
+
+.cs-gradient-white
+{
+	color:#000 !important;
+	text-shadow: 0 1px 1px lightgrey;
+	
+	background: #fdfdfd !important; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */ 
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZmRmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+	background: -moz-linear-gradient(top,  #fdfdfd 0%, #eeeeee 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fdfdfd), color-stop(100%,#eeeeee)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* IE10+ */
+	background: linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#eeeeee',GradientType=0 ); /* IE6-8 */
+	zoom:1;
+}
+
+
+
+.cs-gradient-red
+{
+	color:#FFF !important;
+		
+	
+	background: #ff6464 !important; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNjQ2NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+	background: -moz-linear-gradient(top,  #ff6464 0%, #ff0000 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff6464), color-stop(100%,#ff0000)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* IE10+ */
+	background: linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6464', endColorstr='#ff0000',GradientType=0 ) ; /* IE6-8 */
+	zoom:1 ;
+} 
+
+
+.cs-gradient-grey
+{
+	color:#000 !important;
+	text-shadow: 0 1px 1px #FFF;
+	
+	background: #eeeeee !important; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjY2NjY2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+	background: -moz-linear-gradient(#eeeeee, #cccccc) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(#eeeeee, #cccccc) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(#eeeeee, #cccccc) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(#eeeeee, #cccccc) !important; /* IE10+ */
+	background: linear-gradient(#eeeeee, #cccccc) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-8 */
+	zoom:1 ;
+}
+
+
+.cs-gradient-yellow
+{
+	
+
+color: #222;
+text-shadow: 0 1px 0 #FFF;
+
+background: #FADB4E;
+background-image: -webkit-gradient(linear,left top,left bottom,from(#FFEFAA),to(#FFE155));
+background-image: -webkit-linear-gradient(#FFEFAA,#FFE155);
+background-image: -moz-linear-gradient(#FFEFAA,#FFE155);
+background-image: -ms-linear-gradient(#FFEFAA,#FFE155);
+background-image: -o-linear-gradient(#FFEFAA,#FFE155);
+background-image: linear-gradient(#FFEFAA,#FFE155);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFEFAA', endColorstr='#FFE155',GradientType=0 ); /* IE6-8 */
+zoom:1 ;
+
+}
+
+
+/*set filter:none to ie6-ie8*/
+:root *> .cs-gradient-grey, :root *> .cs-gradient-red, :root *> .cs-gradient-black, :root *> .cs-gradient-blue, :root *> .cs-gradient-white {filter: none !important}
+
+
+
+/* Notification holder */
+#csInfoDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0}
+
+/* Notification inner holder - holds generated text/html */
+#csInfoDivInner {display:inline-block;font-weight:bold; border-radius:0 0 3px 3px;padding:5px 15px;}
+
+
+/* Dialog holder */
+#csDialogDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0; }
+
+/* Dialog close icon */
+#csDialogDivClose {font-weight: bold; font-size: 1.3em;  }
+
+/* Dialog inner holder - holds generated text/html */
+#csDialogDivInner {display:inline-block; border-radius:0 0 3px 3px;padding:15px;border:1px solid #969696; border-top:0; }
+
