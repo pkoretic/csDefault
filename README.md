@@ -51,24 +51,22 @@ And that's it! All element's will  get styled as soon as the DOM is ready
 
 
 **Dynamic elements**  
-If you have elements created dynamically call jquery function on (parent) element which was created dynamically
+If you have elements created dynamically call csUpdate function on (parent) element which was created dynamically
 
 recommended way
       
-      $("body").append('<input type="checkbox"/>').cTP();
+      $("body").append('<input type="checkbox"/>').csUpdate();
 
 or
 
       $("body").append('<div id="dynamic"><input type="checkbox"/></div>');  
-      $("#dynamic").cTP();
+      $("#dynamic").csUpdate();
             
 Note: Calling .cTP function on any sort of text fields or buttons is not needed for the sake of element styling but there are titles and labels for that element that won't get styled unless you do call it.
 
 TODO
 ========================
-Broad testing with dynamic elements  
 New page and demos  
-Themes - since we are using CSS themeing is quite easy (consider it as an optional file) 
 
 
 
