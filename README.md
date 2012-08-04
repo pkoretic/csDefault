@@ -37,7 +37,7 @@ All suggestions are welcome.
 Download 
 =======================   
 Download it here from git and add  
-.
+
       <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
       <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
