@@ -34,7 +34,7 @@ Note: Opera mini has opacity problems which makes 'select element' having two te
 
 All suggestions are welcome.  
 
-Download 
+Download and usage
 =======================   
 Download it here from git and add  
 
@@ -42,16 +42,13 @@ Download it here from git and add
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
       <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
 
-And that's it!  
+And that's it! All element's will  get styled as soon as the DOM is ready  
   
 
 **csTransPie** has all the comments for easier development  
 **csTransPie-min** is obviously minified version  
 
 
-Usage
-=======================  
-Just include it in your code and that's it! All element's will  get styled as soon as the DOM is ready  
 
 **Dynamic elements**  
 If you have elements created dynamically call jquery function on (parent) element which was created dynamically
