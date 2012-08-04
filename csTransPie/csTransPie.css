@@ -34,8 +34,14 @@ csTransPie - Make elements as they should be in every browser
   color: #333;
   line-height: 1;
   direction: ltr;
+  height:100%;
   }
-  html, body {height:100% }
+  body 
+  {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100%
+ }
   a {
   color: #15c;
   text-decoration: none;
@@ -74,13 +80,9 @@ csTransPie - Make elements as they should be in every browser
  /*==============================================================================================================================================
 														 HELPER CLASSES FOR JQUERY
 ================================================================================================================================================*/
-.cTPHidden  {display:none;} /* Helper class for Hiding Original Elements */
-.cTPHiddenFile {width:1px;height:0;visibility:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
-.cTPDisabled{background-color: #E6E6E6 !important;  cursor:default !important;color:gray !important;border-color:#D3D3D3 !important; } /* Disabled elemenets */
-
-
-
-
+.csHiddenFile {width:1px;height:0;visibility:hidden;} /* Chrome won't allow click when 'display:none' set for input type=file */
+.csDisabled{background-color: #E6E6E6 !important;  cursor:default !important;color:gray !important;border-color:#D3D3D3 !important; } /* Disabled elemenets */
+.csOpaque{opacity: 0; filter: alpha(opacity=0);}
  /*==============================================================================================================================================
 																ELEMENTS
 ================================================================================================================================================*/
@@ -93,10 +95,10 @@ csTransPie - Make elements as they should be in every browser
 	padding:8px;
 	outline: none;  
 	border:1px solid #FFF;
-	 border-color:#D2D2DC #E6E6F0 #E6E6F0 #D2D2DC;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	border-color:#D2D2DC #E6E6F0 #E6E6F0 #D2D2DC;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 }
 
  button, input, select, textarea {
@@ -199,7 +201,6 @@ csTransPie - Make elements as they should be in every browser
 /*============================================================= (SUBMIT) BUTTON =================================================================*/
  input[type=button],input[type=submit],button
 {
-
 	vertical-align:middle;
 	display:inline-block;
 	margin: 1px;
@@ -270,7 +271,7 @@ csTransPie - Make elements as they should be in every browser
 
 
 /*============================================================= TITLE =======================================================================*/
-.cTPTitle
+.csTitle
 {
     color:#FFF !important;
 	font:1.0em arial;
@@ -282,8 +283,7 @@ csTransPie - Make elements as they should be in every browser
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	z-index:9999;
-	
-	/*no need for round borders in IE<9 - looks just great*/
+
 }
 
 /* //IE<=7 doesn't support :after pseudo selector, leave it, we may use it in a year or two
@@ -311,12 +311,12 @@ csTransPie - Make elements as they should be in every browser
 
 
 /*============================================================= PLACEHOLDER =======================================================================*/
-.cTPlaceholder
+.csPlaceholder
 {
 	display:inline-block;
 }
 
-.cTPlaceholderInner
+.csPlaceholderInner
 {
 	color:#000 !important;
 	font:1.0em arial;
@@ -335,21 +335,17 @@ select
 	height:29px;
 	z-index: 9999 !important; /* jquery dialog */
 	position:relative;
-	opacity: 0;
-	filter: alpha(opacity=0);
 	border:none;
 	
 }
 
-.cTPSelect 
+.csSelect, [multiple]
 {
-
 	font:1.0em arial;
 	position:relative;
 	vertical-align:middle;
 	display:inline-block;
 	margin: 1px;
-	background: #F5F5F5;
 	border:1px solid #CCC;
 	border-bottom-color: #AAA;
 	
@@ -366,7 +362,7 @@ select
 	zoom:1;
 }
 
-.cTPSelectBar 
+.csSelectBar 
 {
 	cursor:pointer;
 	padding-top:8px;
@@ -378,7 +374,7 @@ select
 }
 
 /*select arrow - arrow is added in javascript - &#9660;*/
-.cTPSelectOpen {
+.csSelectOpen {
 	font:0.7em arial;
 	position:absolute;
 	right:0;
@@ -388,14 +384,37 @@ select
 	padding-right:10px;
 }
 
+[multiple]
+{
+  margin:1px;
+  margin-top:0;
+  color: #555;
+  padding:10px;
+  padding-right:0;
+  height:100%;
+
+}
+
+::-webkit-scrollbar {   width: 15px; }
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(250,250,250,0.5); 
+    border-radius: 10px;
+	
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	background:#EEE;
+	border:1px solid grey;
+}
 /*============================================================= INPUT TYPE=FILE =======================================================================*/
 
-.cTPFile 
+.csFile 
 {
 	display:inline-block;
 	vertical-align:middle;	
 }
-.cTPFileInput
+.csFileInput
 {	
 	display:inline-block;
 	vertical-align:middle;
@@ -404,21 +423,19 @@ select
 
 /*============================================================= RADIO =======================================================================*/
 input[type=radio]
-{
-	opacity: 0;
-	filter: alpha(opacity=0);
+{	
 	outline:none;
 	position:relative;
 	color:white; /*opera mini*/
 }
-.cTPRadio
+.csRadio
 {
 	display:inline-block;
 	position:relative;
 	vertical-align:-1px;
 }
 
-.cTPRadioElem {
+.csRadioElem {
 	outline:none;
 	display:inline-block;
 	background:transparent url(img.png)  -8px -10px;
@@ -429,21 +446,18 @@ input[type=radio]
 }
 
 /* radio checked */
-.cTPCheckedR 
+.csCheckedR 
 {
    background-position:-8px -29px; 
  } 
 /*============================================================= CHECKBOX =======================================================================*/
 input[type=checkbox]
 {
-	opacity: 0;
-	filter: alpha(opacity=0);
 	outline:none;
 	position:relative;
 	color:white; /*opera mini*/
-
 }
-.cTPCheckbox
+.csCheckbox
 {
 	display:inline-block;
 	position:relative;
@@ -451,7 +465,7 @@ input[type=checkbox]
 	
 }
 
-.cTPCheckboxElem
+.csCheckboxElem
 {
 	position:absolute;
 	outline:none;
@@ -463,7 +477,7 @@ input[type=checkbox]
 }
 
 /*checkbox checked*/
-.cTPChecked 
+.csChecked 
 { 
   background-position: -8px -87px;
  } 
@@ -481,7 +495,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 																EVENTS
 ================================================================================================================================================*/																		
 
-.cTPSelect:hover
+.csSelect:hover
 {
 	border:1px solid #C8C8DC;
 }
@@ -514,40 +528,55 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-float-left{float:left}
 .cs-float-right{float:right}
 .cs-hidden{visibility:hidden}
+.cs-display-none{display:none}
+.cs-display-block{display:block}
+.cs-display-inline{display:inline}
+.cs-display-inline-block{display:inline-block}
 .cs-color-black{color:#000}
 .cs-color-white{color:#FFF}
+.cs-position-fixed{position:fixed}
+.cs-position-left{left:0}
+.cs-position-top{top:0}
+.cs-position-right{right:0}
+.cs-position-bottom{bottom:0}
+.cs-font-size-default{font-size:1em}
+.cs-font-size-small{font-size:0.8em}
+.cs-font-size-medium{font-size:1.5em}
+.cs-font-size-big{font-size:2.5em}
 
-/* Can't be combined */
+
+/* Can't be combined on one element obviously */
 .cs-shadow-top 
 {  
-	-moz-box-shadow:    0 -3px 5px 2px #aaa;
- 	-webkit-box-shadow: 0 -3px 5px 2px #aaa;
- 	box-shadow:         0 -3px 5px 2px #aaa;
- 	margin-top: 5px;
+	-moz-box-shadow:    0 -5px 5px 0 #aaa;
+ 	-webkit-box-shadow: 0 -5px 5px 0 #aaa;
+ 	box-shadow:         0 -5px 5px 0 #aaa;
+ 	z-index:1;
 }
 
 .cs-shadow-bottom 
 {  
-	-moz-box-shadow:    0 3px 5px 2px #aaa;
- 	-webkit-box-shadow: 0 3px 5px 2px #aaa;
- 	box-shadow:         0 3px 5px 2px #aaa;
- 	margin-bottom: 5px;
+	-moz-box-shadow:    0 5px 5px 0 #aaa;
+ 	-webkit-box-shadow: 0 5px 5px 0 #aaa;
+ 	box-shadow:         0 5px 5px 0 #aaa;
+	z-index:1;
+ 	
 }
 
 .cs-shadow-left 
 {  
-	-moz-box-shadow:    -3px 0 5px 2px #aaa;
- 	-webkit-box-shadow: -3px 0 5px 2px #aaa;
- 	box-shadow:         -3px 0 5px 2px #aaa;
- 	margin-left: 5px;
+	-moz-box-shadow:    -5px 1px 5px 0 #aaa;
+ 	-webkit-box-shadow: -5px 1px 5px 0 #aaa;
+ 	box-shadow:         -5px 1px 5px 0 #aaa;
+ 	z-index:1;
 }
 
 .cs-shadow-right 
 {  
-	-moz-box-shadow:    3px 0 5px 2px #aaa;
- 	-webkit-box-shadow: 3px 0 5px 2px #aaa;
- 	box-shadow:         3px 0 5px 2px #aaa;
- 	margin-right: 5px;
+	-moz-box-shadow:    5px 1px 5px 0 #aaa;
+ 	-webkit-box-shadow: 5px 1px 5px 0 #aaa;
+ 	box-shadow:         5px 1px 5px 0 #aaa;
+ 	z-index:1;
 }
 
 
@@ -564,7 +593,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	-webkit-border-radius: 4px 4px 0 0;
 	-moz-border-radius: 4px 4px 0 0; 
 }
-/* Can't be combined on one element (no point really) - use long version if you wan't that - for example - 'border-left-radius' 'border-right-radius'*/
+/* Can't be combined on one element (no point really) - use long version if you want that - for example - 'border-left-radius' 'border-right-radius'*/
 .cs-corner-bottom
 {
 	border-radius: 0 0 4px 4px; 
@@ -588,7 +617,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-gradient-blue
 {
 	color:#FFF !important;
-	text-shadow: 0 1px 1px #194B7E;
+	text-shadow: 0 1px 1px #194B7E !important;
 	
 	background: #81a8ce !important; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -599,7 +628,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	background: -o-linear-gradient(#81a8ce,#5e87b0 ) !important; /* Opera 11.10+ */
 	background: -ms-linear-gradient(#81a8ce,#5e87b0) !important; /* IE10+ */
 	background: linear-gradient(#81a8ce,#5e87b0) !important; /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81a8ce', endColorstr='#5e87b0',GradientType=0 ) ; /* IE6-8 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#81a8ce', endColorstr='#5e87b0',GradientType=0 ) !important; /* IE6-8 */
 	zoom:1 ;
 }
 /* a,h1...h6,p etc should have appropriate color  */
@@ -608,7 +637,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-gradient-black
 {
 	color:#FFF !important;
-	text-shadow: 0 1px 1px #111;
+	text-shadow: 0 1px 1px #111 !important;
 	
 	background: #646464 !important; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -619,7 +648,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	background: -o-linear-gradient(#646464 ,#323232 ) !important; /* Opera 11.10+ */
 	background: -ms-linear-gradient(#646464 ,#323232) !important; /* IE10+ */
 	background: linear-gradient(#646464 ,#323232) !important; /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#646464', endColorstr='#323232',GradientType=0 ) ; /* IE6-8 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#646464', endColorstr='#323232',GradientType=0 ) !important; /* IE6-8 */
 	zoom:1;
 }
 
@@ -627,7 +656,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-gradient-white
 {
 	color:#000 !important;
-	text-shadow: 0 1px 1px lightgrey;
+	text-shadow: 0 1px 1px #DCDCDC !important;
 	
 	background: #fdfdfd !important; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */ 
@@ -638,7 +667,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	background: -o-linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* IE10+ */
 	background: linear-gradient(top,  #fdfdfd 0%,#eeeeee 100%) !important; /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#eeeeee',GradientType=0 ); /* IE6-8 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#eeeeee',GradientType=0 ) !important; /* IE6-8 */
 	zoom:1;
 }
 
@@ -647,10 +676,9 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-gradient-red
 {
 	color:#FFF !important;
-		
+	text-shadow: 0 1px 0 #646464 !important;
 	
 	background: #ff6464 !important; /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNjQ2NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
 	background: -moz-linear-gradient(top,  #ff6464 0%, #ff0000 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff6464), color-stop(100%,#ff0000)) !important; /* Chrome,Safari4+ */
@@ -658,7 +686,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	background: -o-linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* IE10+ */
 	background: linear-gradient(top,  #ff6464 0%,#ff0000 100%) !important; /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6464', endColorstr='#ff0000',GradientType=0 ) ; /* IE6-8 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6464', endColorstr='#ff0000',GradientType=0 ) !important; /* IE6-8 */
 	zoom:1 ;
 } 
 
@@ -666,10 +694,9 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-gradient-grey
 {
 	color:#000 !important;
-	text-shadow: 0 1px 1px #FFF;
+	text-shadow: 0 1px 1px #FFF !important;
 	
 	background: #eeeeee !important; /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjY2NjY2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
 	background: -moz-linear-gradient(#eeeeee, #cccccc) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#cccccc)) !important; /* Chrome,Safari4+ */
@@ -677,7 +704,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	background: -o-linear-gradient(#eeeeee, #cccccc) !important; /* Opera 11.10+ */
 	background: -ms-linear-gradient(#eeeeee, #cccccc) !important; /* IE10+ */
 	background: linear-gradient(#eeeeee, #cccccc) !important; /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-8 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ) !important; /* IE6-8 */
 	zoom:1 ;
 }
 
@@ -685,41 +712,43 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 .cs-gradient-yellow
 {
 	
-
-color: #222;
-text-shadow: 0 1px 0 #FFF;
-
-background: #FADB4E;
-background-image: -webkit-gradient(linear,left top,left bottom,from(#FFEFAA),to(#FFE155));
-background-image: -webkit-linear-gradient(#FFEFAA,#FFE155);
-background-image: -moz-linear-gradient(#FFEFAA,#FFE155);
-background-image: -ms-linear-gradient(#FFEFAA,#FFE155);
-background-image: -o-linear-gradient(#FFEFAA,#FFE155);
-background-image: linear-gradient(#FFEFAA,#FFE155);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFEFAA', endColorstr='#FFE155',GradientType=0 ); /* IE6-8 */
-zoom:1 ;
-
+	color: #222 !important;
+	text-shadow: 0 1px 0 #FFF !important;
+	
+	background: #FADB4E !important;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZWZhYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmUxNTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#FFEFAA),to(#FFE155)) !important;
+	background-image: -webkit-linear-gradient(#FFEFAA,#FFE155) !important;
+	background-image: -moz-linear-gradient(#FFEFAA,#FFE155) !important;
+	background-image: -ms-linear-gradient(#FFEFAA,#FFE155) !important;
+	background-image: -o-linear-gradient(#FFEFAA,#FFE155) !important;
+	background-image: linear-gradient(#FFEFAA,#FFE155) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFEFAA', endColorstr='#FFE155',GradientType=0 ) !important; /* IE6-8 */
+	zoom:1 ;
 }
 
-
-/*set filter:none to ie6-ie8*/
-:root *> .cs-gradient-grey, :root *> .cs-gradient-red, :root *> .cs-gradient-black, :root *> .cs-gradient-blue, :root *> .cs-gradient-white {filter: none !important}
-
-
-
 /* Notification holder */
-#csInfoDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0}
+#csInfoDiv {display:none;z-index:10000; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0}
 
 /* Notification inner holder - holds generated text/html */
 #csInfoDivInner {display:inline-block;font-weight:bold; border-radius:0 0 3px 3px;padding:5px 15px;}
 
 
 /* Dialog holder */
-#csDialogDiv {display:none;z-index:9998; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0; }
+#csDialogDiv {display:none; background:rgb(100,100,100); background:rgba(0,0,0,0.8); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc000000,endColorstr=#cc000000);  z-index:9999; position:fixed; top:0; height:100%; width:100%; left:0; text-align:center;padding:0; margin:0; }
 
 /* Dialog close icon */
 #csDialogDivClose {font-weight: bold; font-size: 1.3em;  }
 
 /* Dialog inner holder - holds generated text/html */
-#csDialogDivInner {display:inline-block; border-radius:0 0 3px 3px;padding:15px;border:1px solid #969696; border-top:0; }
+#csDialogDivInner {display:inline-block; z-index:9999;  border-radius:0 0 3px 3px;padding:15px;border:1px solid #969696; border-top:0; }
+
+/* IE7, IE8 (not nice hacks - but the only thing I hate more than hacks are conditional stylesheets) selector  which sets background to transparent so that filter for transparency in <ie8 would work */
+*+html  #csDialogDiv {background:transparent}
+@media \0screen { #csDialogDiv {background: transparent}}
+
+/* Another hack - for everything but ie6-ie8 set filter:none - we target ie9 here which doesn't work when gradient and filter are set - others just ignore filter property*/
+:root *> .cs-gradient-grey, :root *> .cs-gradient-red, :root *> .cs-gradient-black, :root *> .cs-gradient-blue, :root *> .cs-gradient-white,  :root *> .cs-gradient-yellow, :root *> #csDialogDiv {filter: none !important}
+
+
 
