@@ -1,10 +1,10 @@
 <h1>
-      csTransPie
+      csDefault
 </h1>
 
  
  
-[Official site and demo: http://www.pkoretic.net/csTransPie](http://www.pkoretic.net/csTransPie)  
+[Official site and demo: http://www.pkoretic.net/csDefault](http://www.pkoretic.net/csDefault)  
 30.01.2012 - started  
 
 
@@ -38,9 +38,9 @@ Download and usage
 =======================   
 Download it here from git and add  
 
-      <link rel="stylesheet" type="text/css" href="csTransPie/csTransPie.min.css" />  
+      <link rel="stylesheet" type="text/css" href="csDefault-min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
-      <script type="text/javascript" src="csTransPie/csTransPie-min.js"></script>  
+      <script type="text/javascript" src="csDefault-min.js"></script>  
 
 And that's it! All element's will  get styled as soon as the DOM is ready  
   
