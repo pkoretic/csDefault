@@ -6,6 +6,7 @@
  
 [Official site and demo: http://www.pkoretic.net/csDefault](http://www.pkoretic.net/csDefault)  
 30.01.2012 - started  
+05.08.2012 - renamte to csDefault (since CSS3PIE is not used anymore no point to have it called csTransPie - and it's shorter!)
 
 
 **Development**  
