@@ -46,8 +46,8 @@ Download it here from git and add
 And that's it! All element's will  get styled as soon as the DOM is ready  
   
 
-**csTransPie** has all the comments for easier development  
-**csTransPie-min** is obviously minified version  
+**csDefault** has all the comments for easier development  
+**csDefault-min** is obviously minified version  
 
 
 
@@ -63,7 +63,7 @@ or
       $("body").append('<div id="dynamic"><input type="checkbox"/></div>');  
       $("#dynamic").csUpdate();
             
-Note: Calling .cTP function on any sort of text fields or buttons is not needed for the sake of element styling but there are titles and labels for that element that won't get styled unless you do call it.
+Note: Calling .csUpdate function on any sort of text fields or buttons is not needed for the sake of element styling but there are titles and labels for that element that won't get styled unless you do call it.
 
 TODO
 ========================
