@@ -727,6 +727,24 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	zoom:1 ;
 }
 
+.cs-gradient-green
+{
+	
+	color: #FFF !important;
+	text-shadow: 0 1px 0 #646464 !important;
+	
+	background: #74B042 !important;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc5MjIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiM3NEIwNDIiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiM1NkEwMEUiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2c5MjIpIiAvPgo8L3N2Zz4=) !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#74B042), to(#56A00E)) !important;
+    background-image: -webkit-linear-gradient(#74B042, #56A00E) !important;
+    background-image: -moz-linear-gradient(#74B042, #56A00E) !important;
+    background-image: -ms-linear-gradient(#74B042, #56A00E) !important;
+    background-image: -o-linear-gradient(#74B042, #56A00E) !important;
+    background-image: linear-gradient(#74B042, #56A00E) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#74B042', endColorstr='#56A00E',GradientType=0 ) !important; /* IE6-8 */
+	zoom:1 ;
+}
+
 /* Notification holder */
 #csInfoDiv {display:none;z-index:10000; position:fixed; top:0; width:100%; left:0; text-align:center;padding:0; margin:0}
 
@@ -749,6 +767,3 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 
 /* Another hack - for everything but ie6-ie8 set filter:none - we target ie9 here which doesn't work when gradient and filter are set - others just ignore filter property*/
 :root *> .cs-gradient-grey, :root *> .cs-gradient-red, :root *> .cs-gradient-black, :root *> .cs-gradient-blue, :root *> .cs-gradient-white,  :root *> .cs-gradient-yellow, :root *> #csDialogDiv {filter: none !important}
-
-
-
