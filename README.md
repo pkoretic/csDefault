@@ -17,7 +17,7 @@ Library is considered **stable**.
 It's designed as a **very lightweight** cross-browser CSS(3) library which would give all elements styling they need  
 It's less than **14kb minified - 3kb gzipped** 
 
-(note: jquery 1.7 is needed - http://api.jquery.com/on/)
+(note: jquery 1.7+ is needed - http://api.jquery.com/on/)
 
 All elelemts are regular html elements with style applied - **no html breaking!**  
 elements are only styled and 'fixed' to be cross browser compatible 
