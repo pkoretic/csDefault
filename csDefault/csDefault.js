@@ -289,7 +289,7 @@ $.fn.csFile = function(){
 
 			select.wrap('<span class="csSelect"></span>').parent().prepend('<span class="csSelectBar">'+$("option:selected",select).text()+'</span><span class="csSelectOpen">&#9660;</span>');
 
-			if(select.attr('disabled')) $wrapper.addClass("csDisabled");
+			if(select.attr('disabled')) select.parent().addClass("csDisabled");
 
 			// Themeing support: we have to add our classes from select to parent since we wrapped it so (running time - <1ms for 50+ classess)
 			var classes=select[0].className;
