@@ -1,19 +1,6 @@
 /*
-
- * Petar Koretić
- ******************************************** */
-
- //Load css dynamically - depends on folder name - csTransPie by default
-/*
-//<![CDATA[
-if(document.createStyleSheet) { document.createStyleSheet('csTransPie/csTransPie.css'); }
-else {
-  var newSS=document.createElement('link');
-  newSS.rel='stylesheet';
-  newSS.href='csTransPie/csTransPie.css';
-  document.getElementsByTagName("head")[0].appendChild(newSS);
-}
-//]]>
+ * Petar KoretiÄ‡
+ ********************************************
  */
 
 (function($){
@@ -94,7 +81,7 @@ $.fn.csDialog = function(bkgclass) {
    if($("#csDialogDiv").length) $("#csDialogDiv").remove();
 
    // create our simple dialog holder and run cs library on it
-	var html = $('<div id="csDialogDiv"><div id="csDialogDivInner" class="cs-gradient-grey">'+msg+'<hr/><a href="#" id="csDialogDivClose">×</a></div></div>');
+	var html = $('<div id="csDialogDiv"><div id="csDialogDivInner" class="cs-gradient-grey">'+msg+'<hr/><a href="#" id="csDialogDivClose">Ã—</a></div></div>');
 
 	// append dialog to body, show it (no animation - arent consistent nor fast across browsers)
    $("body").append(html).find("#csDialogDiv").show();
@@ -124,12 +111,6 @@ $.fn.csDialog = function(bkgclass) {
 ==============================================================================================================================================*/
 	/* Reset each element on previous state - it obviously has a point only if there is a form */
 	var csReset = function(f){
-		var sel=0; //which select in a form if there are more
-		//set select to original value we saved
-		$('select', f).each(function()
-		{
-			$('a:eq('+ $(this).data("index") +')',$(".select"+ sel++ +" ul",f)).click();
-		});
 
 		//set checkbox to original value we saved
 		$(':checkbox', f).each(function()
@@ -269,54 +250,6 @@ $.fn.csFile = function(){
 
 	});//function each
 };	//file function
-/*=============================================================================================================================================
-																		SELECT
-==============================================================================================================================================*/
-
-	$.fn.csSelect = function(){
-
-		//do this for every select
-		return this.each(function(){
-			var select = $(this);
-
-			if(select.data('styled')) return; //if it's hidden or if it's a type of multiple select
-
-			select.css("width",select.outerWidth()+30+"px"); // add width of our dropdown button |multiple select needs in IE likes it also
-
-			if(select.attr('multiple')) return; // if it's type of multiple select - all is done through css
-
-			select.addClass("csOpaque"); // make original element transparent
-
-			select.wrap('<span class="csSelect"></span>').parent().prepend('<span class="csSelectBar">'+$("option:selected",select).text()+'</span><span class="csSelectOpen">&#9660;</span>');
-
-			if(select.attr('disabled')) select.parent().addClass("csDisabled");
-
-			// Themeing support: we have to add our classes from select to parent since we wrapped it so (running time - <1ms for 50+ classess)
-			var classes=select[0].className;
-			if(classes.indexOf("cs-")!="-1")
-			{
-				//remove all multiple whitespace and split to list
-				var classList=classes.replace( /\s\s+/g, ' ' ).split(' ');
-
-				// move all classes prefixed with 'cs-' to parent / maybe we should move all classes (note:users can add many classes which should not be moved)
-			   for(var i=0, len=classList.length;i<len;i++)
-			    if(classList[i].indexOf("cs-")!="-1")
-				{
-					select.removeClass(classList[i]);
-					select.parent().addClass(classList[i]);
-				}
-			}
-
-			//update text on select change
-			select.on("change",function()
-			{
-				$(".csSelectBar",$(this).parent()).text($("option:selected",$(this).parent()).text());
-			});
-
-			// mark as processed
-			select.data("styled","1");
-		}); //each
-	};
 
 /*=============================================================================================================================================
 																		TITLE
@@ -368,7 +301,7 @@ $.fn.csPlaceholder = function(){
 			element.removeAttr("placeholder");
 
 			// if elements is one of our modified elements - we wrapped them with parent tag so we must add placeholder outside that parent tag
-			if((element.is("select")&&!element.attr("multiple"))||element.is("[type=radio]")||element.is("[type=checkbox]")) element=element.parent();
+			if(element.is("[type=radio]")||element.is("[type=checkbox]")) element=element.parent();
 
 			element.wrap("<span class='csPlaceholder'></span>").parent().prepend("<span class='csPlaceholderInner cs-gradient-blue'>"+placeholderText+"</span><br/>");
 
@@ -401,7 +334,6 @@ $.fn.csPlaceholder = function(){
 			$(':checkbox',this).csCheckBox();
 			$(':radio',this).csRadio();
 			$(':file',this).csFile();
-			$('select',this).csSelect();
 			$("label[for]",this).csLabel(); //process only labels bound to element
 
 			$('form',this).on('reset',function(){ csReset(elem)}); //catch reset in a form (if there is one in our element) - we have to reset our elements manually
