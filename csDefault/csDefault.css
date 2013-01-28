@@ -1,8 +1,6 @@
-/*
+nsPie - Make elements as they should be in every browser
 
-csTransPie - Make elements as they should be in every browser
-
-*Petar Koretić
+*Petar KoretiÄ‡
 * Started  30.01.2012*
 
  *every element is written with css(3) only, no images needed except for checkbox and radio buttons - I just like them more image-based*
@@ -333,14 +331,8 @@ select
 {
 	cursor: pointer;
 	height:29px;
+	padding:5px 0;
 	z-index: 9999 !important; /* jquery dialog */
-	position:relative;
-	border:none;
-	
-}
-
-.csSelect, [multiple]
-{
 	font:1.0em arial;
 	position:relative;
 	vertical-align:middle;
@@ -361,6 +353,8 @@ select
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffffff,EndColorStr=#ffe0e0e0);
 	zoom:1;
 }
+
+select option { color:#000 }
 
 .csSelectBar 
 {
@@ -632,6 +626,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	zoom:1 ;
 }
 /* a,h1...h6,p etc should have appropriate color  */
+[multiple].cs-gradient-blue option { color:#FFF !important;}
 
 
 .cs-gradient-black
@@ -652,6 +647,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	zoom:1;
 }
 
+[multiple].cs-gradient-black option { color:#FFF !important;}
 
 .cs-gradient-white
 {
@@ -690,6 +686,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 	zoom:1 ;
 } 
 
+[multiple].cs-gradient-red option { color:#FFF !important;}
 
 .cs-gradient-grey
 {
@@ -761,7 +758,7 @@ table td, table th { border: 1px solid #eee; padding: .6em 10px; text-align: lef
 /* Dialog inner holder - holds generated text/html */
 #csDialogDivInner {display:inline-block; z-index:9999;  border-radius:0 0 3px 3px;padding:15px;border:1px solid #969696; border-top:0; }
 
-/* IE7, IE8 (not nice hacks - but the only thing I hate more than hacks are conditional stylesheets) selector  which sets background to transparent so that filter for transparency in <ie8 would work */
+/* IE7, IE8 (hacks - but the only thing I hate more than hacks are conditional stylesheets) selector which sets background to transparent so that filter for transparency in <ie8 would work */
 *+html  #csDialogDiv {background:transparent}
 @media \0screen { #csDialogDiv {background: transparent}}
 
