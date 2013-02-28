@@ -37,7 +37,7 @@ All suggestions are welcome.
 
 Download and usage
 =======================   
-Download it here from git and add  
+Download it here from git (https://github.com/pkoretic/csDefault/archive/master.zip) and add  
 
       <link rel="stylesheet" type="text/css" href="csDefault-min.css" />  
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>  
