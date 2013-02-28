@@ -30,8 +30,6 @@ All elements are created with CSS(3) without images (still, I like radio and che
 **try it in IE**! Notice how everything looks the same as in other browsers - using CSS!  
 (Note that css3PIE is not used anymore, see the CSS file for details)  
 Tested in Chrome, Firefox 5+, Opera, IE 7+, Android 2.3, Opera Mobile, Firefox Mobile, Safari 5 - **please test** more and **report back**!  
-Note: Opera mini has opacity problems which makes 'select element' having two text options (I've opted to using less javascript which makes library faster and cleaner so this is the side effect of CSS solution - bug has been reported to opera mini devs)
-
 
 All suggestions are welcome.  
 
