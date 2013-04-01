@@ -34,56 +34,34 @@
   }
 
 /*=============================================================================================================================================
-  SIMPLE NOTIFICATIONS
+  SIMPLE NOTIFICATIONS | multiple notifications support
   .csInfo("class",2500);
   .csInfo("class");
   .csInfo(2500);
   ==============================================================================================================================================*/
+var csInfoID=0;
 $.fn.csInfo = function(arg1,arg2) 
 {
+  ++csInfoID;
   //background class and time after which notification will hide
   var bkgclass="cs-gradient-blue";
   var duration=2500;
 
-  if(arg1&&arg2)
-  {
-    bkgclass=arg1;
-    duration=arg2;
-  }
-  else if(arg1)
-  {
-    if(isNaN(arg1)) bkgclass=arg1;
-    else duration=arg1;
-  }
+  if(arg1&&arg2) (bkgclass=arg1) && (duration=arg2);
+  else arg1 && (isNaN(arg1) && (bkgclass=arg1) || (duration=arg1));
 
   // get our message with all html it has
   var msg = $(this).outerHTML();
 
-  //remove current notification if there is one
-  if($("#csInfoDiv").length) $("#csInfoDiv").remove();
-
   //create our simple notification holder
-  var html = $('<div id="csInfoDiv"><div id="csInfoDivInner" class="'+bkgclass+'">'+msg+'</div></div>');
+  var html = $('<div id="csInfoDiv'+csInfoID+'"><div id="csInfoInner" class="'+bkgclass+'">'+msg+'</div></div>');
 
-  //append message to body, show it with animation, wait, hide it, remove it after hide animation finishes
-  $("body").append(html).find("#csInfoDiv").slideDown("fast").delay(duration).slideUp("fast",function(){$(this).remove()});
-
-  //allow click through
-  $('#csInfoDiv').on("click",function(e)
-      {
-        //"remove" our message holder
-        $('#csInfoDiv').css({display:'none'})
-
-    // get element at point of click
-    elementClicked = document.elementFromPoint(e.clientX, e.clientY)
-
-    //show our message
-    $('#csInfoDiv').css({display:'block'})
-
-    // send click to element we want to click
-    $(elementClicked).click();
-
-      })
+  //append message to body, add class, show it with animation, wait, hide it, remove it after hide animation finishes
+  $div=$("body").append(html).find('div[id^="csInfoDiv"]');
+  $div.addClass("csInfoDiv");
+  $div.slideDown("fast").delay(duration).slideUp("fast",function(){$(this).remove()});
+  $div.hover(function() { $(this).css("opacity","0.5");},
+             function() { $(this).css("opacity","1");  });
 
 }
 /*=============================================================================================================================================
@@ -92,16 +70,16 @@ $.fn.csInfo = function(arg1,arg2)
 $.fn.csDialog = function(bkgclass) 
 {
   // default background class | we allow user to provide their class
-  if(!bkgclass) bkgclass="cs-gradient-grey";
+  bkgclass||(bkgclass="cs-gradient-grey");
 
   //get our data with all html it has
   var msg = $(this).outerHTML();
 
   // remove current dialog if there is one
-  if($("#csDialogDiv").length) $("#csDialogDiv").remove();
+  $("#csDialogDiv").length && $("#csDialogDiv").remove();
 
   // create our simple dialog holder and run cs library on it
-  var html = $('<div id="csDialogDiv"><div id="csDialogDivInner" class="cs-gradient-grey">'+msg+'<hr/><a href="#" id="csDialogDivClose">x</a></div></div>');
+  var html = $('<div id="csDialogDiv"><div id="csDialogDivInner" class="'+bkgclass+'">'+msg+'<hr/><a href="#" id="csDialogDivClose">x</a></div></div>');
 
   // append dialog to body, show it (no animation - arent consistent nor fast across browsers)
   $("body").append(html).find("#csDialogDiv").show();
@@ -109,14 +87,14 @@ $.fn.csDialog = function(bkgclass)
   // when x clicked, remove dialog
   $("#csDialogDiv").on("click","#csDialogDivClose",function()
       {
-        html.remove();
+        $("#csDialogDiv").remove();
         return false;
       });
 
   // close also on escape
   $(document).keyup(function(e) 
       {
-        if (e.keyCode == 27) $("#csDialogDivClose").click();
+          (e.keyCode == 27) && $("#csDialogDivClose").click();
       });
 
   // style all elements it has
@@ -235,17 +213,13 @@ $.fn.csFile = function()
       if(file.hasClass('csHiddenFile')) return; //if it's already processed return
 
       var title="";
-      if(file.attr("title"))
-      {
-        title='title="'+file.attr("title")+'"';
-        file.removeAttr("title");
-      }
+      file.attr("title") && (title='title="'+file.attr("title")+'"') && file.removeAttr("title");
 
       buttonText="Browse"; //default input file button value
       if(file.data('button'))buttonText=file.data('button'); //if there is text for our button set, use that instead
       file.addClass('csHiddenFile').wrap('<span '+title+' class="csFile"></span>').parent().prepend('<input readonly="readonly" type="text" class="csFileInput" /></span><input type="button" value="'+buttonText+'" />'); //hide original element and create our new element
 
-      if(file.attr('disabled')) file.parent().find("input").addClass("csDisabled");
+      file.attr('disabled') && file.parent().find("input").addClass("csDisabled");
 
       // only click on our new button triggers click on original element - "input" field can be used for copying text from it
       $(file.parent()).on("click","input[type=button]",function()
@@ -315,7 +289,7 @@ $.fn.csPlaceholder = function()
 
         var placeholderText = element.attr('data-placeholder');
         var placeholderClass = element.attr('data-placeholder-theme');
-        if(!placeholderClass) placeholderClass="cs-gradient-white";
+        placeholderClass||(placeholderClass="cs-gradient-white");
 
         // if elements is one of our modified elements - we wrapped them with parent tag so we must add placeholder outside that parent tag
         if(element.is("[type=radio]")||element.is("[type=checkbox]")||element.is("[type=file]")) element=element.parent();
