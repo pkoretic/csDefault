@@ -259,7 +259,9 @@ $.fn.csTitle = function()
         //title.attr("title","");
 
         //remove original title (so that the browser doesn't show it)
-        var titleText = title.attr('title');
+        var titleText = $.trim(title.attr('title'));
+        if(!titleText.length) return;
+        
         title.removeAttr("title");
 
         //hover over element, I like it to be instant!
